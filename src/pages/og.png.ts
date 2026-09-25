@@ -24,7 +24,7 @@ const ALTO = 630;
 /** Margen interior, en px de la imagen. */
 const MARGEN = 72;
 /** Encuadre vertical del recorte: cabezas arriba, titular sobre la ropa. */
-const POSICION_Y = 0.6;
+const POSICION_Y = 0.52;
 
 const TITULAR = { tamano: 84, interlineado: 1.1, anchoMax: 700 } as const;
 const MARCA = { tamano: 30, espaciado: 0.08 } as const;

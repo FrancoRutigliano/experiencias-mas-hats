@@ -157,7 +157,7 @@ export const experiencia: Experiencia = deepFreeze({
       "en cualquier punto del país.",
     foto: {
       id: "hero",
-      alt: "Grupo de mujeres al aire libre, entre palmeras, cada una con el sombrero que diseñó.",
+      alt: "Grupo de mujeres bajo una arcada, cada una con el sombrero que diseñó.",
     },
   },
 

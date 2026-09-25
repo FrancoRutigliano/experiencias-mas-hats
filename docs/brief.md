@@ -269,7 +269,7 @@ se cae.
 
 **Sin caras en primer plano** (2026-09-25), para cuidar a las participantes.
 Se prefieren manos, mesas y sombreros. Excepciones elegidas por Franco: la foto
-grupal del hero y la de Marian.
+grupal del hero (DSC04330, bajo la arcada, desde 2026-09-25) y la de Marian.
 
 **Dominio:** experiencias.mashats.com.
 
