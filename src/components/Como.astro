@@ -23,10 +23,10 @@ const SIZES = "(min-width: 1440px) 330px, (min-width: 1080px) 23vw, (min-width: 
 
 // Recorte 4:5 sobre originales 2:3: qué franja vertical conservar.
 const ENCUADRE: Partial<Record<FotoId, string>> = {
-  paso1: "50% 60%",
+  paso1: "50% 55%",
   paso2: "50% 45%",
   paso3: "50% 55%",
-  paso4: "50% 15%",
+  paso4: "50% 50%",
 };
 
 const numero = (indice: number) => String(indice + 1).padStart(2, "0");

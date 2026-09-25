@@ -136,7 +136,7 @@ export const experiencia: Experiencia = deepFreeze({
       "en cualquier punto del país.",
     foto: {
       id: "hero",
-      alt: "Mesa larga al aire libre con un grupo de mujeres, todas con el sombrero que acaban de armar.",
+      alt: "Grupo de mujeres al aire libre, entre palmeras, cada una con el sombrero que diseñó.",
     },
   },
 
@@ -184,7 +184,7 @@ export const experiencia: Experiencia = deepFreeze({
     ],
     foto: {
       id: "idea",
-      alt: "Manos que sostienen un sombrero de paja terminado, con cinta bordada y una medalla, sobre la mesa de trabajo.",
+      alt: "Mesa de trabajo con sombreros de paja a medio intervenir, flores blancas y avíos.",
     },
   },
 
@@ -193,7 +193,7 @@ export const experiencia: Experiencia = deepFreeze({
     pasos: [
       {
         texto: "Elegimos la fecha y la cantidad de personas.",
-        foto: { id: "paso1", alt: "El grupo sentado a la mesa, al comenzar el encuentro." },
+        foto: { id: "paso1", alt: "Mesa preparada con un sombrero amarillo, un sombrero de paja y el cartel de MÁS HATS." },
       },
       {
         texto: "Llegamos con sombreros, avíos y herramientas para todos.",
@@ -205,7 +205,7 @@ export const experiencia: Experiencia = deepFreeze({
       },
       {
         texto: "Cada participante se va con su sombrero.",
-        foto: { id: "paso4", alt: "Una participante sonríe mientras se acomoda el sombrero terminado." },
+        foto: { id: "paso4", alt: "Manos que sostienen un sombrero de paja terminado, con cinta bordada y una medalla." },
       },
     ],
   },

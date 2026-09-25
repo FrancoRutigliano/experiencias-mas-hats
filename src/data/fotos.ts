@@ -2,9 +2,12 @@
  * Fotos elegidas de /images (primer encuentro). Los originales quedan fuera
  * del repo; acá sólo entran las que se usan, con nombre semántico.
  *
- *   hero    ← DSC04283   paso1 ← DSC04057   paso2 ← DSC03992
- *   paso3   ← DSC04102   paso4 ← DSC04239   mariana ← DSC04001
- *   cierre  ← DSC04459   idea  ← DSC04140
+ *   hero    ← IMG_2501   paso1 ← DSC03995   paso2 ← DSC03992
+ *   paso3   ← DSC04102   paso4 ← DSC04140   mariana ← DSC04001
+ *   cierre  ← DSC04459   idea  ← DSC04110
+ *
+ * Regla (2026-09-25): nada de caras en primer plano, para cuidar a las
+ * participantes. La excepción es el hero (foto grupal elegida por Franco) y Marian.
  */
 import type { ImageMetadata } from "astro";
 import hero from "../assets/fotos/hero.jpg";
