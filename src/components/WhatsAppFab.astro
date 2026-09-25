@@ -1,0 +1,113 @@
+---
+/**
+ * WhatsApp flotante (spec §2). Sólo mobile (< 720px). Es el mismo CtaButton
+ * («Pedir propuesta», origen=flotante): pastilla con texto, no un ícono.
+ *
+ * Cuándo se ve — CSS scroll-driven animations, sin JS:
+ * - Entra cuando el hero termina de salir de pantalla (view-timeline `--hero`),
+ *   o sea cuando el CTA del hero ya no se ve.
+ * - Sale cuando entra en pantalla el bloque de cierre (view-timeline
+ *   `--cierre`, definida en Cierre.astro): ahí ya está el CTA del cierre y el
+ *   flotante taparía el botón o el footer.
+ *
+ * Fallback — sin soporte de animation-timeline o con prefers-reduced-motion,
+ * el botón queda SIEMPRE visible (nunca oculto) y un espaciador al final de la
+ * página deja lugar para que no tape el footer.
+ */
+import CtaButton from "./CtaButton.astro";
+---
+
+<div class="fab">
+  <CtaButton origen="flotante" />
+</div>
+<div class="fab-espacio" aria-hidden="true"></div>
+
+<style>
+  .fab,
+  .fab-espacio {
+    display: none;
+  }
+
+  @media (max-width: 719px) {
+    .fab {
+      position: fixed;
+      inset: auto var(--mh-gutter) calc(var(--mh-gutter) + env(safe-area-inset-bottom)) auto;
+      z-index: 10;
+      display: block;
+    }
+
+    /* Alto del botón (48px) + su margen inferior: el footer queda libre aun
+       con el flotante siempre visible. Mismo fondo que el footer. */
+    .fab-espacio {
+      display: block;
+      height: calc(48px + var(--mh-gutter) * 2 + env(safe-area-inset-bottom));
+      background: var(--mh-cal-2);
+    }
+
+    @supports (animation-timeline: scroll()) {
+      @media (prefers-reduced-motion: no-preference) {
+        /* Las view-timelines viven dentro de <main>; el flotante es hermano
+           de <main>, así que el alcance se sube hasta <body>. */
+        :global(body) {
+          timeline-scope: --hero, --cierre;
+        }
+
+        /* En mobile el alto del hero depende del texto (de 93% a 119% del
+           viewport entre 414 y 320px de ancho): un rango fijo en svh, como el
+           de la nav, lo mostraría con el CTA del hero todavía en pantalla.
+           La línea de tiempo del propio hero no depende de eso.
+           TODO: mover esta declaración a Hero.astro (acá para no tocarlo). */
+        :global(.hero) {
+          view-timeline-name: --hero;
+        }
+
+        .fab {
+          /* En custom properties a propósito, como en Nav.astro: el
+             minificador junta los longhands en un shorthand `animation`,
+             que Chrome descarta entero si no entiende una parte. */
+          --lineas-fab: --hero, --cierre;
+          /* Entra en el último tramo de la salida del hero (el CTA del hero
+             queda a 20px de su borde inferior) y sale apenas asoma el cierre. */
+          --rangos-fab: exit 90% exit 100%, entry 0% entry 15%;
+          animation-name: fab-entra, fab-sale;
+          animation-timing-function: linear;
+          /* fab-sale sólo hacia adelante: antes del cierre no pisa a
+             fab-entra (si no, su estado inicial lo mostraría sobre el hero). */
+          animation-fill-mode: both, forwards;
+          animation-timeline: var(--lineas-fab);
+          animation-range: var(--rangos-fab);
+        }
+
+        .fab-espacio {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @keyframes fab-entra {
+    from {
+      opacity: 0;
+      visibility: hidden;
+      translate: 0 1rem;
+    }
+    to {
+      opacity: 1;
+      visibility: visible;
+      translate: 0 0;
+    }
+  }
+
+  @keyframes fab-sale {
+    from {
+      opacity: 1;
+      visibility: visible;
+      translate: 0 0;
+    }
+    to {
+      opacity: 0;
+      visibility: hidden;
+      translate: 0 1rem;
+    }
+  }
+</style>
