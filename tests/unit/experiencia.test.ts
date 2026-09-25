@@ -81,9 +81,10 @@ describe("experiencia · datos del brief", () => {
     expect(experiencia.idea.label).toBe("La idea");
     expect(experiencia.idea.titulo).toBe("Un sombrero no cambia quién sos. Lo muestra.");
     expect(experiencia.idea.parrafo).toBe(
-      "Es el accesorio que más dice de quien lo usa, y por eso a tantas mujeres " +
-        "les cuesta ponérselo. En MÁS HATS cada participante diseña el suyo hasta " +
-        "que la represente, y se anima a usarlo.",
+      "Más que un taller creativo, es un espacio de encuentro, conversación y " +
+        "disfrute. Las participantes comparten experiencias, se inspiran " +
+        "mutuamente y se llevan mucho más que un sombrero: una vivencia " +
+        "significativa, recuerdos compartidos y una nueva mirada sobre sí mismas.",
     );
     expect(experiencia.idea.beneficiosTitulo).toBe("Para tu empresa");
     expect(experiencia.idea.beneficios.map((b) => b.titulo)).toEqual([

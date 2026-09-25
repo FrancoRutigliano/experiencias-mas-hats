@@ -202,9 +202,14 @@ que ya usa quien compra.*
 **La idea** *(aprobado 2026-09-25)*
 > Label: La idea
 > Titular: Un sombrero no cambia quién sos. Lo muestra.
-> Párrafo: Es el accesorio que más dice de quien lo usa, y por eso a tantas
-> mujeres les cuesta ponérselo. En MÁS HATS cada participante diseña el suyo
-> hasta que la represente, y se anima a usarlo.
+> Párrafo: Más que un taller creativo, es un espacio de encuentro,
+> conversación y disfrute. Las participantes comparten experiencias, se
+> inspiran mutuamente y se llevan mucho más que un sombrero: una vivencia
+> significativa, recuerdos compartidos y una nueva mirada sobre sí mismas.
+>
+> *Cambio 2026-09-25: el párrafo anterior («a tantas mujeres les cuesta
+> ponérselo») tiraba el producto para abajo. El copy habla de lo que la
+> experiencia da, nunca de una carencia de quien participa.*
 >
 > Para tu empresa:
 > 1. **Un encuentro que se recuerda.** De una cata no queda nada. De acá,
@@ -264,6 +269,8 @@ sobre una vertical, no estirando una chica.
   esperando un observer: el sitio se manda por link y tiene que verse completo
   apenas carga, incluso en la previsualización.
 - No emojis en la interfaz.
+- No hablar desde la carencia de las participantes («les cuesta», «no se
+  animan»): el copy dice lo que la experiencia da.
 - No prometer resultados terapéuticos ni usar lenguaje clínico. Que Mariana
   sea psicóloga es respaldo, no la promesa: la experiencia no es una terapia.
 - No dark mode.

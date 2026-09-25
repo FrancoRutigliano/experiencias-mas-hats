@@ -163,9 +163,10 @@ export const experiencia: Experiencia = deepFreeze({
     label: "La idea",
     titulo: "Un sombrero no cambia quién sos. Lo muestra.",
     parrafo:
-      "Es el accesorio que más dice de quien lo usa, y por eso a tantas mujeres " +
-      "les cuesta ponérselo. En MÁS HATS cada participante diseña el suyo hasta " +
-      "que la represente, y se anima a usarlo.",
+      "Más que un taller creativo, es un espacio de encuentro, conversación y " +
+      "disfrute. Las participantes comparten experiencias, se inspiran " +
+      "mutuamente y se llevan mucho más que un sombrero: una vivencia " +
+      "significativa, recuerdos compartidos y una nueva mirada sobre sí mismas.",
     beneficiosTitulo: "Para tu empresa",
     beneficios: [
       {
