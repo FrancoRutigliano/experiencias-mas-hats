@@ -90,6 +90,28 @@ body::after {
     animation-delay: var(--demora, 0.6s);
   }
 
+  /* ---------- «Pedir propuesta»: latido ---------- */
+  .cta--latido-carga {
+    animation: mh-latido 1.5s var(--mh-ease) var(--latido-demora, 2.2s) 3 both;
+  }
+
+  .cta:hover {
+    animation: mh-latido 1.5s var(--mh-ease) 0s 1 both;
+  }
+
+  @supports (animation-timeline: view()) {
+    .cta--latido-entrada {
+      --linea-latido: view();
+      --rango-latido: entry 70% cover 35%;
+      animation-name: mh-latido;
+      animation-duration: 1ms;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: var(--linea-latido);
+      animation-range: var(--rango-latido);
+    }
+  }
+
   /* ---------- links: el subrayado se dibuja ---------- */
   .link {
     text-decoration: none;
@@ -121,6 +143,16 @@ body::after {
 @keyframes mh-franja {
   from { translate: 0 0; }
   to   { translate: -33.333% 0; }
+}
+
+/* Doble latido («pum-pum») con un anillo trigo que se expande y se apaga. */
+@keyframes mh-latido {
+  0%   { transform: scale(1);    box-shadow: 0 0 0 0 rgba(216, 185, 120, 0.7); }
+  14%  { transform: scale(1.06); }
+  28%  { transform: scale(1); }
+  42%  { transform: scale(1.04); }
+  70%  { transform: scale(1);    box-shadow: 0 0 0 18px rgba(216, 185, 120, 0); }
+  100% { transform: scale(1);    box-shadow: 0 0 0 18px rgba(216, 185, 120, 0); }
 }
 
 @keyframes mh-parallax {

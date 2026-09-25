@@ -12,10 +12,11 @@ import { fotos, type FotoId } from "../data/fotos";
 
 const { titulo, publicar, items } = experiencia.casos;
 
-// Encuadre de cada foto en 4:5 (presentación, no contenido).
+// Encuadre de cada foto en 3:2 (presentación, no contenido). Horizontal a
+// propósito (2026-09-25): los dos casos entran en una pantalla.
 const ENCUADRE: Partial<Record<FotoId, string>> = {
-  casoChateau: "50% 50%",
-  casoConexion: "50% 75%",
+  casoChateau: "50% 78%",
+  casoConexion: "50% 72%",
 };
 
 const ANCHOS = [480, 800, 1200];
@@ -81,7 +82,7 @@ const SIZES = "(min-width: 720px) 45vw, 100vw";
   .casos__foto {
     display: block;
     width: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 3 / 2;
     object-fit: cover;
   }
 
@@ -91,7 +92,10 @@ const SIZES = "(min-width: 720px) 45vw, 100vw";
 
   .casos__nombre {
     margin-top: 10px;
-    font: var(--mh-h2);
+    font: var(--mh-h3);
+    font-family: var(--mh-display);
+    font-size: clamp(24px, 2.4vw, 32px);
+    font-weight: 400;
     color: var(--mh-tinta);
   }
 

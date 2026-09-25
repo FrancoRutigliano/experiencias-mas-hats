@@ -58,7 +58,7 @@ const SIZES = "100vw";
       </h1>
       <p class="hero__bajada entra" style="--demora: 0.75s">{bajada}</p>
       <div class="hero__accion entra" style="--demora: 0.95s">
-        <CtaButton origen="hero" />
+        <CtaButton origen="hero" latido="carga" />
       </div>
     </div>
   </div>
@@ -203,6 +203,12 @@ const SIZES = "100vw";
 
     .hero__texto {
       grid-column: 1 / span 6;
+    }
+
+    /* En desktop late el botón de la nav (siempre a la vista); el del hero
+       no, para que no latan dos a la vez. */
+    .hero__accion :global(.cta--latido-carga:not(:hover)) {
+      animation-name: none;
     }
   }
 </style>

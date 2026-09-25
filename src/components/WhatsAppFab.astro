@@ -75,6 +75,18 @@ import CtaButton from "./CtaButton.astro";
         .fab-espacio {
           display: none;
         }
+
+        /* Late una vez, ligado al scroll, justo después de aparecer. */
+        .fab :global(.cta) {
+          --linea-fab-latido: scroll(root);
+          --rango-fab-latido: 115svh 165svh;
+          animation-name: mh-latido;
+          animation-duration: 1ms;
+          animation-timing-function: linear;
+          animation-fill-mode: both;
+          animation-timeline: var(--linea-fab-latido);
+          animation-range: var(--rango-fab-latido);
+        }
       }
     }
   }

@@ -183,6 +183,11 @@ algo propio, no como souvenir.*
 **Botón principal** (en todos lados, mismo texto)
 > Pedir propuesta
 
+*Latido (2026-09-25):* el botón siempre visible (la nav en desktop, el
+flotante en mobile) late tres veces al cargar (≈4,5 s, dentro de WCAG 2.2.2)
+y queda quieto; el del cierre late cuando entra en pantalla; todos laten al
+pasar el mouse. Nunca en loop infinito.
+
 *Mejor que «Contactanos»: nombra lo que pasa al tocarlo, y es el vocabulario
 que ya usa quien compra.*
 
