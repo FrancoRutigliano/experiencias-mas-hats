@@ -1,0 +1,25 @@
+{
+  "name": "mashats-experiencias",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "vitest run",
+    "test:cov": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "build:preview": "PUBLIC_PREVIEW=1 astro build"
+  },
+  "dependencies": {
+    "astro": "^7.3.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@playwright/test": "^1.63.0",
+    "@vitest/coverage-v8": "^5.0.1",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.1"
+  }
+}

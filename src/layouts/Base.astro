@@ -1,0 +1,44 @@
+---
+import "../styles/tokens.css";
+import "../styles/global.css";
+import { experiencia } from "../data/experiencia";
+import { validarNumero } from "../lib/whatsapp";
+
+// Falla el build de producción si el número de WhatsApp sigue sin cargar.
+validarNumero(experiencia.whatsapp.numero, { produccion: import.meta.env.PROD && !import.meta.env.PUBLIC_PREVIEW });
+
+const { titulo, descripcion } = experiencia.meta;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+// La imagen OG 1200×630 se genera en src/pages/og.png.ts (plan, fase 2).
+const ogImage = new URL("/og.png", Astro.site);
+const FUENTES =
+  "https://fonts.googleapis.com/css2?family=Karla:wght@400;600&family=Marcellus&display=swap";
+---
+
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titulo}</title>
+    <meta name="description" content={descripcion} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href={FUENTES} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

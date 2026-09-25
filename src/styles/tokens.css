@@ -1,0 +1,97 @@
+/* ============================================================
+   MÁS HATS — sistema de diseño
+   Dirección B · «Campo abierto» (elegida)
+   Destino: src/styles/tokens.css
+
+   Tema único y deliberado: no hay dark mode. La página vive en
+   un mundo claro y cálido. No agregar @media (prefers-color-scheme).
+
+   Todos los pares de texto/fondo de acá pasan WCAG AA (≥4.5:1)
+   tanto sobre --mh-cal como sobre --mh-cal-2. Si agregás un color,
+   verificalo antes de usarlo en texto.
+   ============================================================ */
+
+:root {
+  /* ---------- superficies ---------- */
+  --mh-cal:        #FBF9F5;  /* fondo base de toda la página            */
+  --mh-cal-2:      #F1EDE1;  /* bloques alternos, ficha técnica         */
+  --mh-arena:      #E4DECF;  /* bordes, hover, superficies apoyadas     */
+
+  /* ---------- tinta ---------- */
+  --mh-tinta:      #232A26;  /* texto principal      13.96:1 sobre cal  */
+  --mh-tinta-2:    #4A5450;  /* texto secundario      7.47:1            */
+  --mh-tinta-3:    #5E6661;  /* metadatos, captions   5.63:1            */
+
+  /* ---------- acento único: trigo ----------
+     REGLA: --mh-trigo es SÓLO relleno. Nunca texto, nunca borde fino.
+     Para texto, links y bordes va --mh-trigo-ink.                      */
+  --mh-trigo:      #D8B978;  /* fondo de botón, con --mh-tinta encima   */
+  --mh-trigo-ink:  #6B5D2C;  /* links, labels, bordes  6.19:1           */
+  --mh-trigo-dark: #4E4320;  /* hover / activo                          */
+
+  /* ---------- secundarios: con cuentagotas ----------
+     Sostienen la paleta sin volverla estacional.                       */
+  --mh-oliva:      #7A7C5E;  /* relleno y bordes, NO texto              */
+  --mh-oliva-ink:  #5C5E45;  /* si hace falta texto oliva  6.36:1       */
+  --mh-cielo:      #89BED3;  /* detalle mínimo. Nunca texto, nunca CTA. */
+
+  /* ---------- sobre foto ---------- */
+  --mh-sobre-foto:   #FBF9F5;  /* titular sobre imagen                  */
+  --mh-sobre-foto-2: #E4E2D5;  /* bajada sobre imagen                   */
+  --mh-eyebrow:      #E8CE8C;  /* eyebrow sobre velo oscuro  9.53:1     */
+  --mh-velo: linear-gradient(180deg,
+              rgba(35, 42, 38, 0) 34%,
+              rgba(35, 42, 38, .8) 100%);
+
+  /* ---------- tipografía ----------
+     Marcellus: capitales romanas clásicas. Es lo que evita que la
+     página se lea como flyer. Usar sólo en titulares, nunca en texto
+     corrido ni por debajo de 20px.
+     Karla: humanista, legible, con buenos números tabulares.           */
+  --mh-display: "Marcellus", Georgia, "Times New Roman", serif;
+  --mh-body:    "Karla", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --mh-h1:    400 clamp(34px, 6vw, 62px)/1.1  var(--mh-display);
+  --mh-h2:    400 clamp(25px, 3.6vw, 38px)/1.18 var(--mh-display);
+  --mh-h3:    600 clamp(18px, 2.2vw, 21px)/1.3  var(--mh-body);
+  --mh-lead:  400 clamp(17px, 2.2vw, 20px)/1.55 var(--mh-body);
+  --mh-p:     400 17px/1.66 var(--mh-body);
+  --mh-small: 400 14px/1.55 var(--mh-body);
+  --mh-label: 600 11px/1    var(--mh-body);   /* + --mh-label-ls        */
+  --mh-label-ls: .16em;                        /* y text-transform:uppercase */
+
+  /* ---------- forma y ritmo ---------- */
+  --mh-radius:     999px;  /* botones pastilla. Tarjetas y fotos: 0.    */
+  --mh-radius-box: 0;      /* nada de rounded-lg en todos lados.        */
+  --mh-borde:      1px solid var(--mh-arena);
+  --mh-gutter:     clamp(20px, 5vw, 64px);
+  --mh-seccion:    clamp(56px, 9vw, 112px);  /* padding vertical        */
+  --mh-medida:     64ch;   /* ancho máximo de texto corrido             */
+}
+
+/* ============================================================
+   Reglas de uso — no son decorativas, hacen a que la página
+   se lea como propuesta comercial y no como promo de Instagram.
+
+   1. UN solo acento. El trigo va en el CTA y en los links. Nada más.
+      El cielo y el oliva son detalles: si se ven en un bloque entero,
+      está mal.
+
+   2. Las fotos mandan la estación, la paleta no. El fondo es cal y la
+      tinta es verde-negra: la página funciona en julio igual que en
+      noviembre. Nunca sumar rosas, corales ni verdes brillantes
+      "porque es primavera".
+
+   3. Fotos a sangre completa, sin marco, sin sombra, sin radius.
+
+   4. Números siempre con font-variant-numeric: tabular-nums
+      (ficha técnica, precios, capacidades).
+
+   5. Titulares siempre con text-wrap: balance.
+
+   6. Texto corrido a --mh-medida. Si una línea pasa los ~70
+      caracteres, está mal.
+
+   7. Separadores: línea de 1px en --mh-arena. Nada de sombras
+      para separar secciones.
+   ============================================================ */
