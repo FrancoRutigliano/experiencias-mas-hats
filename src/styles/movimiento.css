@@ -101,6 +101,21 @@ body::after {
     animation-play-state: paused;
   }
 
+  /* ---------- énfasis: el trigo se pinta de izquierda a derecha ----------
+     Ligado al scroll; sin soporte, el fondo está completo desde el inicio. */
+  @supports (animation-timeline: view()) {
+    .enfasis {
+      --linea-enfasis: view();
+      --rango-enfasis: entry 60% cover 40%;
+      animation-name: mh-resaltar;
+      animation-duration: 1ms;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: var(--linea-enfasis);
+      animation-range: var(--rango-enfasis);
+    }
+  }
+
   /* ---------- links: el subrayado se dibuja ---------- */
   .link {
     text-decoration: none;
@@ -112,6 +127,11 @@ body::after {
     background-size: 0 1px;
     background-position: 100% 100%;
   }
+}
+
+@keyframes mh-resaltar {
+  from { background-size: 0% 100%; }
+  to   { background-size: 100% 100%; }
 }
 
 @keyframes mh-trazo {

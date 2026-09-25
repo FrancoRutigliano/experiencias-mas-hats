@@ -13,6 +13,7 @@
  * define Nav.astro (--nav-alto) más el padding de .seccion.
  */
 import { Picture } from "astro:assets";
+import Enfasis from "./Enfasis.astro";
 import { experiencia } from "../data/experiencia";
 import { fotos } from "../data/fotos";
 
@@ -50,7 +51,7 @@ const SIZES = "(min-width: 900px) 45vw, 100vw";
         frases.length > 0 && (
           <ul class="mariana__frases" role="list">
             {frases.map((frase) => (
-              <li class="mariana__frase">{frase}</li>
+              <li class="mariana__frase"><Enfasis texto={frase} enfasis={experiencia.mariana.enfasis} /></li>
             ))}
           </ul>
         )

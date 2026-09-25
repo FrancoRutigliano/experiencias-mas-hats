@@ -1,0 +1,18 @@
+---
+/**
+ * Texto con un fragmento destacado en trigo, como el botón «Pedir propuesta»:
+ * el color de la acción marca lo que hay que leer (2026-09-25).
+ * El fragmento sale de los datos (`enfasis` en experiencia.ts).
+ */
+import { partirEnfasis } from "../lib/enfasis";
+
+interface Props {
+  texto: string;
+  enfasis?: string;
+}
+
+const { texto, enfasis } = Astro.props;
+const tramos = partirEnfasis(texto, enfasis);
+---
+
+{tramos.map((tramo) => (tramo.enfasis ? <mark class="enfasis">{tramo.texto}</mark> : tramo.texto))}

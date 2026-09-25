@@ -95,3 +95,16 @@ a:hover { color: var(--mh-trigo-dark); }
   background: var(--mh-trigo);
   color: var(--mh-tinta);
 }
+
+/* ---------- énfasis estratégico (2026-09-25) ----------
+   El fragmento que hay que leer va sobre trigo, el color de «Pedir
+   propuesta»: la acción y lo importante hablan el mismo idioma.
+   Tinta sobre trigo: 7.78:1. Pocos por página: si todo resalta, nada. */
+.enfasis {
+  padding: 0 0.14em;
+  margin: 0 -0.04em;
+  color: var(--mh-tinta);
+  background: linear-gradient(var(--mh-trigo), var(--mh-trigo)) 0 0 / 100% 100% no-repeat;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}

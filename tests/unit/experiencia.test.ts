@@ -127,6 +127,13 @@ describe("experiencia · datos del brief", () => {
     expect(JSON.stringify(experiencia)).not.toContain("Mariana");
   });
 
+  test("los énfasis estratégicos están en el texto que destacan (2026-09-25)", () => {
+    expect(experiencia.idea.titulo).toContain(experiencia.idea.enfasis);
+    expect(experiencia.idea.enfasis).toBe("Lo muestra.");
+    expect(experiencia.cierre.titulo).toContain(experiencia.cierre.enfasis);
+    expect(experiencia.mariana.frases.some((f) => f.includes(experiencia.mariana.enfasis))).toBe(true);
+  });
+
   test("Marian se presenta como psicóloga", () => {
     expect(experiencia.mariana.profesion).toBe("Psicóloga");
   });

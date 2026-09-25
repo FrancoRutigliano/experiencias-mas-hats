@@ -268,6 +268,18 @@ titulares, líneas de 1px en vez de sombras, números tabulares en la ficha
 técnica, mucho aire, y la ficha técnica arriba de todo. Sin eso, esta dirección
 se cae.
 
+### Énfasis estratégicos (2026-09-25)
+
+Lo que hay que leer sí o sí va sobre **trigo**, el color de «Pedir propuesta»:
+la acción y lo importante hablan el mismo idioma. Uno por bloque clave, como
+mucho tres en la página (si todo resalta, nada resalta):
+
+- «La idea» → **Lo muestra.** (el concepto)
+- Marian → **MÁS HATS suma.** (la marca)
+- Cierre → **Organizá el tuyo.** (la acción)
+
+Se definen en `experiencia.ts` (`enfasis`) y el trigo se pinta con el scroll.
+
 ### Fotos
 
 **Sin caras en primer plano** (2026-09-25), para cuidar a las participantes.

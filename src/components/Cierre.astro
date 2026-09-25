@@ -18,6 +18,7 @@
  */
 import { Picture } from "astro:assets";
 import CtaButton from "./CtaButton.astro";
+import Enfasis from "./Enfasis.astro";
 import { experiencia } from "../data/experiencia";
 import { fotos } from "../data/fotos";
 
@@ -38,7 +39,7 @@ const SIZES = "(min-width: 900px) 42vw, 100vw";
         <path pathLength="1" class="cierre__cinta" d="M53 72 C 80 78, 120 78, 147 72 M53 79 C 80 85, 120 85, 147 79" />
         <path pathLength="1" class="cierre__cinta" d="M142 76 C 156 58, 168 44, 180 30 M150 66 L 142 58 M156 58 L 149 49 M163 50 L 157 41 M154 64 L 164 62 M160 56 L 170 54 M166 48 L 175 46" />
       </svg>
-      <h2 id="cierre-titulo" class="cierre__titulo">{titulo}</h2>
+      <h2 id="cierre-titulo" class="cierre__titulo"><Enfasis texto={titulo} enfasis={experiencia.cierre.enfasis} /></h2>
       <p class="cierre__bajada">{bajada}</p>
       <div class="cierre__accion">
         <CtaButton origen="cierre" latido />

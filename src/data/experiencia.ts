@@ -75,6 +75,8 @@ export interface Experiencia {
   readonly idea: {
     readonly label: string;
     readonly titulo: string;
+    /** Fragmento del titular destacado en trigo. */
+    readonly enfasis: string;
     readonly parrafo: string;
     readonly beneficiosTitulo: string;
     readonly beneficios: readonly Beneficio[];
@@ -95,10 +97,18 @@ export interface Experiencia {
     readonly trayectoria: string;
     /** Tres frases en primera persona, con palabras de Marian. */
     readonly frases: readonly string[];
+    /** Fragmento de una frase destacado en trigo. */
+    readonly enfasis: string;
     readonly foto: Foto;
   };
   /** Cierre del brief §5: titular (cambio 2026-09-25) y bajada. */
-  readonly cierre: { readonly titulo: string; readonly bajada: string; readonly foto: Foto };
+  readonly cierre: {
+    readonly titulo: string;
+    /** Fragmento del titular destacado en trigo. */
+    readonly enfasis: string;
+    readonly bajada: string;
+    readonly foto: Foto;
+  };
 }
 
 export const experiencia: Experiencia = deepFreeze({
@@ -185,6 +195,7 @@ export const experiencia: Experiencia = deepFreeze({
   idea: {
     label: "La idea",
     titulo: "Un sombrero no cambia quién sos. Lo muestra.",
+    enfasis: "Lo muestra.",
     parrafo:
       "Más que un taller creativo, es un espacio de encuentro, conversación y " +
       "disfrute. Las participantes comparten experiencias, se inspiran " +
@@ -283,11 +294,13 @@ export const experiencia: Experiencia = deepFreeze({
         "crecer y en no dejar de hacer nada que nos guste.",
       "Tu actitud en la vida es todo. MÁS HATS suma.",
     ],
+    enfasis: "MÁS HATS suma.",
     foto: { id: "mariana", alt: "Marian, con camisa blanca y sombrero marrón, junto a la mesa de trabajo." },
   },
 
   cierre: {
     titulo: "Eventos privados y empresariales. Organizá el tuyo.",
+    enfasis: "Organizá el tuyo.",
     bajada: "Contanos cuántos son y cuándo, y te mandamos la propuesta.",
     foto: { id: "cierre", alt: "Sombrero de paja terminado junto a un estuche de anteojos de sol." },
   },
