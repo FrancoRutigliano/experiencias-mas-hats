@@ -12,15 +12,15 @@ import { fotos, type FotoId } from "../data/fotos";
 
 const { titulo, publicar, items } = experiencia.casos;
 
-// Encuadre de cada foto en 3:2 (presentación, no contenido). Horizontal a
-// propósito (2026-09-25): los dos casos entran en una pantalla.
+// Encuadre de cada foto chica en 4:5 (presentación, no contenido). Cada caso
+// es una ficha horizontal: foto chica al costado del texto (2026-09-25).
 const ENCUADRE: Partial<Record<FotoId, string>> = {
-  casoChateau: "50% 78%",
-  casoConexion: "50% 72%",
+  casoChateau: "50% 80%",
+  casoConexion: "58% 70%",
 };
 
-const ANCHOS = [480, 800, 1200];
-const SIZES = "(min-width: 720px) 45vw, 100vw";
+const ANCHOS = [300, 500, 700];
+const SIZES = "(min-width: 720px) 18vw, 38vw";
 ---
 
 {
@@ -46,9 +46,11 @@ const SIZES = "(min-width: 720px) 45vw, 100vw";
                   style={`object-position: ${ENCUADRE[caso.foto.id] ?? "50% 50%"}`}
                 />
               )}
-              <p class="label casos__tipo">{caso.tipo}</p>
-              <h3 class="casos__nombre">{caso.nombre}</h3>
-              <p class="casos__porque">{caso.porQue}</p>
+              <div class="casos__texto">
+                <p class="label casos__tipo">{caso.tipo}</p>
+                <h3 class="casos__nombre">{caso.nombre}</h3>
+                <p class="casos__porque">{caso.porQue}</p>
+              </div>
             </li>
           ))}
         </ul>
@@ -73,28 +75,34 @@ const SIZES = "(min-width: 720px) 45vw, 100vw";
 
   .casos__lista {
     display: grid;
-    gap: var(--mh-seccion) var(--mh-gutter);
+    gap: 0 var(--mh-gutter);
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
+  /* Ficha horizontal: foto chica a la izquierda, texto al lado. */
+  .casos__item {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: clamp(16px, 2.2vw, 32px);
+    align-items: center;
+    padding-block: clamp(20px, 2.5vw, 32px);
+    border-top: var(--mh-borde);
+  }
+
   .casos__foto {
     display: block;
     width: 100%;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
-  }
-
-  .casos__marco {
-    margin-bottom: 24px;
   }
 
   .casos__nombre {
     margin-top: 10px;
     font: var(--mh-h3);
     font-family: var(--mh-display);
-    font-size: clamp(24px, 2.4vw, 32px);
+    font-size: clamp(22px, 2.2vw, 30px);
     font-weight: 400;
     color: var(--mh-tinta);
   }
