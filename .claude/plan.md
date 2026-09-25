@@ -70,7 +70,8 @@ ritmo de la ficha). Todo lo que sigue copia este lenguaje.
 | Agente | Tarea | Archivos que puede escribir |
 |---|---|---|
 | `general-purpose` C | Cómo funciona | `Como.astro` |
-| `general-purpose` D | Casos y Mariana (los dos bloqueados por contenido, con `TODO` y flag) | `Casos.astro`, `Mariana.astro` |
+| `general-purpose` D | La idea y Mariana (adelantado 2026-09-25, antes que el resto) | `LaIdea.astro`, `Mariana.astro` |
+| `general-purpose` D2 | Casos (bloqueado por contenido, con `TODO` y flag) | `Casos.astro` |
 | `general-purpose` E | Cierre, WhatsApp flotante y OG image | `Cierre.astro`, `WhatsAppFab.astro`, `og.png.ts` |
 
 2.4 Merge en `index.astro`, en el orden del brief.

@@ -4,7 +4,7 @@
  *
  *   hero    ← DSC04283   paso1 ← DSC04057   paso2 ← DSC03992
  *   paso3   ← DSC04102   paso4 ← DSC04239   mariana ← DSC04001
- *   cierre  ← DSC04459
+ *   cierre  ← DSC04459   idea  ← DSC04180
  */
 import type { ImageMetadata } from "astro";
 import hero from "../assets/fotos/hero.jpg";
@@ -14,8 +14,9 @@ import paso3 from "../assets/fotos/paso3.jpg";
 import paso4 from "../assets/fotos/paso4.jpg";
 import mariana from "../assets/fotos/mariana.jpg";
 import cierre from "../assets/fotos/cierre.jpg";
+import idea from "../assets/fotos/idea.jpg";
 
-export const fotos = { hero, paso1, paso2, paso3, paso4, mariana, cierre } as const satisfies Record<
+export const fotos = { hero, idea, paso1, paso2, paso3, paso4, mariana, cierre } as const satisfies Record<
   string,
   ImageMetadata
 >;

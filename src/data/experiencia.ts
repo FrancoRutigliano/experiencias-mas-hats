@@ -26,6 +26,11 @@ export interface Paso {
   readonly foto: Foto;
 }
 
+export interface Beneficio {
+  readonly titulo: string;
+  readonly texto: string;
+}
+
 export interface Caso {
   readonly nombre: string;
   readonly tipo: string;
@@ -57,6 +62,15 @@ export interface Experiencia {
     readonly labelNo: string;
     readonly no: string;
   };
+  /** Propuesta 2026-09-25, pendiente de validar con Mariana (brief §8). */
+  readonly idea: {
+    readonly label: string;
+    readonly titulo: string;
+    readonly parrafo: string;
+    readonly beneficiosTitulo: string;
+    readonly beneficios: readonly Beneficio[];
+    readonly foto: Foto;
+  };
   readonly como: { readonly titulo: string; readonly pasos: readonly Paso[] };
   readonly casos: {
     readonly titulo: string;
@@ -66,6 +80,8 @@ export interface Experiencia {
   };
   readonly mariana: {
     readonly titulo: string;
+    /** TODO: confirmar si suma matrícula o especialidad (brief §8). */
+    readonly profesion: string;
     /** TODO: tres frases en primera persona, con palabras de Mariana (brief §8). */
     readonly frases: readonly string[];
     readonly foto: Foto;
@@ -110,8 +126,7 @@ export const experiencia: Experiencia = deepFreeze({
 
   hero: {
     eyebrow: "Experiencias a medida para empresas",
-    // TODO: titular nuevo pendiente de elegir (brief §5, decisión 2026-09-25).
-    titular: "Una actividad que se llevan puesta.",
+    titular: "Un sombrero que dice quién sos.",
     bajada:
       "Dos horas, un sombrero diseñado y armado por cada participante, y todo el " +
       "material puesto por nosotras. Llevamos la experiencia completa a tu espacio, " +
@@ -139,6 +154,34 @@ export const experiencia: Experiencia = deepFreeze({
     si: "Sombrero base por persona, todos los avíos, herramientas y la coordinación de la experiencia.",
     labelNo: "No incluye:",
     no: "Espacio, catering y fotografía. Fuera de Buenos Aires, traslado y estadía.",
+  },
+
+  idea: {
+    label: "La idea",
+    titulo: "Un sombrero no cambia quién sos. Lo muestra.",
+    parrafo:
+      "Es el accesorio que más dice de quien lo usa, y por eso a tantas mujeres " +
+      "les cuesta ponérselo. En MÁS HATS cada participante diseña el suyo hasta " +
+      "que la represente, y se anima a usarlo.",
+    beneficiosTitulo: "Para tu empresa",
+    beneficios: [
+      {
+        titulo: "Un encuentro que se recuerda.",
+        texto: "De una cata no queda nada. De acá, un sombrero propio y una foto que se comparte.",
+      },
+      {
+        titulo: "Un grupo que se conecta.",
+        texto: "Diseñar en la misma mesa abre conversaciones que un evento formal no abre.",
+      },
+      {
+        titulo: "Respaldo profesional.",
+        texto: "Coordina Mariana, psicóloga: sabe qué pasa en un grupo cuando alguien se anima a mostrarse.",
+      },
+    ],
+    foto: {
+      id: "idea",
+      alt: "Una participante con anteojos de sol y su sombrero de paja decorado con flores, sonriendo con la mano en el mentón.",
+    },
   },
 
   como: {
@@ -184,6 +227,7 @@ export const experiencia: Experiencia = deepFreeze({
 
   mariana: {
     titulo: "Mariana",
+    profesion: "Psicóloga",
     frases: [],
     foto: { id: "mariana", alt: "Mariana, con camisa blanca y sombrero marrón, junto a la mesa de trabajo." },
   },

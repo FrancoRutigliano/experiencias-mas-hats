@@ -63,7 +63,21 @@ horizontal en ningún ancho intermedio.
 - Debajo, a `--mh-medida`, un párrafo con «Incluye / No incluye» tal cual el brief.
 - Sin CTA.
 
-### 03 · Cómo funciona
+### 03 · La idea *(nuevo 2026-09-25, brief §1 y §5)*
+- Es el bloque que vende el porqué. Tiene que tener el peso visual de una
+  página de revista, no de un párrafo suelto.
+- Desktop: grilla 7/5. A la izquierda, el label «La idea», el H2 grande
+  (`--mh-h1` o un paso por debajo, es la segunda frase fuerte del sitio) y el
+  párrafo en `--mh-lead`. A la derecha, la foto vertical **DSC04180** (4:5), a
+  sangre hasta el borde derecho del viewport.
+- Debajo, a todo el ancho, «Para tu empresa» con los tres beneficios en 3
+  columnas, separadas por reglas de 1px como la ficha. Cada una tiene el título
+  en `--mh-h3` y el texto en `--mh-p` `--mh-tinta-2`. En mobile van apiladas.
+- Fondo `--mh-cal` (alterna con la ficha, que va en `--mh-cal-2`). Sin CTA.
+- El copy es una propuesta pendiente de validar con Mariana. Vive en
+  `experiencia.idea`.
+
+### 04 · Cómo funciona
 - H2 y cuatro pasos. En desktop son 4 columnas con foto vertical 4:5 arriba y,
   debajo, número `01` a `04` (`--mh-label`) y el texto del paso. En mobile, una
   columna con la foto a sangre.
@@ -74,7 +88,7 @@ horizontal en ningún ancho intermedio.
   4. «Cada participante se va con su sombrero.» → **DSC04239** (sombrero terminado, puesto)
 - Sin CTA.
 
-### 04 · Quiénes ya lo hicieron
+### 05 · Quiénes ya lo hicieron
 - Dos casos, uno al lado del otro (una columna en mobile). Cada uno lleva foto 4:5,
   el nombre, el tipo («Hotel», «Retiro de mujeres · Mendoza») y una línea de por
   qué importa, tomada del brief §2.
@@ -84,14 +98,16 @@ horizontal en ningún ancho intermedio.
   apaga el bloque si no hay permiso al publicar.
 - Sin CTA. El brief dice «con dos casos alcanza», así que no se infla.
 
-### 05 · Mariana
-- Grilla 5/7: foto vertical a la izquierda y, a la derecha, el H2 con tres frases
-  en primera persona y un link a Instagram (`--mh-trigo-ink`, subrayado).
+### 06 · Mariana
+- Grilla 5/7: foto vertical a la izquierda y, a la derecha, el H2 «Mariana»,
+  debajo «Psicóloga» (`.label`), las tres frases en primera persona y un link a
+  Instagram (`--mh-trigo-ink`, subrayado).
+- Espejo de «La idea»: allá la foto va a la derecha y acá a la izquierda.
 - Foto: **DSC04001** (confirmado que es Mariana). Alternativa: DSC04431.
 - Las frases no se escriben: van `TODO` visibles en el código, y en el render se
   muestra el bloque sin frases hasta que existan.
 
-### 06 · Cierre
+### 07 · Cierre
 - Fondo `--mh-cal-2`. Foto de detalle a un costado: **DSC04459** (sombrero con
   moño y regalo).
 - La ficha repetida en una línea (texto de cierre del brief §5) y el CTA

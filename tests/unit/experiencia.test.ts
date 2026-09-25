@@ -18,7 +18,7 @@ describe("experiencia · datos del brief", () => {
 
   test("el copy del hero es el del brief", () => {
     expect(experiencia.hero.eyebrow).toBe("Experiencias a medida para empresas");
-    expect(experiencia.hero.titular).toBe("Una actividad que se llevan puesta.");
+    expect(experiencia.hero.titular).toBe("Un sombrero que dice quién sos.");
     expect(experiencia.hero.bajada).toBe(
       "Dos horas, un sombrero diseñado y armado por cada participante, y todo el " +
         "material puesto por nosotras. Llevamos la experiencia completa a tu espacio, " +
@@ -75,6 +75,33 @@ describe("experiencia · datos del brief", () => {
   test("los casos son sólo los dos del brief y salen apagados hasta tener permiso", () => {
     expect(experiencia.casos.items.map((c) => c.nombre)).toEqual(["Chateau Nordelta", "Conexión 2"]);
     expect(experiencia.casos.publicar).toBe(false);
+  });
+
+  test("La idea es la del brief §5 (propuesta 2026-09-25)", () => {
+    expect(experiencia.idea.label).toBe("La idea");
+    expect(experiencia.idea.titulo).toBe("Un sombrero no cambia quién sos. Lo muestra.");
+    expect(experiencia.idea.parrafo).toBe(
+      "Es el accesorio que más dice de quien lo usa, y por eso a tantas mujeres " +
+        "les cuesta ponérselo. En MÁS HATS cada participante diseña el suyo hasta " +
+        "que la represente, y se anima a usarlo.",
+    );
+    expect(experiencia.idea.beneficiosTitulo).toBe("Para tu empresa");
+    expect(experiencia.idea.beneficios.map((b) => b.titulo)).toEqual([
+      "Un encuentro que se recuerda.",
+      "Un grupo que se conecta.",
+      "Respaldo profesional.",
+    ]);
+  });
+
+  test("Mariana se presenta como psicóloga", () => {
+    expect(experiencia.mariana.profesion).toBe("Psicóloga");
+  });
+
+  test("no hay lenguaje clínico ni promesas terapéuticas (brief §7)", () => {
+    const texto = JSON.stringify(experiencia).toLowerCase();
+    for (const palabra of ["terapia", "terapéutic", "sanar", "tratamiento", "paciente"]) {
+      expect(texto).not.toContain(palabra);
+    }
   });
 
   test("las frases de Mariana no se inventan: vacías hasta que las escriba ella", () => {

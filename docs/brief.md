@@ -9,7 +9,24 @@
 ## 1. Qué es esto
 
 MÁS HATS es una experiencia donde cada participante diseña y arma su propio
-sombrero. La lleva adelante **Mariana**, que coordina la actividad en persona.
+sombrero. La lleva adelante **Mariana**, psicóloga, que coordina la actividad
+en persona.
+
+### La idea detrás (agregado 2026-09-25)
+
+El sombrero es el accesorio que más dice de quien lo usa: potencia la actitud
+y hace brillar la personalidad. Justamente por eso a muchas mujeres hoy les
+cuesta ponérselo — implica animarse a ser vistas. MÁS HATS existe para ese
+paso: cada participante diseña un sombrero que la represente y se anima a
+usarlo, en grupo y con guía.
+
+Que Mariana sea psicóloga le da **respaldo profesional** a esa idea: sabe qué
+pasa en un grupo cuando alguien se anima a mostrarse. Es un diferencial frente
+a cualquier «taller de manualidades».
+
+Para quien compra (una empresa), esto se traduce en valor concreto: un
+encuentro que su gente recuerda, un grupo que se conecta y una experiencia
+con respaldo. El sitio lo dice en ese idioma, no en el de autoayuda.
 
 El sitio **no le habla a la mujer que va a hacer el sombrero**. Le habla a
 **quien decide contratar la experiencia** para un grupo que ya tiene armado:
@@ -89,7 +106,7 @@ Con esos tres datos Mariana cotiza sin una segunda vuelta de mensajes.
 
 ---
 
-## 4. Arquitectura — seis bloques, en este orden
+## 4. Arquitectura — siete bloques, en este orden
 
 Más corta que una landing normal a propósito: se lee de arriba abajo en una
 sentada, como una propuesta.
@@ -103,23 +120,29 @@ inmediatamente debajo del hero. Es lo primero que busca quien evalúa; ponerlo
 arriba es lo que hace que el sitio se sienta profesional y no promocional.
 → *sin CTA*
 
-**03 · Cómo funciona** — Cuatro pasos numerados. Acá los números sí
+**03 · La idea** *(nuevo 2026-09-25)* — Por qué un sombrero. Un titular con
+fuerza, un párrafo corto sobre actitud y personalidad, y tres beneficios para la
+empresa escritos para escanear. Menciona que Mariana es psicóloga como
+respaldo. Una foto de una participante con su sombrero terminado.
+→ *sin CTA*
+
+**04 · Cómo funciona** — Cuatro pasos numerados. Acá los números sí
 corresponden: es una secuencia real. Con fotos del proceso (manos trabajando,
 la mesa, el detalle de los avíos).
 → *sin CTA*
 
-**04 · Quiénes ya lo hicieron** — Chateau Nordelta y Conexión 2, con foto de
+**05 · Quiénes ya lo hicieron** — Chateau Nordelta y Conexión 2, con foto de
 cada uno. Es el bloque que convierte: para un comprador B2B, que alguien
 parecido a él ya lo haya contratado pesa más que cualquier argumento. Con dos
 casos alcanza — no inflarlo.
 → *sin CTA*
 
-**05 · Mariana** — Foto y tres frases en primera persona. Es lo único que nadie
+**06 · Mariana** — Foto, «Psicóloga», y tres frases en primera persona. Es lo único que nadie
 puede copiar, y en un servicio que coordina una sola persona, es también lo que
 da confianza de que va a salir bien.
 → *Instagram*
 
-**06 · Cierre** — La ficha técnica repetida en una línea + el botón con el
+**07 · Cierre** — La ficha técnica repetida en una línea + el botón con el
 mensaje pre-cargado. Más un WhatsApp flotante en mobile durante todo el scroll.
 → *CTA primario*
 
@@ -138,13 +161,11 @@ retrasan el envío.
 empresas; una sola palabra es más clara.*
 
 **Hero · titular**
-> TODO — se reemplaza. «Una actividad que se llevan puesta.» se puede leer
-> con doble sentido (decisión 2026-09-25). Tiene que tener fuerza y poner el
-> foco en la experiencia: un sombrero que te identifica.
+> Un sombrero que dice quién sos.
 
-*Por qué: de una cata de vinos o una clase de cocina no queda nada. De acá cada
-persona se va con un sombrero que va a usar todo el verano, y con una foto que
-va a subir. Ese es el diferencial y entra en seis palabras.*
+*Cambio 2026-09-25: reemplaza «Una actividad que se llevan puesta.», que se
+podía leer con doble sentido. Pone el foco en la identidad: el sombrero como
+algo propio, no como souvenir.*
 
 **Hero · bajada**
 > Dos horas, un sombrero diseñado y armado por cada participante, y todo el
@@ -171,6 +192,21 @@ que ya usa quien compra.*
 > Incluye: sombrero base por persona, todos los avíos, herramientas y la
 > coordinación de la experiencia. No incluye: espacio, catering y fotografía.
 > Fuera de Buenos Aires, traslado y estadía.
+
+**La idea** *(propuesta 2026-09-25 — validar con Mariana)*
+> Label: La idea
+> Titular: Un sombrero no cambia quién sos. Lo muestra.
+> Párrafo: Es el accesorio que más dice de quien lo usa, y por eso a tantas
+> mujeres les cuesta ponérselo. En MÁS HATS cada participante diseña el suyo
+> hasta que la represente, y se anima a usarlo.
+>
+> Para tu empresa:
+> 1. **Un encuentro que se recuerda.** De una cata no queda nada. De acá,
+>    un sombrero propio y una foto que se comparte.
+> 2. **Un grupo que se conecta.** Diseñar en la misma mesa abre
+>    conversaciones que un evento formal no abre.
+> 3. **Respaldo profesional.** Coordina Mariana, psicóloga: sabe qué pasa en
+>    un grupo cuando alguien se anima a mostrarse.
 
 **Cierre**
 > Desde 8 personas, en todo el país, con 15 días de anticipación. Contanos
@@ -222,6 +258,8 @@ sobre una vertical, no estirando una chica.
   esperando un observer: el sitio se manda por link y tiene que verse completo
   apenas carga, incluso en la previsualización.
 - No emojis en la interfaz.
+- No prometer resultados terapéuticos ni usar lenguaje clínico. Que Mariana
+  sea psicóloga es respaldo, no la promesa: la experiencia no es una terapia.
 - No dark mode.
 - No lorem ipsum: si falta contenido, dejar el texto de la sección 5 o marcarlo
   con un comentario, nunca relleno.
@@ -233,6 +271,8 @@ sobre una vertical, no estirando una chica.
 - Número de WhatsApp Business definitivo.
 - Permiso de Chateau Nordelta y Conexión 2 para usar nombre y foto.
 - Las tres frases de Mariana en primera persona, con sus palabras.
+- Cómo quiere presentar su título (¿«Psicóloga» alcanza, o suma matrícula o
+  especialidad?) y la validación del copy de «La idea».
 - Logo en vectorial (hoy sólo existe como imagen en un cartel).
 - Dominio.
 
