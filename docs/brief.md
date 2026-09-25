@@ -193,7 +193,7 @@ que ya usa quien compra.*
 > coordinación de la experiencia. No incluye: espacio, catering y fotografía.
 > Fuera de Buenos Aires, traslado y estadía.
 
-**La idea** *(propuesta 2026-09-25 — validar con Mariana)*
+**La idea** *(aprobado 2026-09-25)*
 > Label: La idea
 > Titular: Un sombrero no cambia quién sos. Lo muestra.
 > Párrafo: Es el accesorio que más dice de quien lo usa, y por eso a tantas
@@ -272,7 +272,7 @@ sobre una vertical, no estirando una chica.
 - Permiso de Chateau Nordelta y Conexión 2 para usar nombre y foto.
 - Las tres frases de Mariana en primera persona, con sus palabras.
 - Cómo quiere presentar su título (¿«Psicóloga» alcanza, o suma matrícula o
-  especialidad?) y la validación del copy de «La idea».
+  especialidad?).
 - Logo en vectorial (hoy sólo existe como imagen en un cartel).
 - Dominio.
 

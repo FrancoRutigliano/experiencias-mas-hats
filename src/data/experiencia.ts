@@ -62,7 +62,7 @@ export interface Experiencia {
     readonly labelNo: string;
     readonly no: string;
   };
-  /** Propuesta 2026-09-25, pendiente de validar con Mariana (brief §8). */
+  /** Aprobado 2026-09-25 (brief §5). */
   readonly idea: {
     readonly label: string;
     readonly titulo: string;

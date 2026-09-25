@@ -74,7 +74,7 @@ horizontal en ningún ancho intermedio.
   columnas, separadas por reglas de 1px como la ficha. Cada una tiene el título
   en `--mh-h3` y el texto en `--mh-p` `--mh-tinta-2`. En mobile van apiladas.
 - Fondo `--mh-cal` (alterna con la ficha, que va en `--mh-cal-2`). Sin CTA.
-- El copy es una propuesta pendiente de validar con Mariana. Vive en
+- Copy aprobado 2026-09-25. Vive en
   `experiencia.idea`.
 
 ### 04 · Cómo funciona
