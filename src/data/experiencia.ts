@@ -183,7 +183,7 @@ export const experiencia: Experiencia = deepFreeze({
     ],
     foto: {
       id: "idea",
-      alt: "Una participante con anteojos de sol y su sombrero de paja decorado con flores, sonriendo con la mano en el mentón.",
+      alt: "Manos que sostienen un sombrero de paja terminado, con cinta bordada y una medalla, sobre la mesa de trabajo.",
     },
   },
 

@@ -68,7 +68,7 @@ horizontal en ningún ancho intermedio.
   página de revista, no de un párrafo suelto.
 - Desktop: grilla 7/5. A la izquierda, el label «La idea», el H2 grande
   (`--mh-h1` o un paso por debajo, es la segunda frase fuerte del sitio) y el
-  párrafo en `--mh-lead`. A la derecha, la foto vertical **DSC04180** (4:5), a
+  párrafo en `--mh-lead`. A la derecha, la foto vertical **DSC04140** (4:5; manos con el sombrero, sin caras en primer plano), a
   sangre hasta el borde derecho del viewport.
 - Debajo, a todo el ancho, «Para tu empresa» con los tres beneficios en 3
   columnas, separadas por reglas de 1px como la ficha. Cada una tiene el título

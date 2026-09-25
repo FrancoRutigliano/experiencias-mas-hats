@@ -4,7 +4,7 @@
  *
  *   hero    ← DSC04283   paso1 ← DSC04057   paso2 ← DSC03992
  *   paso3   ← DSC04102   paso4 ← DSC04239   mariana ← DSC04001
- *   cierre  ← DSC04459   idea  ← DSC04180
+ *   cierre  ← DSC04459   idea  ← DSC04140
  */
 import type { ImageMetadata } from "astro";
 import hero from "../assets/fotos/hero.jpg";
