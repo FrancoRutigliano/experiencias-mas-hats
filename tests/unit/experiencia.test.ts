@@ -58,8 +58,8 @@ describe("experiencia · datos del brief", () => {
     );
   });
 
-  test("el cierre es el del brief", () => {
-    expect(experiencia.cierre.texto).toBe(
+  test("el cierre es el del brief, partido en titular y bajada", () => {
+    expect(`${experiencia.cierre.titulo} ${experiencia.cierre.bajada}`).toBe(
       "Desde 8 personas, en todo el país, con 15 días de anticipación. Contanos " +
         "cuántos son y cuándo, y te mandamos la propuesta.",
     );
