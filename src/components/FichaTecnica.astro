@@ -1,0 +1,98 @@
+---
+/**
+ * 02 · Ficha técnica (brief §4). Va inmediatamente debajo del hero, sin CTA.
+ * Todo el contenido sale de experiencia.ts, salvo los tres textos de abajo.
+ */
+import { experiencia } from "../data/experiencia";
+
+const { ficha, incluye } = experiencia;
+
+// TODO: mover a experiencia.ts. «Ficha técnica» es el nombre del bloque en el
+// brief §4 y los prefijos son del brief §5 («Qué incluye / qué no»); hoy no
+// tienen campo propio (proponer `fichaTitulo` e `incluye.labelSi`/`labelNo`).
+const TITULO = "Ficha técnica";
+const PREFIJO_SI = "Incluye:";
+const PREFIJO_NO = "No incluye:";
+---
+
+<section class="ficha seccion seccion--alterna" aria-labelledby="ficha-titulo">
+  <div class="contenedor">
+    <h2 id="ficha-titulo" class="label">{TITULO}</h2>
+
+    <dl class="ficha__grilla">
+      {
+        ficha.map(({ label, valor }) => (
+          <div class="ficha__celda">
+            <dt class="label">{label}</dt>
+            <dd class="ficha__valor tabular">{valor}</dd>
+          </div>
+        ))
+      }
+    </dl>
+
+    <div class="ficha__incluye">
+      <p><strong>{PREFIJO_SI}</strong> {incluye.si}</p>
+      <p><strong>{PREFIJO_NO}</strong> {incluye.no}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ficha__grilla {
+    /* Las líneas son el fondo de la grilla asomando por un gap de 1px:
+       sólo aparecen entre celdas, nunca dobles ni colgando al final de fila.
+       Las seis celdas llenan siempre la grilla (6×1, 3×2, 2×3). */
+    --ficha-cols: 2;
+    display: grid;
+    grid-template-columns: repeat(var(--ficha-cols), minmax(0, 1fr));
+    gap: 1px;
+    margin: calc(var(--mh-gutter) * 0.75) 0 0;
+    background: var(--mh-arena);
+    border-block: var(--mh-borde);
+  }
+
+  .ficha__celda {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px var(--ficha-pad, 16px);
+    background: var(--mh-cal-2);
+  }
+
+  /* La primera columna arranca alineada con el borde del contenedor. */
+  .ficha__celda:nth-child(odd) { padding-inline-start: 0; }
+
+  .ficha__valor {
+    margin: 0;
+    font: var(--mh-h3);
+    font-variant-numeric: tabular-nums;
+    color: var(--mh-tinta);
+  }
+
+  .ficha__incluye {
+    display: grid;
+    gap: 8px;
+    max-width: var(--mh-medida);
+    margin-top: calc(var(--mh-gutter) * 0.75);
+    font: var(--mh-p);
+    color: var(--mh-tinta-2);
+  }
+
+  .ficha__incluye strong {
+    font-weight: 600;
+  }
+
+  @media (min-width: 720px) {
+    .ficha__grilla { --ficha-cols: 3; }
+    .ficha__celda { --ficha-pad: 24px; padding-block: 28px; }
+    .ficha__celda:nth-child(odd) { padding-inline-start: var(--ficha-pad); }
+    .ficha__celda:nth-child(3n + 1) { padding-inline-start: 0; }
+  }
+
+  @media (min-width: 1080px) {
+    .ficha__grilla { --ficha-cols: 6; }
+    .ficha__celda { padding-block: 32px; }
+    .ficha__celda:nth-child(3n + 1) { padding-inline-start: var(--ficha-pad); }
+    .ficha__celda:first-child { padding-inline-start: 0; }
+  }
+</style>
