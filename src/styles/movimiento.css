@@ -115,6 +115,11 @@ body::after {
   to   { transform: scaleX(1); }
 }
 
+@keyframes mh-cinta {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 600px 0, 0 0; }
+}
+
 @keyframes mh-franja {
   from { translate: 0 0; }
   to   { translate: -33.333% 0; }

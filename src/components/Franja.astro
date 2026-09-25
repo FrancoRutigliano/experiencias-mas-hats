@@ -21,7 +21,9 @@ const tandas = [0, 1, 2];
         experiencia.franja.map((palabra, i) => (
           <span class="franja__palabra">
             {i % 2 === 1 ? <span class="franja__hueca" data-texto={palabra} /> : palabra}
-            <span class="franja__punto" />
+            <svg class="franja__sombrero" viewBox="0 0 200 120" fill="none" aria-hidden="true">
+              <path d="M10 88 C 40 72, 160 72, 190 88 C 160 101, 40 101, 10 88 Z M54 84 C 50 52, 60 30, 100 26 C 140 30, 150 52, 146 84 M53 74 C 80 80, 120 80, 147 74" />
+            </svg>
           </span>
         )),
       )
@@ -62,11 +64,14 @@ const tandas = [0, 1, 2];
     -webkit-text-stroke: 1px var(--mh-tinta);
   }
 
-  .franja__punto {
-    width: 0.14em;
-    height: 0.14em;
-    border-radius: 50%;
-    background: var(--mh-trigo);
+  /* Sombrero de un solo trazo entre palabra y palabra. */
+  .franja__sombrero {
+    width: 0.62em;
+    height: auto;
+    stroke: var(--mh-trigo-ink);
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
   @media (prefers-reduced-motion: no-preference) {

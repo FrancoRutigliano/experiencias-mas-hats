@@ -1,0 +1,52 @@
+---
+/**
+ * Cinta grosgrain entre el hero y la ficha (2026-09-25): la tira que va en
+ * el ala del sombrero. Trigo con el rayado fino del grosgrain, un filete en
+ * tinta y una banda oliva. Decorativa.
+ *
+ * El rayado corre con el scroll (no solo), y con «reducir movimiento» queda
+ * quieto.
+ */
+---
+
+<div class="cinta" aria-hidden="true">
+  <div class="cinta__grosgrain"></div>
+  <div class="cinta__filete"></div>
+  <div class="cinta__banda"></div>
+</div>
+
+<style>
+  .cinta {
+    display: grid;
+  }
+
+  .cinta__grosgrain {
+    height: 14px;
+    background:
+      repeating-linear-gradient(90deg, rgba(35, 42, 38, 0.1) 0 1px, transparent 1px 3px),
+      var(--mh-trigo);
+  }
+
+  .cinta__filete {
+    height: 2px;
+    background: var(--mh-tinta);
+  }
+
+  .cinta__banda {
+    height: 5px;
+    background: var(--mh-oliva);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      .cinta__grosgrain {
+        --linea-cinta: scroll(root);
+        animation-name: mh-cinta;
+        animation-duration: 1ms;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: var(--linea-cinta);
+      }
+    }
+  }
+</style>

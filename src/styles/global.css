@@ -77,3 +77,21 @@ a:hover { color: var(--mh-trigo-dark); }
     animation: none !important;
   }
 }
+
+/* ---------- avíos: etiqueta con corte de moño y cinta grosgrain ----------
+   (2026-09-25) Las etiquetas de sección son como la cinta que se corta en
+   «V» al terminar un sombrero. Tinta sobre cal: 13.96:1. La variante trigo
+   lleva tinta encima: 7.78:1 (el trigo sigue siendo sólo relleno). */
+.etiqueta {
+  display: block;
+  width: fit-content;
+  padding: 0.75em 2.4em 0.75em 1.1em;
+  background: var(--mh-tinta);
+  color: var(--mh-cal);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 1em) 50%, 100% 100%, 0 100%);
+}
+
+.etiqueta--trigo {
+  background: var(--mh-trigo);
+  color: var(--mh-tinta);
+}
