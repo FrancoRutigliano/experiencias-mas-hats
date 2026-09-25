@@ -1,0 +1,170 @@
+---
+/**
+ * 04 · Cómo funciona (brief §4, spec §2). Cuatro pasos de una secuencia real,
+ * así que van en <ol> y el número sale del índice. Sin CTA.
+ *
+ * - Desktop (≥ 1080px): 4 columnas. Foto 4:5 arriba; debajo, el número y el
+ *   texto. Una regla de 1px en --mh-arena sale de cada número y cruza el gap
+ *   hasta el siguiente: los cuatro números quedan sobre una misma línea.
+ * - 720–1079px: 2×2. La regla une los pasos de cada fila.
+ * - Mobile: una columna, foto a sangre.
+ *
+ * Las fotos originales son 2:3; el recorte a 4:5 se ajusta por foto con
+ * object-position (presentación, no contenido: por eso vive acá).
+ */
+import { Picture } from "astro:assets";
+import { experiencia } from "../data/experiencia";
+import { fotos, type FotoId } from "../data/fotos";
+
+const { titulo, pasos } = experiencia.como;
+
+const ANCHOS = [400, 600, 800, 1200];
+const SIZES = "(min-width: 1440px) 330px, (min-width: 1080px) 23vw, (min-width: 720px) 46vw, 100vw";
+
+// Recorte 4:5 sobre originales 2:3: qué franja vertical conservar.
+const ENCUADRE: Partial<Record<FotoId, string>> = {
+  paso1: "50% 55%",
+  paso2: "50% 45%",
+  paso3: "50% 55%",
+  paso4: "50% 50%",
+};
+
+const numero = (indice: number) => String(indice + 1).padStart(2, "0");
+---
+
+<section id="como" class="como seccion seccion--alterna" aria-labelledby="como-titulo">
+  <div class="contenedor">
+    <h2 id="como-titulo" class="como__titulo">{titulo}</h2>
+
+    <ol class="como__pasos" role="list">
+      {
+        pasos.map((paso, indice) => (
+          <li class="paso">
+            <Picture
+              src={fotos[paso.foto.id]}
+              alt={paso.foto.alt}
+              formats={["avif", "webp"]}
+              widths={ANCHOS}
+              sizes={SIZES}
+              loading="lazy"
+              decoding="async"
+              class="paso__foto"
+              pictureAttributes={{ class: "paso__picture marco" }}
+              style={`object-position: ${ENCUADRE[paso.foto.id] ?? "50% 50%"}`}
+            />
+            <p class="paso__numero label tabular" aria-hidden="true">
+              {numero(indice)}
+            </p>
+            <p class="paso__texto">{paso.texto}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .como__titulo {
+    color: var(--mh-tinta);
+  }
+
+  .como__pasos {
+    --como-cols: 1;
+    --como-gap: var(--mh-gutter);
+    display: grid;
+    grid-template-columns: repeat(var(--como-cols), minmax(0, 1fr));
+    gap: calc(var(--mh-gutter) * 1.25) var(--como-gap);
+    margin-top: calc(var(--mh-gutter) * 0.75);
+    padding: 0;
+    list-style: none;
+  }
+
+  .paso {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  /* Mobile: foto a sangre, se come el gutter del contenedor. */
+  .paso__picture {
+    max-width: none; /* global.css lo limita a 100%: no dejaría sangrar */
+    margin-inline: calc(var(--mh-gutter) * -1);
+  }
+
+  .paso__foto {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    background: var(--mh-arena);
+  }
+
+  /* Número + regla de 1px que corre hasta el borde de la columna. */
+  .paso__numero {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+    max-width: none;
+  }
+
+  .paso__numero::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--mh-arena);
+    transform-origin: left center;
+  }
+
+  /* La regla se dibuja al entrar en pantalla (decorativa: el número y el
+     texto están siempre visibles). */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .paso__numero::after {
+        --linea-regla: view();
+        --rango-regla: entry 40% cover 45%;
+        animation-name: mh-dibujar;
+        animation-duration: 1ms;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: var(--linea-regla);
+        animation-range: var(--rango-regla);
+      }
+    }
+  }
+
+  .paso__texto {
+    margin-top: 16px;
+    font: var(--mh-lead);
+    color: var(--mh-tinta);
+    text-wrap: pretty;
+  }
+
+  @media (min-width: 720px) {
+    .como__pasos {
+      --como-cols: 2;
+    }
+
+    .paso__picture {
+      margin-inline: 0;
+    }
+
+    /* La regla cruza el gap hacia el paso siguiente de la misma fila. */
+    .paso:nth-child(odd) .paso__numero::after {
+      margin-inline-end: calc(var(--como-gap) * -1);
+    }
+  }
+
+  @media (min-width: 1080px) {
+    .como__pasos {
+      --como-cols: 4;
+    }
+
+    .paso:nth-child(odd) .paso__numero::after {
+      margin-inline-end: 0;
+    }
+
+    .paso:not(:last-child) .paso__numero::after {
+      margin-inline-end: calc(var(--como-gap) * -1);
+    }
+  }
+</style>

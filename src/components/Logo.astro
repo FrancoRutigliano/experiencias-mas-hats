@@ -1,0 +1,37 @@
+---
+/**
+ * Logo MÁS HATS (src/assets/logo.png, negro sobre transparente).
+ * Se pinta como máscara con `currentColor`: un solo archivo sirve sobre la
+ * foto del hero (claro) y sobre --mh-cal (tinta). El nombre accesible lo da
+ * el texto oculto; la máscara es decorativa.
+ */
+import logo from "../assets/logo.png";
+import { experiencia } from "../data/experiencia";
+
+interface Props {
+  /** Alto visible en px; el ancho sale de la proporción del archivo. */
+  alto: number;
+}
+
+const { alto } = Astro.props;
+const ancho = Math.round((alto * logo.width) / logo.height);
+---
+
+<span class="logo" style={`--logo-url: url(${logo.src}); width: ${ancho}px; height: ${alto}px;`} aria-hidden="true"></span>
+<span class="sr-only">{experiencia.marca}</span>
+
+<style>
+  .logo {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: currentColor;
+    -webkit-mask: var(--logo-url) center / contain no-repeat;
+    mask: var(--logo-url) center / contain no-repeat;
+  }
+
+  /* Modo de alto contraste: la máscara no se ve, así que queda el texto. */
+  @media (forced-colors: active) {
+    .logo { display: none; }
+    .logo + .sr-only { position: static; width: auto; height: auto; clip: auto; margin: 0; }
+  }
+</style>

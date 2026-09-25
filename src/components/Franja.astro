@@ -1,0 +1,91 @@
+---
+/**
+ * Franja en movimiento entre la ficha y «La idea». Las palabras de marca en
+ * Marcellus grande se desplazan de costado **con el scroll** (no solas): no
+ * hay contenido que se mueva por su cuenta, así que no hace falta botón de
+ * pausa (WCAG 2.2.2). Es decorativa: el lector de pantalla la saltea.
+ *
+ * Sin soporte de scroll-driven animations o con «reducir movimiento», queda
+ * quieta y se ve la primera tanda de palabras.
+ */
+import { experiencia } from "../data/experiencia";
+
+// Tres tandas: la animación corre un tercio, así nunca se ve el final.
+const tandas = [0, 1, 2];
+---
+
+<div class="franja" aria-hidden="true">
+  <div class="franja__pista">
+    {
+      tandas.map(() =>
+        experiencia.franja.map((palabra, i) => (
+          <span class="franja__palabra">
+            {i % 2 === 1 ? <span class="franja__hueca" data-texto={palabra} /> : palabra}
+            <svg class="franja__sombrero" viewBox="0 0 200 120" fill="none" aria-hidden="true">
+              <path d="M10 88 C 40 72, 160 72, 190 88 C 160 101, 40 101, 10 88 Z M54 84 C 50 52, 60 30, 100 26 C 140 30, 150 52, 146 84 M53 74 C 80 80, 120 80, 147 74" />
+            </svg>
+          </span>
+        )),
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .franja {
+    overflow: clip;
+    padding-block: clamp(20px, 3.5vw, 44px);
+    border-block: var(--mh-borde);
+    background: var(--mh-cal);
+  }
+
+  .franja__pista {
+    display: flex;
+    width: max-content;
+    white-space: nowrap;
+  }
+
+  .franja__palabra {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(20px, 3vw, 48px);
+    padding-inline-end: clamp(20px, 3vw, 48px);
+    font-family: var(--mh-display);
+    font-size: clamp(48px, 8.5vw, 132px);
+    line-height: 1;
+    color: var(--mh-tinta);
+  }
+
+  /* Una de cada dos palabras, sólo el contorno. Va como contenido generado:
+     es decoración pura (toda la franja es aria-hidden). */
+  .franja__hueca::before {
+    content: attr(data-texto);
+    color: transparent;
+    -webkit-text-stroke: 1px var(--mh-tinta);
+  }
+
+  /* Sombrero de un solo trazo entre palabra y palabra. */
+  .franja__sombrero {
+    width: 0.62em;
+    height: auto;
+    stroke: var(--mh-trigo-ink);
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .franja__pista {
+        --linea-franja: view();
+        --rango-franja: cover 0% cover 100%;
+        animation-name: mh-franja;
+        animation-duration: 1ms;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: var(--linea-franja);
+        animation-range: var(--rango-franja);
+      }
+    }
+  }
+</style>

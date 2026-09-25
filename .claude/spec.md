@@ -32,7 +32,7 @@ horizontal en ningún ancho intermedio.
 ### Nav
 - Desktop: barra fina sobre el hero, fondo transparente, con el wordmark «MÁS HATS»
   en texto (Marcellus) hasta que exista el logo vectorial. A la derecha, anclas
-  (Cómo funciona · Casos · Mariana) y el botón «Pedir propuesta».
+  (Cómo funciona · Casos · Marian) y el botón «Pedir propuesta».
 - Mobile: wordmark y botón de menú. El menú abre un panel a pantalla completa en
   `--mh-cal`. Es el único JS junto con el botón flotante.
 - Cuando el scroll pasa el hero, queda fija con fondo `--mh-cal` y un borde
@@ -57,13 +57,27 @@ horizontal en ningún ancho intermedio.
 - Cada celda tiene el label arriba (`--mh-label`, `--mh-trigo-ink`) y el valor
   abajo en `--mh-h3` con `tabular-nums`.
 - Contenido exacto del brief §5:
-  Grupo **Desde 8** · Duración **2 a 2:30 h** · Dónde **Todo el país** ·
-  Anticipación **15 a 30 días** · Reserva **Seña 30%** · Material **Todo incluido**
+  Duración **2 a 2:30 h** · Dónde **Todo el país** · Anticipación **15 a 30 días** ·
+  Reserva **Seña 50%** · Material **Todo incluido** (sin mínimo de grupo desde 2026-09-25)
   *(ver pregunta abierta 5 del intent)*.
 - Debajo, a `--mh-medida`, un párrafo con «Incluye / No incluye» tal cual el brief.
 - Sin CTA.
 
-### 03 · Cómo funciona
+### 03 · La idea *(nuevo 2026-09-25, brief §1 y §5)*
+- Es el bloque que vende el porqué. Tiene que tener el peso visual de una
+  página de revista, no de un párrafo suelto.
+- Desktop: grilla 7/5. A la izquierda, el label «La idea», el H2 grande
+  (`--mh-h1` o un paso por debajo, es la segunda frase fuerte del sitio) y el
+  párrafo en `--mh-lead`. A la derecha, la foto vertical **DSC04140** (4:5; manos con el sombrero, sin caras en primer plano), a
+  sangre hasta el borde derecho del viewport.
+- Debajo, a todo el ancho, «Para tu empresa» con los tres beneficios en 3
+  columnas, separadas por reglas de 1px como la ficha. Cada una tiene el título
+  en `--mh-h3` y el texto en `--mh-p` `--mh-tinta-2`. En mobile van apiladas.
+- Fondo `--mh-cal` (alterna con la ficha, que va en `--mh-cal-2`). Sin CTA.
+- Copy aprobado 2026-09-25. Vive en
+  `experiencia.idea`.
+
+### 04 · Cómo funciona
 - H2 y cuatro pasos. En desktop son 4 columnas con foto vertical 4:5 arriba y,
   debajo, número `01` a `04` (`--mh-label`) y el texto del paso. En mobile, una
   columna con la foto a sangre.
@@ -71,10 +85,10 @@ horizontal en ningún ancho intermedio.
   1. «Elegimos la fecha y la cantidad de personas.» → **DSC04057** (grupo en la mesa, arranque)
   2. «Llegamos con sombreros, avíos y herramientas…» → **DSC03992** (mesa armada con sombreros base)
   3. «Cada participante diseña e interviene el suyo…» → **DSC04102** (manos, plumas, avíos)
-  4. «Se lo lleva puesto.» → **DSC04239** (sombrero terminado, puesto)
+  4. «Cada participante se va con su sombrero.» → **DSC04239** (sombrero terminado, puesto)
 - Sin CTA.
 
-### 04 · Quiénes ya lo hicieron
+### 05 · Quiénes ya lo hicieron
 - Dos casos, uno al lado del otro (una columna en mobile). Cada uno lleva foto 4:5,
   el nombre, el tipo («Hotel», «Retiro de mujeres · Mendoza») y una línea de por
   qué importa, tomada del brief §2.
@@ -84,14 +98,16 @@ horizontal en ningún ancho intermedio.
   apaga el bloque si no hay permiso al publicar.
 - Sin CTA. El brief dice «con dos casos alcanza», así que no se infla.
 
-### 05 · Mariana
-- Grilla 5/7: foto vertical a la izquierda y, a la derecha, el H2 con tres frases
-  en primera persona y un link a Instagram (`--mh-trigo-ink`, subrayado).
-- Foto: **DSC04001** (confirmado que es Mariana). Alternativa: DSC04431.
+### 06 · Marian
+- Grilla 5/7: foto vertical a la izquierda y, a la derecha, el H2 «Marian»,
+  debajo «Psicóloga» (`.label`), las tres frases en primera persona y un link a
+  Instagram (`--mh-trigo-ink`, subrayado).
+- Espejo de «La idea»: allá la foto va a la derecha y acá a la izquierda.
+- Foto: **DSC04001** (confirmado que es Marian). Alternativa: DSC04431.
 - Las frases no se escriben: van `TODO` visibles en el código, y en el render se
   muestra el bloque sin frases hasta que existan.
 
-### 06 · Cierre
+### 07 · Cierre
 - Fondo `--mh-cal-2`. Foto de detalle a un costado: **DSC04459** (sombrero con
   moño y regalo).
 - La ficha repetida en una línea (texto de cierre del brief §5) y el CTA
@@ -126,7 +142,7 @@ horizontal en ningún ancho intermedio.
   tienen strings de contenido hardcodeados.
 - Tipado (`Experiencia`) con `readonly`, para que ningún componente lo mute.
 - Todo lo que falta es `TODO` explícito: el número de WhatsApp, las frases de
-  Mariana, las fotos de los casos, Instagram y el dominio.
+  Marian, las fotos de los casos, Instagram y el dominio.
 
 ## 5. WhatsApp
 
@@ -136,14 +152,14 @@ horizontal en ningún ancho intermedio.
 - **Problema detectado:** el snippet de `claude.md` recibe `origen` pero no lo usa,
   y `wa.me` no pasa parámetros extra, así que hoy no se puede saber de dónde vino
   la consulta. Propuesta: agregar al final del mensaje una marca corta y discreta,
-  como ` · ref: hero`. *Lo decide Mariana, porque es texto que ve el cliente.*
+  como ` · ref: hero`. *Lo decide Marian, porque es texto que ve el cliente.*
   Si no la quiere, se saca `origen`, según YAGNI.
 - Sin número, el botón igual se renderiza con el placeholder y el build muestra
   un warning. En producción el build falla si el número sigue siendo placeholder.
 
 ## 6. Metadatos y previsualización
 
-- `<title>`: «MÁS HATS — Experiencias a medida para hoteles, retiros y marcas».
+- `<title>`: «MÁS HATS — Experiencias a medida para empresas».
 - `description`: la bajada del hero.
 - OG completo y `twitter:card = summary_large_image`. `og:image` de 1200×630,
   generada en el build a partir del recorte de la foto del hero, con el titular
@@ -159,7 +175,10 @@ horizontal en ningún ancho intermedio.
 - Todas las fotos van por `<Image />` o `<Picture />` con `width`/`height`,
   en AVIF o WebP con fallback JPG. El hero va con `loading="eager"` y
   `fetchpriority="high"`, y el resto con `lazy`.
-- Fuentes: Marcellus 400 y Karla 400/600, con `display=swap` y `preconnect`.
+- Fuentes: Marcellus 400 y Karla 400/600, descargadas de Google en el build
+  con la API de fuentes de Astro y servidas desde el sitio, con preload y
+  fallback con métricas ajustadas (2026-09-25). El `<link>` a Google Fonts
+  bloqueaba el render y dejaba Lighthouse mobile en 92.
 - Un solo H1 y jerarquía H2 por bloque. Alt descriptivo en español en cada foto.
 
 ## 8. Criterios de aceptación

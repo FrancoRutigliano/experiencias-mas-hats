@@ -1,9 +1,38 @@
 ---
 import Base from "../layouts/Base.astro";
-// Los bloques se suman en las fases 1 y 2 del plan, en el orden del brief:
-// Nav → Hero → FichaTecnica → Como → Casos → Mariana → Cierre → WhatsAppFab
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import Cinta from "../components/Cinta.astro";
+import FichaTecnica from "../components/FichaTecnica.astro";
+import Franja from "../components/Franja.astro";
+import LaIdea from "../components/LaIdea.astro";
+import Como from "../components/Como.astro";
+import Galeria from "../components/Galeria.astro";
+import Casos from "../components/Casos.astro";
+import Mariana from "../components/Mariana.astro";
+import Cierre from "../components/Cierre.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppFab from "../components/WhatsAppFab.astro";
+import Tijera from "../components/Tijera.astro";
+// Orden del brief §4:
+// Nav → Hero → Cinta → FichaTecnica → Franja → LaIdea → Como → Galeria → Casos → Mariana → Cierre → WhatsAppFab
 ---
 
 <Base>
-  <main></main>
+  <Nav />
+  <main>
+    <Hero />
+    <Cinta />
+    <FichaTecnica />
+    <Franja />
+    <LaIdea />
+    <Como />
+    <Galeria />
+    <Casos />
+    <Mariana />
+    <Cierre />
+  </main>
+  <Footer />
+  <WhatsAppFab />
+  <Tijera />
 </Base>

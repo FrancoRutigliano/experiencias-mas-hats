@@ -7,7 +7,7 @@ import {
 } from "../../src/lib/whatsapp";
 
 const MENSAJE =
-  "Hola Mariana, quiero una propuesta de MÁS HATS para ____. " +
+  "Hola Marian, quiero una propuesta de MÁS HATS para ____. " +
   "Seríamos ____ personas, la fecha tentativa es ____ y sería en ____.";
 
 const config = { numero: "5491112345678", mensaje: MENSAJE, incluirRef: false };
@@ -61,6 +61,14 @@ describe("validarNumero", () => {
 
   test("falla en producción si el número sigue siendo el placeholder", () => {
     expect(() => validarNumero(WHATSAPP_PLACEHOLDER, { produccion: true })).toThrow(/placeholder/);
+  });
+});
+
+describe("número real", () => {
+  test("el número cargado pasa la validación de producción", async () => {
+    const { experiencia } = await import("../../src/data/experiencia");
+
+    expect(() => validarNumero(experiencia.whatsapp.numero, { produccion: true })).not.toThrow();
   });
 });
 

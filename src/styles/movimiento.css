@@ -1,0 +1,199 @@
+/* ============================================================
+   Movimiento (2026-09-25). Lento, preciso, siempre con motivo.
+
+   Reglas:
+   - Todo va dentro de `prefers-reduced-motion: no-preference`: con
+     «reducir movimiento» la página queda quieta y completa.
+   - Lo ligado al scroll va bajo @supports (animation-timeline): sin
+     soporte, la foto o el texto quedan en su lugar, visibles.
+   - Nada depende del scroll para hacerse visible. La única entrada con
+     opacidad es la del hero al cargar, y termina sola en ~1,3 s.
+   - Timelines y rangos van en custom properties: el minificador junta
+     los longhands en un `animation` que Chrome descarta si trae
+     scroll()/view() adentro (mismo workaround que Nav.astro).
+   ============================================================ */
+
+:root {
+  --mh-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --mh-ease-suave: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ---------- textura: grano de papel ---------- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
+}
+
+/* ---------- marcos de foto: la imagen respira adentro ---------- */
+.marco {
+  display: block;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Hover: zoom mínimo, lento. Usa `scale` para no pisar el `translate`
+     del parallax. */
+  .marco > img {
+    transition: scale 0.9s var(--mh-ease);
+  }
+
+  .marco:hover > img {
+    scale: 1.04;
+  }
+
+  @supports (animation-timeline: view()) {
+    .marco > img {
+      --linea-foto: view();
+      --rango-foto: cover 0% cover 100%;
+      scale: 1.1;
+      animation-name: mh-parallax;
+      animation-duration: 1ms;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: var(--linea-foto);
+      animation-range: var(--rango-foto);
+    }
+
+    .marco:hover > img {
+      scale: 1.14;
+    }
+  }
+
+  /* ---------- hero: entrada al cargar ---------- */
+  .hero__foto {
+    animation: mh-zoom-entrada 2.4s var(--mh-ease) both;
+  }
+
+  .palabra {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    /* Aire para los descendentes (p, q) dentro de la máscara. */
+    padding-bottom: 0.12em;
+    margin-bottom: -0.12em;
+  }
+
+  .palabra > span {
+    display: inline-block;
+    animation: mh-subir 1s var(--mh-ease) both;
+    animation-delay: calc(0.25s + var(--i, 0) * 0.07s);
+  }
+
+  .entra {
+    animation: mh-aparecer 0.9s var(--mh-ease) both;
+    animation-delay: var(--demora, 0.6s);
+  }
+
+  /* ---------- «Pedir propuesta»: latido continuo ---------- */
+  .cta--latido {
+    animation: mh-latido 3s var(--mh-ease) var(--latido-demora, 2.2s) infinite both;
+  }
+
+  /* Al pasar el mouse o enfocarlo se queda quieto: se lee el relleno. */
+  .cta--latido:hover,
+  .cta--latido:focus-visible {
+    animation-play-state: paused;
+  }
+
+  /* ---------- énfasis: el trigo se pinta de izquierda a derecha ----------
+     Ligado al scroll; sin soporte, el fondo está completo desde el inicio. */
+  @supports (animation-timeline: view()) {
+    .enfasis {
+      --linea-enfasis: view();
+      --rango-enfasis: entry 60% cover 40%;
+      animation-name: mh-resaltar;
+      animation-duration: 1ms;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: var(--linea-enfasis);
+      animation-range: var(--rango-enfasis);
+    }
+  }
+
+  /* ---------- links: el subrayado se dibuja ---------- */
+  .link {
+    text-decoration: none;
+    background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
+    transition: background-size 0.45s var(--mh-ease);
+  }
+
+  .link:hover {
+    background-size: 0 1px;
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes mh-resaltar {
+  from { background-size: 0% 100%; }
+  to   { background-size: 100% 100%; }
+}
+
+@keyframes mh-trazo {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes mh-dibujar {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes mh-cinta {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 600px 0, 0 0; }
+}
+
+@keyframes mh-franja {
+  from { translate: 0 0; }
+  to   { translate: -33.333% 0; }
+}
+
+/* Doble latido («pum-pum») con un anillo trigo que se expande y se apaga,
+   y después reposo hasta el próximo ciclo. */
+@keyframes mh-latido {
+  0%   { transform: scale(1);    box-shadow: 0 0 0 0 rgba(216, 185, 120, 0.7); }
+  8%   { transform: scale(1.06); }
+  16%  { transform: scale(1); }
+  24%  { transform: scale(1.04); }
+  34%  { transform: scale(1); }
+  45%  { box-shadow: 0 0 0 18px rgba(216, 185, 120, 0); }
+  100% { transform: scale(1);    box-shadow: 0 0 0 18px rgba(216, 185, 120, 0); }
+}
+
+@keyframes mh-parallax {
+  from { translate: 0 -5%; }
+  to   { translate: 0 5%; }
+}
+
+@keyframes mh-hero-parallax {
+  from { translate: 0 0; }
+  to   { translate: 0 22%; }
+}
+
+@keyframes mh-zoom-entrada {
+  from { transform: scale(1.08); }
+  to   { transform: scale(1); }
+}
+
+@keyframes mh-subir {
+  from { transform: translateY(105%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes mh-aparecer {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Sin movimiento, los links conservan el subrayado de siempre. */
+@media (prefers-reduced-motion: reduce) {
+  .link {
+    text-decoration: underline;
+  }
+}

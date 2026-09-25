@@ -50,9 +50,13 @@ No commitear `analisis/` — va al `.gitignore`.
   página. Un utility framework acá agrega peso y esconde el sistema.
 - **`astro:assets`** (`<Image />`) para *todas* las fotos. Son pesadas y el
   sitio se abre desde un mail.
-- **Fuentes**: Marcellus y Karla desde Google Fonts, con `display=swap`,
-  `preconnect`, y sólo los pesos que se usan (Marcellus 400; Karla 400/600).
-- **JS**: sólo el menú mobile y el botón flotante. Sin analytics en la v1.
+- **Fuentes**: Marcellus y Karla de Google, descargadas en el build con la
+  API de fuentes de Astro (`astro.config.mjs`) y servidas desde el sitio,
+  sólo los pesos que se usan (Marcellus 400; Karla 400/600). El `<link>` a
+  Google Fonts bloqueaba el render (cambio 2026-09-25).
+- **JS**: el menú mobile y el scroll suave (Lenis, aprobado 2026-09-25, se
+  apaga con «reducir movimiento»). El resto del movimiento es CSS
+  (`src/styles/movimiento.css`). Sin analytics en la v1.
 
 ### Estructura
 
@@ -81,10 +85,10 @@ duración o una frase, y tiene que ser un solo archivo de una sola verdad.
 El CTA es un link `wa.me` con mensaje pre-cargado:
 
 ```ts
-const base = "https://wa.me/54911XXXXXXXX?text=";
+const base = "https://wa.me/5491165755523?text=";
 const msg = (origen: string) =>
   base + encodeURIComponent(
-    `Hola Mariana, quiero una propuesta de MÁS HATS para ____. ` +
+    `Hola Marian, quiero una propuesta de MÁS HATS para ____. ` +
     `Seríamos ____ personas, la fecha tentativa es ____ y sería en ____.`
   );
 ```

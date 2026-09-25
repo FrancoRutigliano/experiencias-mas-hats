@@ -1,0 +1,188 @@
+---
+/**
+ * Galería infinita y automática (2026-09-25).
+ *
+ * - La pista tiene las fotos dos veces y corre de derecha a izquierda en
+ *   loop: al llegar a la mitad vuelve al inicio sin salto. La segunda tanda
+ *   es aria-hidden (el lector de pantalla recorre cada foto una sola vez).
+ * - Se pausa al pasar el mouse, al enfocar y con el control «Pausar galería»
+ *   (WCAG 2.2.2: lo que se mueve solo más de 5 s tiene que poder pausarse).
+ *   El control es un checkbox + :has(): sin JavaScript.
+ * - Con «reducir movimiento» no corre: queda una fila que se desliza a mano
+ *   con scroll-snap, sin la tanda duplicada ni el control.
+ * Va sobre --mh-cal-2 como «Cómo funciona»: se lee como su continuación.
+ */
+import { Picture } from "astro:assets";
+import { experiencia } from "../data/experiencia";
+import { fotos } from "../data/fotos";
+
+const { label, titulo, fotos: lista } = experiencia.galeria;
+
+const ANCHOS = [400, 700, 1000];
+const SIZES = "(min-width: 1080px) 26vw, (min-width: 720px) 40vw, 72vw";
+const TANDAS = [false, true] as const; // ¿es la copia?
+---
+
+<section id="galeria" class="galeria seccion seccion--alterna" aria-labelledby="galeria-titulo">
+  <div class="contenedor galeria__cabeza">
+    <div>
+      <p class="label etiqueta">{label}</p>
+      <h2 id="galeria-titulo" class="galeria__titulo">{titulo}</h2>
+    </div>
+    <label class="galeria__pausa">
+      <input type="checkbox" class="galeria__pausa-input" />
+      <span>{experiencia.ui.pausarGaleria}</span>
+    </label>
+  </div>
+
+  <div class="galeria__ventana">
+    <ul class="galeria__pista" role="list">
+      {
+        TANDAS.map((copia) =>
+          lista.map((foto) => (
+            <li
+              class:list={["galeria__item", { "galeria__item--copia": copia }]}
+              aria-hidden={copia ? "true" : undefined}
+            >
+              <Picture
+                src={fotos[foto.id]}
+                alt={copia ? "" : foto.alt}
+                formats={["avif", "webp"]}
+                widths={ANCHOS}
+                sizes={SIZES}
+                loading="lazy"
+                decoding="async"
+                class="galeria__foto"
+                pictureAttributes={{ class: "marco galeria__marco" }}
+              />
+            </li>
+          )),
+        )
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .galeria {
+    padding-top: 0;
+  }
+
+  .galeria__cabeza {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--mh-gutter);
+    margin-bottom: clamp(28px, 4vw, 48px);
+  }
+
+  .galeria__titulo {
+    margin-top: 14px;
+  }
+
+  /* Control de pausa: se ve como un label chico, es un checkbox real. */
+  .galeria__pausa {
+    display: none;
+    align-items: center;
+    min-height: 44px;
+    cursor: pointer;
+    font: var(--mh-label);
+    letter-spacing: var(--mh-label-ls);
+    text-transform: uppercase;
+    color: var(--mh-trigo-ink);
+    white-space: nowrap;
+  }
+
+  .galeria__pausa-input {
+    width: 16px;
+    height: 16px;
+    margin: 0 10px 0 0;
+    accent-color: var(--mh-tinta);
+  }
+
+  .galeria__pausa:has(:focus-visible) {
+    outline: 2px solid var(--mh-trigo-ink);
+    outline-offset: 3px;
+  }
+
+  .galeria__ventana {
+    overflow: hidden;
+  }
+
+  .galeria__pista {
+    --item: 72vw;
+    --separacion: 16px;
+    display: flex;
+    gap: var(--separacion);
+    width: max-content;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .galeria__item {
+    width: var(--item);
+    flex-shrink: 0;
+  }
+
+  .galeria__foto {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
+  @media (min-width: 720px) {
+    .galeria__pista {
+      --item: 40vw;
+      --separacion: var(--mh-gutter);
+    }
+  }
+
+  @media (min-width: 1080px) {
+    .galeria__pista {
+      --item: 26vw;
+    }
+  }
+
+  /* ---------- en movimiento ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    .galeria__pausa {
+      display: inline-flex;
+    }
+
+    .galeria__pista {
+      /* Una tanda (la mitad de la pista) cada 60 s: lento, de fondo. */
+      animation: mh-galeria 60s linear infinite;
+    }
+
+    .galeria__ventana:hover .galeria__pista,
+    .galeria:has(.galeria__pausa-input:checked) .galeria__pista {
+      animation-play-state: paused;
+    }
+  }
+
+  /* ---------- quieta: fila que se desliza a mano ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    .galeria__ventana {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-inline: var(--mh-gutter);
+      scroll-padding-inline: var(--mh-gutter);
+    }
+
+    .galeria__item {
+      scroll-snap-align: start;
+    }
+
+    .galeria__item--copia {
+      display: none;
+    }
+  }
+
+  @keyframes mh-galeria {
+    from { transform: translateX(0); }
+    /* Una tanda = la mitad de la pista más medio gap: el loop no salta. */
+    to { transform: translateX(calc(-50% - var(--separacion) / 2)); }
+  }
+</style>

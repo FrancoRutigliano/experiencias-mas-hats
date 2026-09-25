@@ -8,3 +8,4 @@ playwright-report/
 coverage/
 .DS_Store
 .env*
+.claude/worktrees/

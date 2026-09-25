@@ -1,0 +1,307 @@
+---
+/**
+ * Nav (spec §2). Barra fina sobre el hero; al pasar el hero queda fija con
+ * fondo --mh-cal y borde --mh-arena.
+ *
+ * - Menú mobile: Popover API (`popover` + `popovertarget`), sin JS para abrir
+ *   ni cerrar. El único JS es el script inline de abajo, que cierra el panel
+ *   al tocar un ancla (los <a> no pueden ser `popovertarget`).
+ * - Nav fija: CSS scroll-driven animations bajo @supports. Sin soporte, o con
+ *   prefers-reduced-motion, la barra queda absoluta sobre el hero y se va con
+ *   el scroll: siempre legible, nunca tapa contenido.
+ *
+ * Contraste sobre la foto: el velo superior (::before) replica el rgba de
+ * --mh-velo (35,42,38). En la franja del texto el alfa es ≥ .72, así que aun
+ * sobre blanco puro el fondo compuesto da --mh-sobre-foto ≥ 5.7:1 y el anillo
+ * --mh-eyebrow ≥ 3.9:1 (no-texto, pide 3:1).
+ */
+import CtaButton from "./CtaButton.astro";
+import Logo from "./Logo.astro";
+import { experiencia } from "../data/experiencia";
+
+const UI = experiencia.ui;
+
+// «Casos» apunta a un bloque que se apaga sin permiso (casos.publicar).
+const anclas = experiencia.nav.filter(
+  (item) => item.ancla !== "#casos" || experiencia.casos.publicar,
+);
+---
+
+<header class="nav">
+  <div class="contenedor nav__barra">
+    <a class="nav__marca" href="#top"><Logo alto={30} /></a>
+
+    <button class="nav__boton nav__abrir" type="button" popovertarget="nav-menu">
+      {UI.menu}
+    </button>
+
+    <nav id="nav-menu" class="nav__menu" popover>
+      <button
+        class="nav__boton nav__cerrar"
+        type="button"
+        popovertarget="nav-menu"
+        popovertargetaction="hide"
+        autofocus
+      >
+        {UI.cerrar}
+      </button>
+      <ul class="nav__anclas" role="list">
+        {
+          anclas.map((item) => (
+            <li>
+              <a class="nav__ancla" href={item.ancla}>
+                {item.texto}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <CtaButton origen="nav" latido />
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const menu = document.getElementById("nav-menu");
+    if (!menu || typeof menu.hidePopover !== "function") return;
+    menu.addEventListener("click", (evento) => {
+      const esAncla = evento.target instanceof Element && evento.target.closest("a[href^='#']");
+      if (esAncla && menu.matches(":popover-open")) menu.hidePopover();
+    });
+  })();
+</script>
+
+<style>
+  :global(:root) {
+    --nav-alto: 4.5rem;
+  }
+
+  .nav {
+    --foco: var(--mh-eyebrow);
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 10;
+    isolation: isolate;
+    color: var(--mh-sobre-foto);
+    border-bottom: 1px solid transparent;
+  }
+
+  /* Velo superior: mismo rgba que --mh-velo, invertido. Alfa .8 → .7 en el
+     alto de la barra y se desvanece en 1.5 barras más. */
+  .nav::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: calc(var(--nav-alto) * 2.5);
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(35, 42, 38, 0.8) 0%,
+      rgba(35, 42, 38, 0.7) 40%,
+      rgba(35, 42, 38, 0) 100%
+    );
+  }
+
+  .nav__barra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--mh-gutter);
+    min-height: var(--nav-alto);
+  }
+
+  .nav__marca {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    line-height: 1;
+    color: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav__marca:hover,
+  .nav__ancla:hover {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+  }
+
+  .nav__boton {
+    min-height: 44px;
+    padding: 0 0.5rem;
+    margin-inline-end: -0.5rem;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: var(--mh-label);
+    letter-spacing: var(--mh-label-ls);
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .nav__marca:focus-visible,
+  .nav__boton:focus-visible,
+  .nav__ancla:focus-visible {
+    outline-color: var(--foco);
+  }
+
+  .nav__anclas {
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav__ancla {
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    text-underline-offset: 0.4em;
+  }
+
+  /* ---------- mobile: panel a pantalla completa ---------- */
+  @media (max-width: 899px) {
+    .nav__menu {
+      display: none;
+    }
+
+    .nav__menu:popover-open {
+      --foco: var(--mh-trigo-ink);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--mh-gutter);
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      max-height: none;
+      margin: 0;
+      padding: 0 var(--mh-gutter) var(--mh-gutter);
+      border: 0;
+      overflow-y: auto;
+      background: var(--mh-cal);
+      color: var(--mh-tinta);
+    }
+
+    .nav__cerrar {
+      align-self: flex-end;
+      min-height: var(--nav-alto);
+    }
+
+    .nav__anclas {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .nav__anclas li {
+      border-bottom: var(--mh-borde);
+    }
+
+    .nav__ancla {
+      display: block;
+      padding-block: 0.6em;
+      font: var(--mh-h2);
+    }
+
+    .nav__ancla:hover {
+      color: var(--mh-trigo-ink);
+    }
+  }
+
+  /* ---------- desktop: el mismo <nav> en línea ---------- */
+  @media (min-width: 900px) {
+    .nav__abrir,
+    .nav__cerrar {
+      display: none;
+    }
+
+    /* Pisa los estilos UA del popover: en desktop es una lista más. */
+    .nav__menu {
+      position: static;
+      inset: auto;
+      display: flex;
+      align-items: center;
+      gap: calc(var(--mh-gutter) * 0.75);
+      width: auto;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      overflow: visible;
+      background: none;
+      color: inherit;
+    }
+
+    .nav__anclas {
+      display: flex;
+      gap: calc(var(--mh-gutter) * 0.5);
+    }
+
+    .nav__ancla {
+      padding-block: 0.75rem;
+      font: var(--mh-label);
+      letter-spacing: var(--mh-label-ls);
+      text-transform: uppercase;
+    }
+  }
+
+  /* ---------- fija con fondo sólido al pasar el hero ----------
+     El rango termina justo cuando el borde inferior del hero (min-height
+     88svh / 92svh) llega a la base de la barra. */
+  @supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+      :global(html) {
+        scroll-padding-top: var(--nav-alto);
+      }
+
+      .nav {
+        --fin-hero: 88svh;
+        /* En una custom property a propósito: el minificador junta los
+           longhands en un shorthand `animation` con scroll(root) adentro,
+           que Chrome descarta entero. Con var() no los puede juntar. */
+        --linea-nav: scroll(root);
+        position: fixed;
+        animation-name: nav-solida;
+      }
+
+      .nav::before {
+        animation-name: nav-sin-velo;
+      }
+
+      /* Cambio seco (steps), no fundido: la barra nunca pasa por un estado
+         intermedio con texto claro sobre fondo claro. */
+      .nav,
+      .nav::before {
+        animation-timing-function: steps(1, jump-end);
+        animation-fill-mode: both;
+        animation-timeline: var(--linea-nav);
+        animation-range: calc(var(--fin-hero) - var(--nav-alto) * 2) calc(var(--fin-hero) - var(--nav-alto));
+      }
+
+      @media (min-width: 900px) {
+        .nav {
+          --fin-hero: 92svh;
+        }
+      }
+    }
+  }
+
+  @keyframes nav-solida {
+    to {
+      --foco: var(--mh-trigo-ink);
+      color: var(--mh-tinta);
+      background-color: var(--mh-cal);
+      border-bottom-color: var(--mh-arena);
+    }
+  }
+
+  @keyframes nav-sin-velo {
+    to {
+      opacity: 0;
+    }
+  }
+</style>

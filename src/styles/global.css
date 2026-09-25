@@ -77,3 +77,34 @@ a:hover { color: var(--mh-trigo-dark); }
     animation: none !important;
   }
 }
+
+/* ---------- avíos: etiqueta con corte de moño y cinta grosgrain ----------
+   (2026-09-25) Las etiquetas de sección son como la cinta que se corta en
+   «V» al terminar un sombrero. Tinta sobre cal: 13.96:1. La variante trigo
+   lleva tinta encima: 7.78:1 (el trigo sigue siendo sólo relleno). */
+.etiqueta {
+  display: block;
+  width: fit-content;
+  padding: 0.75em 2.4em 0.75em 1.1em;
+  background: var(--mh-tinta);
+  color: var(--mh-cal);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 1em) 50%, 100% 100%, 0 100%);
+}
+
+.etiqueta--trigo {
+  background: var(--mh-trigo);
+  color: var(--mh-tinta);
+}
+
+/* ---------- énfasis estratégico (2026-09-25) ----------
+   El fragmento que hay que leer va sobre trigo, el color de «Pedir
+   propuesta»: la acción y lo importante hablan el mismo idioma.
+   Tinta sobre trigo: 7.78:1. Pocos por página: si todo resalta, nada. */
+.enfasis {
+  padding: 0 0.14em;
+  margin: 0 -0.04em;
+  color: var(--mh-tinta);
+  background: linear-gradient(var(--mh-trigo), var(--mh-trigo)) 0 0 / 100% 100% no-repeat;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}

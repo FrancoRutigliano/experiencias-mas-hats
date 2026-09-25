@@ -1,0 +1,162 @@
+---
+/**
+ * 06 · Mariana (brief §4, spec §2). Espejo de «La idea»: grilla 5/7 con la
+ * foto 4:5 a la izquierda, a sangre hasta el borde izquierdo del viewport.
+ *
+ * El bloque tiene que verse completo con lo que hay hoy (foto, nombre y
+ * profesión) y también cuando lleguen las frases:
+ * - `frases` vacío → no se renderiza la lista (ni placeholder ni relleno).
+ *   TODO: tres frases en primera persona, con palabras de Marian (brief §8).
+ * - `instagram` null → no hay link.
+ *
+ * El ancla #mariana queda libre de la nav fija por el scroll-padding-top que
+ * define Nav.astro (--nav-alto) más el padding de .seccion.
+ */
+import { Picture } from "astro:assets";
+import Enfasis from "./Enfasis.astro";
+import { experiencia } from "../data/experiencia";
+import { fotos } from "../data/fotos";
+
+const { titulo, profesion, trayectoria, frases, foto } = experiencia.mariana;
+const { instagram } = experiencia;
+
+// Texto visible del link: la propia URL sin protocolo ni «www.» (no hay un
+// texto de link en experiencia.ts; ver TODO en el informe).
+const instagramTexto = instagram?.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+
+const ANCHOS = [480, 800, 1200, 1600];
+const SIZES = "(min-width: 900px) 45vw, 100vw";
+---
+
+<section id="mariana" class="mariana seccion" aria-labelledby="mariana-titulo">
+  <div class="contenedor grilla mariana__grilla">
+    <Picture
+      src={fotos[foto.id]}
+      alt={foto.alt}
+      formats={["avif", "webp"]}
+      widths={ANCHOS}
+      sizes={SIZES}
+      loading="lazy"
+      decoding="async"
+      class="mariana__foto"
+      pictureAttributes={{ class: "mariana__picture marco" }}
+    />
+
+    <div class="mariana__texto">
+      <h2 id="mariana-titulo" class="mariana__titulo">{titulo}</h2>
+      <p class="label etiqueta etiqueta--trigo mariana__profesion">{profesion}</p>
+      <p class="mariana__trayectoria">{trayectoria}</p>
+
+      {
+        frases.length > 0 && (
+          <ul class="mariana__frases" role="list">
+            {frases.map((frase) => (
+              <li class="mariana__frase"><Enfasis texto={frase} enfasis={experiencia.mariana.enfasis} /></li>
+            ))}
+          </ul>
+        )
+      }
+
+      {
+        instagram && (
+          <p class="mariana__instagram">
+            <a href={instagram} target="_blank" rel="noopener">
+              {instagramTexto}
+            </a>
+          </p>
+        )
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .mariana {
+    /* 100cqw = ancho de la sección sin la barra de scroll (100vw la incluye). */
+    container-type: inline-size;
+  }
+
+  .mariana__grilla {
+    row-gap: var(--mh-gutter);
+  }
+
+  /* Mobile: la foto a sangre de borde a borde, arriba del texto. */
+  .mariana__picture {
+    grid-column: 1 / -1;
+    /* Sin el tope de global.css: el sangrado ensancha la foto más allá de
+       su área de grilla. */
+    max-width: none;
+    margin-inline: calc(var(--mh-gutter) * -1);
+  }
+
+  .mariana__foto {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    /* Marian está a la derecha del cuadro: cara y sombrero arriba. */
+    object-position: 50% 35%;
+  }
+
+  .mariana__texto {
+    grid-column: 1 / -1;
+  }
+
+  .mariana__titulo {
+    font: var(--mh-h1);
+    color: var(--mh-tinta);
+  }
+
+  .mariana__profesion {
+    margin-top: 1rem;
+  }
+
+  .mariana__frases {
+    display: grid;
+    gap: 1px;
+    max-width: var(--mh-medida);
+    margin-top: calc(var(--mh-gutter) * 0.75);
+    padding: 0;
+    list-style: none;
+    /* Reglas de 1px entre frases: gap + fondo, como la ficha. */
+    background: var(--mh-arena);
+    border-block: var(--mh-borde);
+  }
+
+  .mariana__frase {
+    padding-block: 24px;
+    background: var(--mh-cal);
+    font: var(--mh-lead);
+    color: var(--mh-tinta);
+  }
+
+  .mariana__instagram {
+    margin-top: 1.5rem;
+    font: var(--mh-p);
+  }
+
+  @media (min-width: 900px) {
+    .mariana__grilla {
+      /* Nombre y profesión al pie de la foto, como un pie de retrato; cuando
+         llegan las frases, el bloque de texto crece hacia arriba. */
+      align-items: end;
+    }
+
+    /* 5 columnas de la izquierda + sangrado hasta el borde del viewport. */
+    .mariana__picture {
+      grid-column: 1 / span 5;
+      grid-row: 1;
+      margin-inline: calc((var(--mh-gutter) + max(0px, (100cqw - 1440px) / 2)) * -1) 0;
+    }
+
+    .mariana__texto {
+      grid-column: 7 / -1;
+      grid-row: 1;
+    }
+  }
+
+  .mariana__trayectoria {
+    margin-top: 1.25rem;
+    font: var(--mh-lead);
+    color: var(--mh-tinta-2);
+  }
+</style>

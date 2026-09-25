@@ -1,0 +1,170 @@
+---
+/**
+ * 03 · La idea (brief §4, spec §2). El porqué, con peso de página de revista.
+ *
+ * - Desktop (≥ 900px): grilla 7/5. Texto a la izquierda; foto 4:5 a la
+ *   derecha, a sangre hasta el borde derecho del viewport.
+ * - Debajo, a todo el ancho, «Para tu empresa»: tres columnas separadas por
+ *   reglas de 1px (mismo recurso que la ficha: gap + fondo). En mobile se apilan.
+ * - Fondo --mh-cal (alterna con la ficha en --mh-cal-2). Sin CTA.
+ *
+ * Contraste: sólo pares verificados en tokens.css sobre --mh-cal
+ * (--mh-tinta, --mh-tinta-2, --mh-trigo-ink).
+ */
+import { Picture } from "astro:assets";
+import Enfasis from "./Enfasis.astro";
+import { experiencia } from "../data/experiencia";
+import { fotos } from "../data/fotos";
+
+const { label, titulo, parrafo, beneficiosTitulo, beneficios, foto } = experiencia.idea;
+
+// En desktop la foto ocupa 5 de 12 columnas más el sangrado (~40–45vw).
+const ANCHOS = [480, 800, 1200, 1600];
+const SIZES = "(min-width: 900px) 45vw, 100vw";
+---
+
+<section id="idea" class="idea seccion" aria-labelledby="idea-titulo">
+  <div class="contenedor grilla idea__intro">
+    <div class="idea__texto">
+      <p class="label etiqueta">{label}</p>
+      <h2 id="idea-titulo" class="idea__titulo"><Enfasis texto={titulo} enfasis={experiencia.idea.enfasis} /></h2>
+      <p class="idea__parrafo">{parrafo}</p>
+    </div>
+
+    <Picture
+      src={fotos[foto.id]}
+      alt={foto.alt}
+      formats={["avif", "webp"]}
+      widths={ANCHOS}
+      sizes={SIZES}
+      loading="lazy"
+      decoding="async"
+      class="idea__foto"
+      pictureAttributes={{ class: "idea__picture marco" }}
+    />
+  </div>
+
+  <div class="contenedor idea__beneficios">
+    <h3 id="idea-beneficios" class="label">{beneficiosTitulo}</h3>
+    <ul class="idea__lista" role="list" aria-labelledby="idea-beneficios">
+      {
+        beneficios.map(({ titulo: tituloBeneficio, texto }) => (
+          <li class="idea__beneficio">
+            <h4 class="idea__beneficio-titulo">{tituloBeneficio}</h4>
+            <p class="idea__beneficio-texto">{texto}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .idea {
+    /* 100cqw = ancho de la sección sin la barra de scroll (100vw la incluye). */
+    container-type: inline-size;
+  }
+
+  .idea__intro {
+    row-gap: var(--mh-gutter);
+    align-items: center;
+  }
+
+  .idea__texto {
+    grid-column: 1 / -1;
+  }
+
+  .idea__titulo {
+    margin-top: 1.25rem;
+    font: var(--mh-h1);
+    color: var(--mh-tinta);
+  }
+
+  .idea__parrafo {
+    margin-top: 1.5rem;
+    font: var(--mh-lead);
+    color: var(--mh-tinta-2);
+  }
+
+  /* Mobile: la foto a sangre de borde a borde. */
+  .idea__picture {
+    grid-column: 1 / -1;
+    /* Sin el tope de global.css: el sangrado ensancha la foto más allá de
+       su área de grilla. */
+    max-width: none;
+    margin-inline: calc(var(--mh-gutter) * -1);
+  }
+
+  .idea__foto {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    /* Sombrero y cara en cuadro al recortar la 2:3 a 4:5. */
+    object-position: 50% 50%; /* idea.jpg ya viene recortada en 4:5, sin caras */
+  }
+
+  /* ---------- «Para tu empresa» ---------- */
+  .idea__beneficios {
+    margin-top: var(--mh-seccion);
+  }
+
+  .idea__lista {
+    /* Reglas de 1px: el fondo --mh-arena asoma por el gap, como en la ficha. */
+    display: grid;
+    gap: 1px;
+    margin-top: calc(var(--mh-gutter) * 0.75);
+    padding: 0;
+    list-style: none;
+    background: var(--mh-arena);
+    border-block: var(--mh-borde);
+  }
+
+  .idea__beneficio {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-block: 28px;
+    background: var(--mh-cal);
+  }
+
+  .idea__beneficio-titulo {
+    margin: 0;
+    font: var(--mh-h3);
+    color: var(--mh-tinta);
+    text-wrap: balance;
+  }
+
+  .idea__beneficio-texto {
+    font: var(--mh-p);
+    color: var(--mh-tinta-2);
+  }
+
+  @media (min-width: 900px) {
+    .idea__texto {
+      grid-column: 1 / span 6;
+    }
+
+    /* 5 columnas de la derecha + sangrado: gutter del contenedor y, pasados
+       los 1440px, la mitad del resto del viewport. */
+    .idea__picture {
+      grid-column: 8 / -1;
+      margin-inline: 0 calc((var(--mh-gutter) + max(0px, (100cqw - 1440px) / 2)) * -1);
+    }
+
+    .idea__lista {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .idea__beneficio {
+      padding: 32px var(--mh-gutter) 36px;
+    }
+
+    .idea__beneficio:first-child {
+      padding-inline-start: 0;
+    }
+
+    .idea__beneficio:last-child {
+      padding-inline-end: 0;
+    }
+  }
+</style>
