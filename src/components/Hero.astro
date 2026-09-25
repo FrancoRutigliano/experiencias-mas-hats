@@ -1,0 +1,169 @@
+---
+/**
+ * 01 · Hero (spec §2). Foto a sangre recortada de una vertical 4000×6000.
+ *
+ * - Desktop (≥ 900px): la foto cubre todo el hero y el texto va encima, abajo
+ *   a la izquierda en 6 columnas.
+ * - Mobile: la foto ocupa la parte de arriba a sangre y se funde en --mh-tinta;
+ *   el texto va debajo, sobre tinta. En un teléfono la foto entra entera de
+ *   alto y el grupo queda justo detrás del texto: con --mh-velo solo, el
+ *   eyebrow medía 1.3:1 y el titular 2:1 (ver informe de la fase 1).
+ *
+ * Los velos extra derivan de --mh-tinta (rgba 35,42,38, el mismo de
+ * --mh-velo). Propuesta de token: --mh-velo-texto (ver informe).
+ */
+import { Picture } from "astro:assets";
+import CtaButton from "./CtaButton.astro";
+import { experiencia } from "../data/experiencia";
+import { fotos } from "../data/fotos";
+
+const { eyebrow, titular, bajada, foto } = experiencia.hero;
+
+// Anchos generados. En desktop la foto ocupa el ancho del viewport; en mobile
+// también (la foto va a sangre arriba del texto).
+const ANCHOS = [480, 800, 1200, 1600, 2000, 2560];
+const SIZES = "100vw";
+---
+
+<section class="hero" aria-labelledby="hero-titulo">
+  <Picture
+    src={fotos[foto.id]}
+    alt={foto.alt}
+    formats={["avif", "webp"]}
+    widths={ANCHOS}
+    sizes={SIZES}
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+    class="hero__foto"
+    pictureAttributes={{ class: "hero__picture" }}
+  />
+  <div class="hero__velo" aria-hidden="true"></div>
+
+  <div class="contenedor grilla hero__contenido">
+    <div class="hero__texto">
+      <p class="label hero__eyebrow">{eyebrow}</p>
+      <h1 id="hero-titulo" class="hero__titular">{titular}</h1>
+      <p class="hero__bajada">{bajada}</p>
+      <div class="hero__accion">
+        <CtaButton origen="hero" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    /* Anillo de foco sobre tinta / velo oscuro: --mh-eyebrow. */
+    --foco: var(--mh-eyebrow);
+    display: grid;
+    grid-template-rows: minmax(50svh, 1fr) auto;
+    min-height: 88svh;
+    background: var(--mh-tinta);
+  }
+
+  .hero__picture,
+  .hero__velo {
+    grid-area: 1 / 1;
+    min-height: 0;
+  }
+
+  /* La foto no aporta alto: lo fijan la grilla y min-height. Velo y texto
+     también posicionados, para apilarse sobre la foto en orden de DOM. */
+  .hero__picture,
+  .hero__velo,
+  .hero__contenido {
+    position: relative;
+  }
+
+  .hero__foto {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Mobile: el grupo entero en cuadro, las cabezas por debajo de la barra. */
+    object-position: 50% 70%;
+  }
+
+  /* Mobile: la foto se funde en tinta, donde empieza el texto. */
+  .hero__velo {
+    background: linear-gradient(180deg, rgba(35, 42, 38, 0) 60%, var(--mh-tinta) 100%);
+  }
+
+  .hero__contenido {
+    grid-area: 2 / 1;
+    padding-block: 0.5rem var(--mh-gutter);
+  }
+
+  .hero__texto {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero__eyebrow {
+    color: var(--mh-eyebrow);
+    line-height: 1.5;
+  }
+
+  .hero__titular {
+    margin-top: 0.4em;
+    color: var(--mh-sobre-foto);
+  }
+
+  .hero__bajada {
+    margin-top: 1.25em;
+    font: var(--mh-lead);
+    color: var(--mh-sobre-foto-2);
+  }
+
+  .hero__accion {
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 900px) {
+    .hero {
+      grid-template-rows: 1fr;
+      align-items: end;
+      min-height: 92svh;
+    }
+
+    .hero__picture,
+    .hero__velo,
+    .hero__contenido {
+      grid-area: 1 / 1;
+    }
+
+    .hero__picture,
+    .hero__velo {
+      align-self: stretch;
+    }
+
+    .hero__foto {
+      /* Mesa larga en cuadro: las de pie quedan bajo la barra y las caras de
+         la primera fila por encima del texto. */
+      object-position: 50% 52%;
+    }
+
+    .hero__velo {
+      background:
+        linear-gradient(
+          90deg,
+          rgba(35, 42, 38, 0.8) 0%,
+          rgba(35, 42, 38, 0.7) 36%,
+          rgba(35, 42, 38, 0) 64%
+        ),
+        var(--mh-velo);
+    }
+
+    .hero__contenido {
+      padding-block: calc(var(--nav-alto, 4.5rem) + var(--mh-gutter)) var(--mh-gutter);
+    }
+
+    .hero__texto {
+      grid-column: 1 / span 6;
+    }
+  }
+</style>

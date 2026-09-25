@@ -1,0 +1,63 @@
+---
+/**
+ * El único botón de CTA del sitio: «Pedir propuesta» → WhatsApp con el
+ * mensaje pre-cargado. Mismo texto y mismo aspecto en todos lados; sólo cambia
+ * el `origen` (spec §5).
+ *
+ * Contraste (WCAG 2.x):
+ *   reposo  --mh-tinta sobre --mh-trigo       7.78:1
+ *   hover   --mh-cal   sobre --mh-trigo-dark  9.30:1
+ *   activo  --mh-cal   sobre --mh-trigo-ink   6.19:1
+ *
+ * El color del anillo de foco se hereda de `--foco` (lo define el bloque que
+ * contiene el botón: sobre foto oscura, --mh-eyebrow; sobre cal, el default
+ * --mh-trigo-ink). Así el botón no necesita variantes.
+ */
+import { experiencia } from "../data/experiencia";
+import { buildWhatsAppUrl, type Origen } from "../lib/whatsapp";
+
+interface Props {
+  origen: Origen;
+}
+
+const { origen } = Astro.props;
+const href = buildWhatsAppUrl(origen, experiencia.whatsapp);
+---
+
+<a class="cta" href={href} target="_blank" rel="noopener" data-origen={origen}>{experiencia.cta}</a>
+
+<style>
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px; /* área táctil mínima */
+    padding-inline: 1.75em;
+    border-radius: var(--mh-radius);
+    background: var(--mh-trigo);
+    color: var(--mh-tinta);
+    font: var(--mh-p);
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+      background-color 150ms ease,
+      color 150ms ease;
+  }
+
+  .cta:hover {
+    background: var(--mh-trigo-dark);
+    color: var(--mh-cal);
+  }
+
+  .cta:active {
+    background: var(--mh-trigo-ink);
+    color: var(--mh-cal);
+  }
+
+  .cta:focus-visible {
+    outline: 2px solid var(--foco, var(--mh-trigo-ink));
+    outline-offset: 3px;
+  }
+</style>
