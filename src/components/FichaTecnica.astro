@@ -1,23 +1,16 @@
 ---
 /**
  * 02 · Ficha técnica (brief §4). Va inmediatamente debajo del hero, sin CTA.
- * Todo el contenido sale de experiencia.ts, salvo los tres textos de abajo.
+ * Todo el contenido sale de experiencia.ts.
  */
 import { experiencia } from "../data/experiencia";
 
-const { ficha, incluye } = experiencia;
-
-// TODO: mover a experiencia.ts. «Ficha técnica» es el nombre del bloque en el
-// brief §4 y los prefijos son del brief §5 («Qué incluye / qué no»); hoy no
-// tienen campo propio (proponer `fichaTitulo` e `incluye.labelSi`/`labelNo`).
-const TITULO = "Ficha técnica";
-const PREFIJO_SI = "Incluye:";
-const PREFIJO_NO = "No incluye:";
+const { fichaTitulo, ficha, incluye } = experiencia;
 ---
 
 <section class="ficha seccion seccion--alterna" aria-labelledby="ficha-titulo">
   <div class="contenedor">
-    <h2 id="ficha-titulo" class="label">{TITULO}</h2>
+    <h2 id="ficha-titulo" class="label">{fichaTitulo}</h2>
 
     <dl class="ficha__grilla">
       {
@@ -31,8 +24,8 @@ const PREFIJO_NO = "No incluye:";
     </dl>
 
     <div class="ficha__incluye">
-      <p><strong>{PREFIJO_SI}</strong> {incluye.si}</p>
-      <p><strong>{PREFIJO_NO}</strong> {incluye.no}</p>
+      <p><strong>{incluye.labelSi}</strong> {incluye.si}</p>
+      <p><strong>{incluye.labelNo}</strong> {incluye.no}</p>
     </div>
   </div>
 </section>

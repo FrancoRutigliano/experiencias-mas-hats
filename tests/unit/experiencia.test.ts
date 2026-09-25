@@ -39,6 +39,16 @@ describe("experiencia · datos del brief", () => {
     ]);
   });
 
+  test("los textos de la ficha técnica salen del brief (§4 y §5)", () => {
+    expect(experiencia.fichaTitulo).toBe("Ficha técnica");
+    expect(experiencia.incluye.labelSi).toBe("Incluye:");
+    expect(experiencia.incluye.labelNo).toBe("No incluye:");
+  });
+
+  test("las etiquetas de interfaz del menú están en datos", () => {
+    expect(experiencia.ui).toEqual({ menu: "Menú", cerrar: "Cerrar" });
+  });
+
   test("incluye / no incluye es el del brief", () => {
     expect(experiencia.incluye.si).toBe(
       "Sombrero base por persona, todos los avíos, herramientas y la coordinación de la experiencia.",

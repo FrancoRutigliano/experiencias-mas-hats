@@ -18,9 +18,7 @@
 import CtaButton from "./CtaButton.astro";
 import { experiencia } from "../data/experiencia";
 
-// TODO: mover a experiencia.ts (p. ej. `ui: { menu, cerrar }`). No se tocó
-// el archivo de datos en la fase 1; son etiquetas de interfaz, no copy.
-const UI = { menu: "Menú", cerrar: "Cerrar" } as const;
+const UI = experiencia.ui;
 
 // «Casos» apunta a un bloque que se apaga sin permiso (casos.publicar).
 const anclas = experiencia.nav.filter(

@@ -41,14 +41,22 @@ export interface Experiencia {
   readonly whatsapp: WhatsAppConfig;
   readonly instagram: string | null;
   readonly nav: readonly { readonly texto: string; readonly ancla: string }[];
+  /** Etiquetas de interfaz (no son copy de marketing). */
+  readonly ui: { readonly menu: string; readonly cerrar: string };
   readonly hero: {
     readonly eyebrow: string;
     readonly titular: string;
     readonly bajada: string;
     readonly foto: Foto;
   };
+  readonly fichaTitulo: string;
   readonly ficha: readonly DatoFicha[];
-  readonly incluye: { readonly si: string; readonly no: string };
+  readonly incluye: {
+    readonly labelSi: string;
+    readonly si: string;
+    readonly labelNo: string;
+    readonly no: string;
+  };
   readonly como: { readonly titulo: string; readonly pasos: readonly Paso[] };
   readonly casos: {
     readonly titulo: string;
@@ -98,6 +106,8 @@ export const experiencia: Experiencia = deepFreeze({
     { texto: "Mariana", ancla: "#mariana" },
   ],
 
+  ui: { menu: "Menú", cerrar: "Cerrar" },
+
   hero: {
     eyebrow: "Experiencias a medida para hoteles, retiros y marcas",
     titular: "Una actividad que se llevan puesta.",
@@ -111,6 +121,8 @@ export const experiencia: Experiencia = deepFreeze({
     },
   },
 
+  fichaTitulo: "Ficha técnica",
+
   ficha: [
     { label: "Grupo", valor: "Desde 8" },
     { label: "Duración", valor: "2 a 2:30 h" },
@@ -122,7 +134,9 @@ export const experiencia: Experiencia = deepFreeze({
   ],
 
   incluye: {
+    labelSi: "Incluye:",
     si: "Sombrero base por persona, todos los avíos, herramientas y la coordinación de la experiencia.",
+    labelNo: "No incluye:",
     no: "Espacio, catering y fotografía. Fuera de Buenos Aires, traslado y estadía.",
   },
 
