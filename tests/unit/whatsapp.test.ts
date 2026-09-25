@@ -64,6 +64,14 @@ describe("validarNumero", () => {
   });
 });
 
+describe("número real", () => {
+  test("el número cargado pasa la validación de producción", async () => {
+    const { experiencia } = await import("../../src/data/experiencia");
+
+    expect(() => validarNumero(experiencia.whatsapp.numero, { produccion: true })).not.toThrow();
+  });
+});
+
 describe("esNumeroPlaceholder", () => {
   test("detecta el placeholder y no confunde un número real", () => {
     expect(esNumeroPlaceholder(WHATSAPP_PLACEHOLDER)).toBe(true);

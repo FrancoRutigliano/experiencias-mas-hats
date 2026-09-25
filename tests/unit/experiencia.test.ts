@@ -97,6 +97,18 @@ describe("experiencia · datos del brief", () => {
     expect(experiencia.mariana.profesion).toBe("Psicóloga");
   });
 
+  test("Mariana muestra su trayectoria con la marca (dato 2026-09-25)", () => {
+    expect(experiencia.mariana.trayectoria).toBe(
+      "Más de 7 años al frente de MÁS HATS, como emprendedora y empresaria.",
+    );
+  });
+
+  test("los datos de contacto son los reales (2026-09-25)", () => {
+    expect(experiencia.whatsapp.numero).toBe("5491165755523");
+    expect(experiencia.email).toBe("info@mashats.com");
+    expect(experiencia.instagram).toBe("https://www.instagram.com/mas.hats");
+  });
+
   test("no hay lenguaje clínico ni promesas terapéuticas (brief §7)", () => {
     const texto = JSON.stringify(experiencia).toLowerCase();
     for (const palabra of ["terapia", "terapéutic", "sanar", "tratamiento", "paciente"]) {

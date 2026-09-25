@@ -7,7 +7,7 @@
  * profesión) y también cuando lleguen las frases:
  * - `frases` vacío → no se renderiza la lista (ni placeholder ni relleno).
  *   TODO: tres frases en primera persona, con palabras de Mariana (brief §8).
- * - `instagram` null → no hay link. TODO: URL del Instagram (brief §8).
+ * - `instagram` null → no hay link.
  *
  * El ancla #mariana queda libre de la nav fija por el scroll-padding-top que
  * define Nav.astro (--nav-alto) más el padding de .seccion.
@@ -16,7 +16,7 @@ import { Picture } from "astro:assets";
 import { experiencia } from "../data/experiencia";
 import { fotos } from "../data/fotos";
 
-const { titulo, profesion, frases, foto } = experiencia.mariana;
+const { titulo, profesion, trayectoria, frases, foto } = experiencia.mariana;
 const { instagram } = experiencia;
 
 // Texto visible del link: la propia URL sin protocolo ni «www.» (no hay un
@@ -44,6 +44,7 @@ const SIZES = "(min-width: 900px) 45vw, 100vw";
     <div class="mariana__texto">
       <h2 id="mariana-titulo" class="mariana__titulo">{titulo}</h2>
       <p class="label mariana__profesion">{profesion}</p>
+      <p class="mariana__trayectoria">{trayectoria}</p>
 
       {
         frases.length > 0 && (
@@ -150,5 +151,11 @@ const SIZES = "(min-width: 900px) 45vw, 100vw";
       grid-column: 7 / -1;
       grid-row: 1;
     }
+  }
+
+  .mariana__trayectoria {
+    margin-top: 1.25rem;
+    font: var(--mh-lead);
+    color: var(--mh-tinta-2);
   }
 </style>

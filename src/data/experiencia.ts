@@ -8,7 +8,7 @@
  * no existen — quedan como TODO. tests/unit/experiencia.test.ts lo verifica.
  */
 import { deepFreeze } from "../lib/freeze";
-import { WHATSAPP_PLACEHOLDER, type WhatsAppConfig } from "../lib/whatsapp";
+import type { WhatsAppConfig } from "../lib/whatsapp";
 import type { FotoId } from "./fotos";
 
 export interface Foto {
@@ -45,6 +45,7 @@ export interface Experiencia {
   readonly cta: string;
   readonly whatsapp: WhatsAppConfig;
   readonly instagram: string | null;
+  readonly email: string;
   readonly nav: readonly { readonly texto: string; readonly ancla: string }[];
   /** Etiquetas de interfaz (no son copy de marketing). */
   readonly ui: { readonly menu: string; readonly cerrar: string };
@@ -80,8 +81,8 @@ export interface Experiencia {
   };
   readonly mariana: {
     readonly titulo: string;
-    /** TODO: confirmar si suma matrícula o especialidad (brief §8). */
     readonly profesion: string;
+    readonly trayectoria: string;
     /** TODO: tres frases en primera persona, con palabras de Mariana (brief §8). */
     readonly frases: readonly string[];
     readonly foto: Foto;
@@ -104,9 +105,8 @@ export const experiencia: Experiencia = deepFreeze({
   cta: "Pedir propuesta",
 
   whatsapp: {
-    // TODO: número de WhatsApp Business definitivo (brief §8). El build de
-    // producción falla mientras siga siendo el placeholder.
-    numero: WHATSAPP_PLACEHOLDER,
+    // WhatsApp Business de MÁS HATS: 11 6575-5523 en formato wa.me.
+    numero: "5491165755523",
     mensaje:
       "Hola Mariana, quiero una propuesta de MÁS HATS para ____. " +
       "Seríamos ____ personas, la fecha tentativa es ____ y sería en ____.",
@@ -114,8 +114,10 @@ export const experiencia: Experiencia = deepFreeze({
     incluirRef: false,
   },
 
-  // TODO: URL del Instagram de MÁS HATS.
-  instagram: null,
+  // Es el de la marca; Mariana no tiene uno aparte (2026-09-25).
+  instagram: "https://www.instagram.com/mas.hats",
+
+  email: "info@mashats.com",
 
   nav: [
     { texto: "Cómo funciona", ancla: "#como" },
@@ -229,6 +231,7 @@ export const experiencia: Experiencia = deepFreeze({
   mariana: {
     titulo: "Mariana",
     profesion: "Psicóloga",
+    trayectoria: "Más de 7 años al frente de MÁS HATS, como emprendedora y empresaria.",
     frases: [],
     foto: { id: "mariana", alt: "Mariana, con camisa blanca y sombrero marrón, junto a la mesa de trabajo." },
   },

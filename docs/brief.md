@@ -80,6 +80,11 @@ sostiene.
 | Anticipación | 15 a 30 días para reservar fecha |
 | Seña | 30% (para comprar sombreros y herramientas) |
 | Coordina | Mariana, sola; con asistente si el grupo es grande |
+| Trayectoria | Mariana lleva más de 7 años al frente de MÁS HATS, como emprendedora y empresaria |
+
+**Contacto (2026-09-25):** WhatsApp Business 11 6575-5523 (`wa.me/5491165755523`)
+· info@mashats.com · Instagram [@mas.hats](https://www.instagram.com/mas.hats),
+que es el de la marca y el que se usa también en el bloque de Mariana.
 
 **Incluye:** sombrero base por persona, todos los avíos, las herramientas y la
 coordinación de la experiencia.
@@ -137,7 +142,8 @@ parecido a él ya lo haya contratado pesa más que cualquier argumento. Con dos
 casos alcanza — no inflarlo.
 → *sin CTA*
 
-**06 · Mariana** — Foto, «Psicóloga», y tres frases en primera persona. Es lo único que nadie
+**06 · Mariana** — Foto, «Psicóloga» (sin matrícula), su trayectoria con la
+marca y tres frases en primera persona. Es lo único que nadie
 puede copiar, y en un servicio que coordina una sola persona, es también lo que
 da confianza de que va a salir bien.
 → *Instagram*
@@ -268,11 +274,8 @@ sobre una vertical, no estirando una chica.
 
 ## 8. Lo que todavía falta (no bloquea la v1)
 
-- Número de WhatsApp Business definitivo.
 - Permiso de Chateau Nordelta y Conexión 2 para usar nombre y foto.
 - Las tres frases de Mariana en primera persona, con sus palabras.
-- Cómo quiere presentar su título (¿«Psicóloga» alcanza, o suma matrícula o
-  especialidad?).
 - Logo en vectorial (hoy sólo existe como imagen en un cartel).
 - Dominio.
 
