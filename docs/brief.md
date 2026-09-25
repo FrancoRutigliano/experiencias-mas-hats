@@ -219,6 +219,14 @@ que ya usa quien compra.*
 > 3. **Respaldo profesional.** Coordina Mariana, psicóloga: sabe qué pasa en
 >    un grupo cuando alguien se anima a mostrarse.
 
+**Mariana · tres frases** *(de su texto de presentación, 2026-09-25)*
+> 1. MÁS HATS nace de la pasión y de un proceso de búsqueda, como el de muchas
+>    mujeres, y del empuje que tenemos para crear.
+> 2. Cuando renombré la marca, la pensé como un plus: un accesorio positivo que
+>    potencia nuestra actitud. Siempre pensando en más, en ir para adelante, en
+>    crecer y en no dejar de hacer nada que nos guste.
+> 3. Tu actitud en la vida es todo. MÁS HATS suma.
+
 **Cierre**
 > Desde 8 personas, en todo el país, con 15 días de anticipación. Contanos
 > cuántos son y cuándo, y te mandamos la propuesta.
@@ -282,7 +290,6 @@ sobre una vertical, no estirando una chica.
 ## 8. Lo que todavía falta (no bloquea la v1)
 
 - Permiso de Chateau Nordelta y Conexión 2 para usar nombre y foto.
-- Las tres frases de Mariana en primera persona, con sus palabras.
 - Logo en vectorial (hoy sólo existe como imagen en un cartel).
 - Dominio.
 

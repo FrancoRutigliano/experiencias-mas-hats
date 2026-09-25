@@ -83,7 +83,7 @@ export interface Experiencia {
     readonly titulo: string;
     readonly profesion: string;
     readonly trayectoria: string;
-    /** TODO: tres frases en primera persona, con palabras de Mariana (brief §8). */
+    /** Tres frases en primera persona, con palabras de Mariana. */
     readonly frases: readonly string[];
     readonly foto: Foto;
   };
@@ -233,7 +233,15 @@ export const experiencia: Experiencia = deepFreeze({
     titulo: "Mariana",
     profesion: "Psicóloga",
     trayectoria: "Más de 7 años al frente de MÁS HATS, como emprendedora y empresaria.",
-    frases: [],
+    // De su texto de presentación, en primera persona (2026-09-25).
+    frases: [
+      "MÁS HATS nace de la pasión y de un proceso de búsqueda, como el de muchas " +
+        "mujeres, y del empuje que tenemos para crear.",
+      "Cuando renombré la marca, la pensé como un plus: un accesorio positivo que " +
+        "potencia nuestra actitud. Siempre pensando en más, en ir para adelante, en " +
+        "crecer y en no dejar de hacer nada que nos guste.",
+      "Tu actitud en la vida es todo. MÁS HATS suma.",
+    ],
     foto: { id: "mariana", alt: "Mariana, con camisa blanca y sombrero marrón, junto a la mesa de trabajo." },
   },
 

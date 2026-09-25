@@ -117,8 +117,15 @@ describe("experiencia · datos del brief", () => {
     }
   });
 
-  test("las frases de Mariana no se inventan: vacías hasta que las escriba ella", () => {
-    expect(experiencia.mariana.frases).toEqual([]);
+  test("las frases de Mariana salen de su propio texto (2026-09-25)", () => {
+    expect(experiencia.mariana.frases).toEqual([
+      "MÁS HATS nace de la pasión y de un proceso de búsqueda, como el de muchas " +
+        "mujeres, y del empuje que tenemos para crear.",
+      "Cuando renombré la marca, la pensé como un plus: un accesorio positivo que " +
+        "potencia nuestra actitud. Siempre pensando en más, en ir para adelante, en " +
+        "crecer y en no dejar de hacer nada que nos guste.",
+      "Tu actitud en la vida es todo. MÁS HATS suma.",
+    ]);
   });
 });
 
