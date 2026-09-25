@@ -16,6 +16,11 @@ export interface Foto {
   readonly alt: string;
 }
 
+export interface Enlace {
+  readonly texto: string;
+  readonly ancla: string;
+}
+
 export interface DatoFicha {
   readonly label: string;
   readonly valor: string;
@@ -45,7 +50,9 @@ export interface Experiencia {
   readonly whatsapp: WhatsAppConfig;
   readonly instagram: string | null;
   readonly email: string;
-  readonly nav: readonly { readonly texto: string; readonly ancla: string }[];
+  readonly nav: readonly Enlace[];
+  /** Paradas de la tijera lateral (desktop): todas las secciones, en orden. */
+  readonly recorrido: readonly Enlace[];
   /** Etiquetas de interfaz (no son copy de marketing). */
   readonly ui: { readonly menu: string; readonly cerrar: string; readonly pausarGaleria: string };
   readonly hero: {
@@ -123,9 +130,20 @@ export const experiencia: Experiencia = deepFreeze({
   email: "info@mashats.com",
 
   nav: [
+    { texto: "La idea", ancla: "#idea" },
     { texto: "Cómo funciona", ancla: "#como" },
     { texto: "Casos", ancla: "#casos" },
     { texto: "Marian", ancla: "#mariana" },
+  ],
+
+  recorrido: [
+    { texto: "Ficha técnica", ancla: "#ficha" },
+    { texto: "La idea", ancla: "#idea" },
+    { texto: "Cómo funciona", ancla: "#como" },
+    { texto: "Galería", ancla: "#galeria" },
+    { texto: "Casos", ancla: "#casos" },
+    { texto: "Marian", ancla: "#mariana" },
+    { texto: "Reservar", ancla: "#cierre" },
   ],
 
   ui: { menu: "Menú", cerrar: "Cerrar", pausarGaleria: "Pausar galería" },

@@ -47,11 +47,12 @@ const ogImage = new URL("/og.png", Astro.site);
       import Lenis from "lenis";
       import "lenis/dist/lenis.css";
 
-      const NAV_OFFSET = -80;
       if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
         new Lenis({
           autoRaf: true,
-          anchors: { offset: NAV_OFFSET },
+          // Sin offset propio: Lenis ya respeta el scroll-padding-top que
+          // Nav.astro pone con el alto de la barra (--nav-alto).
+          anchors: true,
         });
       }
     </script>

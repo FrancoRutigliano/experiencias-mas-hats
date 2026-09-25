@@ -49,6 +49,22 @@ describe("experiencia · datos del brief", () => {
     expect(experiencia.incluye.labelNo).toBe("No incluye:");
   });
 
+  test("el menú lleva a las secciones en el orden de la página (2026-09-25)", () => {
+    expect(experiencia.nav.map((n) => n.ancla)).toEqual(["#idea", "#como", "#casos", "#mariana"]);
+  });
+
+  test("el recorrido lateral cubre todas las secciones, en orden", () => {
+    expect(experiencia.recorrido.map((r) => r.ancla)).toEqual([
+      "#ficha",
+      "#idea",
+      "#como",
+      "#galeria",
+      "#casos",
+      "#mariana",
+      "#cierre",
+    ]);
+  });
+
   test("las etiquetas de interfaz del menú están en datos", () => {
     expect(experiencia.ui).toEqual({ menu: "Menú", cerrar: "Cerrar", pausarGaleria: "Pausar galería" });
   });
