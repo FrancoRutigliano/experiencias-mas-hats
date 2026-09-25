@@ -4,7 +4,7 @@
  *
  *   hero    ← IMG_2501   paso1 ← DSC03995   paso2 ← DSC03992
  *   paso3   ← DSC04102   paso4 ← DSC04140   mariana ← DSC04001
- *   cierre  ← DSC04459   idea  ← DSC04110
+ *   cierre  ← DSC04459   idea  ← DSC04110 (recorte inferior en 4:5, sin caras)
  *   casoChateau ← DSC04451   casoConexion ← IMG_2501 (la misma del hero)
  *
  * Regla (2026-09-25): nada de caras en primer plano, para cuidar a las
