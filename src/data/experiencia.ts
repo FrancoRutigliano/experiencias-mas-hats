@@ -47,7 +47,7 @@ export interface Experiencia {
   readonly email: string;
   readonly nav: readonly { readonly texto: string; readonly ancla: string }[];
   /** Etiquetas de interfaz (no son copy de marketing). */
-  readonly ui: { readonly menu: string; readonly cerrar: string };
+  readonly ui: { readonly menu: string; readonly cerrar: string; readonly pausarGaleria: string };
   readonly hero: {
     readonly eyebrow: string;
     readonly titular: string;
@@ -128,7 +128,7 @@ export const experiencia: Experiencia = deepFreeze({
     { texto: "Marian", ancla: "#mariana" },
   ],
 
-  ui: { menu: "Menú", cerrar: "Cerrar" },
+  ui: { menu: "Menú", cerrar: "Cerrar", pausarGaleria: "Pausar galería" },
 
   hero: {
     eyebrow: "Experiencias a medida para empresas",

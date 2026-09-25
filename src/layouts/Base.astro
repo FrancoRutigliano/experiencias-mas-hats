@@ -43,7 +43,7 @@ const ogImage = new URL("/og.png", Astro.site);
     <slot />
     <script>
       // Scroll suave (Lenis). No corre con «reducir movimiento»: ahí el scroll
-      // es el nativo. La galería scrollea de costado y queda afuera.
+      // es el nativo.
       import Lenis from "lenis";
       import "lenis/dist/lenis.css";
 
@@ -52,7 +52,6 @@ const ogImage = new URL("/og.png", Astro.site);
         new Lenis({
           autoRaf: true,
           anchors: { offset: NAV_OFFSET },
-          prevent: (nodo) => nodo.closest(".galeria__fila") !== null,
         });
       }
     </script>

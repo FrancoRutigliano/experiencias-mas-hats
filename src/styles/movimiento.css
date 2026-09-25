@@ -63,13 +63,6 @@ body::after {
     .marco:hover > img {
       scale: 1.14;
     }
-
-    /* En la galería la fila scrollea de costado: la foto se desplaza en
-       horizontal mientras se desliza. */
-    .galeria__marco > img {
-      --linea-foto: view(inline);
-      animation-name: mh-parallax-x;
-    }
   }
 
   /* ---------- hero: entrada al cargar ---------- */
@@ -110,6 +103,11 @@ body::after {
   }
 }
 
+@keyframes mh-trazo {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
 @keyframes mh-dibujar {
   from { transform: scaleX(0); }
   to   { transform: scaleX(1); }
@@ -128,11 +126,6 @@ body::after {
 @keyframes mh-parallax {
   from { translate: 0 -5%; }
   to   { translate: 0 5%; }
-}
-
-@keyframes mh-parallax-x {
-  from { translate: -5% 0; }
-  to   { translate: 5% 0; }
 }
 
 @keyframes mh-hero-parallax {

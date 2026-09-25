@@ -282,10 +282,11 @@ sobre una vertical, no estirando una chica.
   eventos realizados. Si un dato no está en este brief, no existe.
 - No poner formulario de contacto. El CTA es WhatsApp.
 - No FAQ, no blog, no newsletter en la v1.
-- No carruseles con flechas, autoplay o fotos ocultas. Sí va una galería
-  deslizable (2026-09-25): todas las fotos en el HTML, scroll-snap, sin JS,
-  entre «Cómo funciona» y los casos. Copy propuesto: «Galería» / «Así se vive
-  un encuentro.».
+- No carruseles con flechas. Sí va una galería infinita y automática
+  (2026-09-25, pedido de Franco): todas las fotos en el HTML, sin JS, lenta
+  (60 s por vuelta), con pausa al pasar el mouse y un control «Pausar
+  galería» (WCAG 2.2.2). Con «reducir movimiento» queda quieta y se desliza a
+  mano. Copy: «Galería» / «Así se vive un encuentro.».
 - No animaciones de scroll-reveal que dejen contenido en `opacity: 0`
   esperando un observer: el sitio se manda por link y tiene que verse completo
   apenas carga, incluso en la previsualización.

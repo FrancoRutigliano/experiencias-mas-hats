@@ -50,7 +50,7 @@ describe("experiencia · datos del brief", () => {
   });
 
   test("las etiquetas de interfaz del menú están en datos", () => {
-    expect(experiencia.ui).toEqual({ menu: "Menú", cerrar: "Cerrar" });
+    expect(experiencia.ui).toEqual({ menu: "Menú", cerrar: "Cerrar", pausarGaleria: "Pausar galería" });
   });
 
   test("incluye / no incluye es el del brief", () => {
