@@ -72,6 +72,8 @@ export interface Experiencia {
     readonly foto: Foto;
   };
   readonly como: { readonly titulo: string; readonly pasos: readonly Paso[] };
+  /** Propuesta 2026-09-25: galería deslizable, sin caras en primer plano. */
+  readonly galeria: { readonly label: string; readonly titulo: string; readonly fotos: readonly Foto[] };
   readonly casos: {
     readonly titulo: string;
     /** Interruptor del bloque: si se apaga, también sale del menú. */
@@ -206,6 +208,18 @@ export const experiencia: Experiencia = deepFreeze({
         texto: "Cada participante se va con su sombrero.",
         foto: { id: "paso4", alt: "Manos que sostienen un sombrero de paja terminado, con cinta bordada y una medalla." },
       },
+    ],
+  },
+
+  galeria: {
+    label: "Galería",
+    titulo: "Así se vive un encuentro.",
+    fotos: [
+      { id: "galeria1", alt: "Manos que aplican pegamento sobre un sombrero de paja, entre flores blancas." },
+      { id: "galeria2", alt: "Sombrero de paja con cinta verde, moño amarillo y flores secas, sobre la mesa." },
+      { id: "galeria3", alt: "Manos que colocan plumas en el ala de un sombrero con cinta bordada." },
+      { id: "galeria4", alt: "Sombrero de paja terminado con cinta roja, plumas y una medalla." },
+      { id: "galeria5", alt: "Copas de vino rosado en alto, en el brindis de cierre del encuentro." },
     ],
   },
 

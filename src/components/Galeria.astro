@@ -1,0 +1,103 @@
+---
+/**
+ * Galería deslizable (propuesta 2026-09-25). No es un carrusel: no tiene
+ * flechas, autoplay ni JS. Es una fila con scroll horizontal y scroll-snap,
+ * con todas las fotos en el HTML desde el primer momento. En desktop asoma la
+ * siguiente foto para invitar a deslizar; en mobile se arrastra con el dedo.
+ *
+ * La fila es enfocable (tabindex=0) para poder recorrerla con el teclado.
+ * Va sobre --mh-cal-2 como «Cómo funciona»: se lee como su continuación.
+ */
+import { Picture } from "astro:assets";
+import { experiencia } from "../data/experiencia";
+import { fotos } from "../data/fotos";
+
+const { label, titulo, fotos: lista } = experiencia.galeria;
+
+const ANCHOS = [400, 700, 1000];
+const SIZES = "(min-width: 900px) 30vw, 78vw";
+---
+
+<section class="galeria seccion seccion--alterna" aria-labelledby="galeria-titulo">
+  <div class="contenedor">
+    <p class="label">{label}</p>
+    <h2 id="galeria-titulo" class="galeria__titulo">{titulo}</h2>
+  </div>
+
+  <ul class="galeria__fila" role="list" tabindex="0" aria-labelledby="galeria-titulo">
+    {
+      lista.map((foto) => (
+        <li class="galeria__item">
+          <Picture
+            src={fotos[foto.id]}
+            alt={foto.alt}
+            formats={["avif", "webp"]}
+            widths={ANCHOS}
+            sizes={SIZES}
+            loading="lazy"
+            decoding="async"
+            class="galeria__foto"
+          />
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .galeria {
+    padding-top: 0;
+  }
+
+  .galeria__titulo {
+    margin-top: 14px;
+    margin-bottom: clamp(28px, 4vw, 48px);
+  }
+
+  .galeria__fila {
+    --lado: max(var(--mh-gutter), (100% - 1440px) / 2 + var(--mh-gutter));
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 78%;
+    gap: 16px;
+    margin: 0;
+    padding: 0 var(--lado) 12px;
+    list-style: none;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--lado);
+    scrollbar-width: thin;
+    scrollbar-color: var(--mh-arena) transparent;
+  }
+
+  .galeria__fila:focus-visible {
+    outline: 2px solid var(--mh-trigo-ink);
+    outline-offset: -2px;
+  }
+
+  .galeria__item {
+    scroll-snap-align: start;
+  }
+
+  .galeria__foto {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
+  @media (min-width: 720px) {
+    .galeria__fila {
+      grid-auto-columns: 42%;
+      gap: var(--mh-gutter);
+    }
+  }
+
+  @media (min-width: 1080px) {
+    .galeria__fila {
+      /* Tres enteras y la cuarta asomando. */
+      grid-auto-columns: calc((100% - 3 * var(--mh-gutter)) / 3.35);
+    }
+  }
+</style>
