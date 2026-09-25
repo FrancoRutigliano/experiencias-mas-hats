@@ -175,7 +175,10 @@ horizontal en ningún ancho intermedio.
 - Todas las fotos van por `<Image />` o `<Picture />` con `width`/`height`,
   en AVIF o WebP con fallback JPG. El hero va con `loading="eager"` y
   `fetchpriority="high"`, y el resto con `lazy`.
-- Fuentes: Marcellus 400 y Karla 400/600, con `display=swap` y `preconnect`.
+- Fuentes: Marcellus 400 y Karla 400/600, descargadas de Google en el build
+  con la API de fuentes de Astro y servidas desde el sitio, con preload y
+  fallback con métricas ajustadas (2026-09-25). El `<link>` a Google Fonts
+  bloqueaba el render y dejaba Lighthouse mobile en 92.
 - Un solo H1 y jerarquía H2 por bloque. Alt descriptivo en español en cada foto.
 
 ## 8. Criterios de aceptación

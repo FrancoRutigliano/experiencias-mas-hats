@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 import "../styles/tokens.css";
 import "../styles/global.css";
 import { experiencia } from "../data/experiencia";
@@ -11,8 +12,6 @@ const { titulo, descripcion } = experiencia.meta;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 // La imagen OG 1200×630 se genera en src/pages/og.png.ts (plan, fase 2).
 const ogImage = new URL("/og.png", Astro.site);
-const FUENTES =
-  "https://fonts.googleapis.com/css2?family=Karla:wght@400;600&family=Marcellus&display=swap";
 ---
 
 <!doctype html>
@@ -34,9 +33,10 @@ const FUENTES =
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href={FUENTES} />
+    <!-- Fuentes servidas desde el sitio (astro.config: fonts) -->
+    <Font cssVariable="--font-marcellus" preload />
+    <Font cssVariable="--font-karla" preload />
+    <link rel="icon" type="image/png" href="/favicon.png" />
   </head>
   <body>
     <slot />
