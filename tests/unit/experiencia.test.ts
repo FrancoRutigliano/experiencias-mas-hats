@@ -78,11 +78,9 @@ describe("experiencia · datos del brief", () => {
     );
   });
 
-  test("el cierre es el del brief, partido en titular y bajada", () => {
-    expect(`${experiencia.cierre.titulo} ${experiencia.cierre.bajada}`).toBe(
-      "Desde 8 personas, en todo el país, con 15 días de anticipación. Contanos " +
-        "cuántos son y cuándo, y te mandamos la propuesta.",
-    );
+  test("el cierre es el del brief (titular nuevo 2026-09-25)", () => {
+    expect(experiencia.cierre.titulo).toBe("Eventos privados y empresariales. Organizá el tuyo.");
+    expect(experiencia.cierre.bajada).toBe("Contanos cuántos son y cuándo, y te mandamos la propuesta.");
   });
 
   test("el mensaje de WhatsApp es el del brief", () => {

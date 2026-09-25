@@ -238,8 +238,11 @@ que ya usa quien compra.*
 > 3. Tu actitud en la vida es todo. MÁS HATS suma.
 
 **Cierre**
-> Desde 8 personas, en todo el país, con 15 días de anticipación. Contanos
-> cuántos son y cuándo, y te mandamos la propuesta.
+> Eventos privados y empresariales. Organizá el tuyo.
+> Contanos cuántos son y cuándo, y te mandamos la propuesta.
+
+*Cambio 2026-09-25 (Franco): el titular anterior («Desde 8 personas, en todo
+el país, con 15 días de anticipación.») repetía la ficha técnica.*
 
 ---
 

@@ -97,7 +97,7 @@ export interface Experiencia {
     readonly frases: readonly string[];
     readonly foto: Foto;
   };
-  /** El texto de cierre del brief §5, partido: la primera frase es el H2. */
+  /** Cierre del brief §5: titular (cambio 2026-09-25) y bajada. */
   readonly cierre: { readonly titulo: string; readonly bajada: string; readonly foto: Foto };
 }
 
@@ -287,7 +287,7 @@ export const experiencia: Experiencia = deepFreeze({
   },
 
   cierre: {
-    titulo: "Desde 8 personas, en todo el país, con 15 días de anticipación.",
+    titulo: "Eventos privados y empresariales. Organizá el tuyo.",
     bajada: "Contanos cuántos son y cuándo, y te mandamos la propuesta.",
     foto: { id: "cierre", alt: "Sombrero de paja terminado junto a un estuche de anteojos de sol." },
   },
