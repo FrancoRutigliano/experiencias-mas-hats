@@ -32,7 +32,7 @@ horizontal en ningún ancho intermedio.
 ### Nav
 - Desktop: barra fina sobre el hero, fondo transparente, con el wordmark «MÁS HATS»
   en texto (Marcellus) hasta que exista el logo vectorial. A la derecha, anclas
-  (Cómo funciona · Casos · Mariana) y el botón «Pedir propuesta».
+  (Cómo funciona · Casos · Marian) y el botón «Pedir propuesta».
 - Mobile: wordmark y botón de menú. El menú abre un panel a pantalla completa en
   `--mh-cal`. Es el único JS junto con el botón flotante.
 - Cuando el scroll pasa el hero, queda fija con fondo `--mh-cal` y un borde
@@ -98,12 +98,12 @@ horizontal en ningún ancho intermedio.
   apaga el bloque si no hay permiso al publicar.
 - Sin CTA. El brief dice «con dos casos alcanza», así que no se infla.
 
-### 06 · Mariana
-- Grilla 5/7: foto vertical a la izquierda y, a la derecha, el H2 «Mariana»,
+### 06 · Marian
+- Grilla 5/7: foto vertical a la izquierda y, a la derecha, el H2 «Marian»,
   debajo «Psicóloga» (`.label`), las tres frases en primera persona y un link a
   Instagram (`--mh-trigo-ink`, subrayado).
 - Espejo de «La idea»: allá la foto va a la derecha y acá a la izquierda.
-- Foto: **DSC04001** (confirmado que es Mariana). Alternativa: DSC04431.
+- Foto: **DSC04001** (confirmado que es Marian). Alternativa: DSC04431.
 - Las frases no se escriben: van `TODO` visibles en el código, y en el render se
   muestra el bloque sin frases hasta que existan.
 
@@ -142,7 +142,7 @@ horizontal en ningún ancho intermedio.
   tienen strings de contenido hardcodeados.
 - Tipado (`Experiencia`) con `readonly`, para que ningún componente lo mute.
 - Todo lo que falta es `TODO` explícito: el número de WhatsApp, las frases de
-  Mariana, las fotos de los casos, Instagram y el dominio.
+  Marian, las fotos de los casos, Instagram y el dominio.
 
 ## 5. WhatsApp
 
@@ -152,7 +152,7 @@ horizontal en ningún ancho intermedio.
 - **Problema detectado:** el snippet de `claude.md` recibe `origen` pero no lo usa,
   y `wa.me` no pasa parámetros extra, así que hoy no se puede saber de dónde vino
   la consulta. Propuesta: agregar al final del mensaje una marca corta y discreta,
-  como ` · ref: hero`. *Lo decide Mariana, porque es texto que ve el cliente.*
+  como ` · ref: hero`. *Lo decide Marian, porque es texto que ve el cliente.*
   Si no la quiere, se saca `origen`, según YAGNI.
 - Sin número, el botón igual se renderiza con el placeholder y el build muestra
   un warning. En producción el build falla si el número sigue siendo placeholder.

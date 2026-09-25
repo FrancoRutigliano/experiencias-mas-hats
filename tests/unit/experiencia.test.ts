@@ -67,7 +67,7 @@ describe("experiencia · datos del brief", () => {
 
   test("el mensaje de WhatsApp es el del brief", () => {
     expect(experiencia.whatsapp.mensaje).toBe(
-      "Hola Mariana, quiero una propuesta de MÁS HATS para ____. " +
+      "Hola Marian, quiero una propuesta de MÁS HATS para ____. " +
         "Seríamos ____ personas, la fecha tentativa es ____ y sería en ____.",
     );
   });
@@ -87,18 +87,32 @@ describe("experiencia · datos del brief", () => {
         "significativa, recuerdos compartidos y una nueva mirada sobre sí mismas.",
     );
     expect(experiencia.idea.beneficiosTitulo).toBe("Para tu empresa");
-    expect(experiencia.idea.beneficios.map((b) => b.titulo)).toEqual([
-      "Un encuentro que se recuerda.",
-      "Un grupo que se conecta.",
-      "Respaldo profesional.",
+    expect(experiencia.idea.beneficios).toEqual([
+      {
+        titulo: "Tu marca, en un buen recuerdo.",
+        texto: "La experiencia sucede en tu espacio: cada participante se va con un sombrero propio y fotos que comparte.",
+      },
+      {
+        titulo: "Llave en mano.",
+        texto: "Llegamos con sombreros, avíos y herramientas para todos, y coordinamos de principio a fin. Vos ponés el espacio.",
+      },
+      {
+        titulo: "Respaldo profesional.",
+        texto: "Coordina Marian, psicóloga, con más de 7 años al frente de MÁS HATS: sabe cómo hacer que un grupo se sienta cómodo y disfrute.",
+      },
     ]);
   });
 
-  test("Mariana se presenta como psicóloga", () => {
+  test("el nombre es siempre Marian, en todo el sitio (2026-09-25)", () => {
+    expect(experiencia.mariana.titulo).toBe("Marian");
+    expect(JSON.stringify(experiencia)).not.toContain("Mariana");
+  });
+
+  test("Marian se presenta como psicóloga", () => {
     expect(experiencia.mariana.profesion).toBe("Psicóloga");
   });
 
-  test("Mariana muestra su trayectoria con la marca (dato 2026-09-25)", () => {
+  test("Marian muestra su trayectoria con la marca (dato 2026-09-25)", () => {
     expect(experiencia.mariana.trayectoria).toBe(
       "Más de 7 años al frente de MÁS HATS, como emprendedora y empresaria.",
     );
@@ -117,7 +131,7 @@ describe("experiencia · datos del brief", () => {
     }
   });
 
-  test("las frases de Mariana salen de su propio texto (2026-09-25)", () => {
+  test("las frases de Marian salen de su propio texto (2026-09-25)", () => {
     expect(experiencia.mariana.frases).toEqual([
       "MÁS HATS nace de la pasión y de un proceso de búsqueda, como el de muchas " +
         "mujeres, y del empuje que tenemos para crear.",

@@ -9,8 +9,9 @@
 ## 1. Qué es esto
 
 MÁS HATS es una experiencia donde cada participante diseña y arma su propio
-sombrero. La lleva adelante **Mariana**, psicóloga, que coordina la actividad
-en persona.
+sombrero. La lleva adelante **Marian**, psicóloga, que coordina la actividad
+en persona. **El nombre es siempre «Marian»** (decisión 2026-09-25), también
+en el mensaje de WhatsApp.
 
 ### La idea detrás (agregado 2026-09-25)
 
@@ -20,7 +21,7 @@ cuesta ponérselo — implica animarse a ser vistas. MÁS HATS existe para ese
 paso: cada participante diseña un sombrero que la represente y se anima a
 usarlo, en grupo y con guía.
 
-Que Mariana sea psicóloga le da **respaldo profesional** a esa idea: sabe qué
+Que Marian sea psicóloga le da **respaldo profesional** a esa idea: sabe qué
 pasa en un grupo cuando alguien se anima a mostrarse. Es un diferencial frente
 a cualquier «taller de manualidades».
 
@@ -33,7 +34,7 @@ El sitio **no le habla a la mujer que va a hacer el sombrero**. Le habla a
 un hotel, un retiro, una marca.
 
 Es una **propuesta comercial que se envía por link**, no una landing que se
-descubre por búsqueda. Quien la abre ya habló con Mariana o la vio en
+descubre por búsqueda. Quien la abre ya habló con Marian o la vio en
 Instagram. Su trabajo no es captar: es **convencer y dejarse reenviar**, porque
 quien la recibe casi nunca decide solo — se la muestra a su jefe.
 
@@ -79,12 +80,12 @@ sostiene.
 | Cobertura | todo el país |
 | Anticipación | 15 a 30 días para reservar fecha |
 | Seña | 30% (para comprar sombreros y herramientas) |
-| Coordina | Mariana, sola; con asistente si el grupo es grande |
-| Trayectoria | Mariana lleva más de 7 años al frente de MÁS HATS, como emprendedora y empresaria |
+| Coordina | Marian, sola; con asistente si el grupo es grande |
+| Trayectoria | Marian lleva más de 7 años al frente de MÁS HATS, como emprendedora y empresaria |
 
 **Contacto (2026-09-25):** WhatsApp Business 11 6575-5523 (`wa.me/5491165755523`)
 · info@mashats.com · Instagram [@mas.hats](https://www.instagram.com/mas.hats),
-que es el de la marca y el que se usa también en el bloque de Mariana.
+que es el de la marca y el que se usa también en el bloque de Marian.
 
 **Incluye:** sombrero base por persona, todos los avíos, las herramientas y la
 coordinación de la experiencia.
@@ -103,11 +104,11 @@ El reemplazo es un WhatsApp que califica solo: el botón abre el chat con el
 mensaje ya escrito pidiendo los tres datos que definen el presupuesto.
 
 ```
-Hola Mariana, quiero una propuesta de MÁS HATS para ____.
+Hola Marian, quiero una propuesta de MÁS HATS para ____.
 Seríamos ____ personas, la fecha tentativa es ____ y sería en ____.
 ```
 
-Con esos tres datos Mariana cotiza sin una segunda vuelta de mensajes.
+Con esos tres datos Marian cotiza sin una segunda vuelta de mensajes.
 
 ---
 
@@ -127,7 +128,7 @@ arriba es lo que hace que el sitio se sienta profesional y no promocional.
 
 **03 · La idea** *(nuevo 2026-09-25)* — Por qué un sombrero. Un titular con
 fuerza, un párrafo corto sobre actitud y personalidad, y tres beneficios para la
-empresa escritos para escanear. Menciona que Mariana es psicóloga como
+empresa escritos para escanear. Menciona que Marian es psicóloga como
 respaldo. Una foto de una participante con su sombrero terminado.
 → *sin CTA*
 
@@ -142,7 +143,7 @@ parecido a él ya lo haya contratado pesa más que cualquier argumento. Con dos
 casos alcanza — no inflarlo.
 → *sin CTA*
 
-**06 · Mariana** — Foto, «Psicóloga» (sin matrícula), su trayectoria con la
+**06 · Marian** — Foto, «Psicóloga» (sin matrícula), su trayectoria con la
 marca y tres frases en primera persona. Es lo único que nadie
 puede copiar, y en un servicio que coordina una sola persona, es también lo que
 da confianza de que va a salir bien.
@@ -163,7 +164,7 @@ retrasan el envío.
 **Hero · eyebrow**
 > Experiencias a medida para empresas
 
-*Cambio 2026-09-25 (Franco y Mariana): hotel, retiro y marca terminan siendo
+*Cambio 2026-09-25 (Franco y Marian): hotel, retiro y marca terminan siendo
 empresas; una sola palabra es más clara.*
 
 **Hero · titular**
@@ -211,15 +212,17 @@ que ya usa quien compra.*
 > ponérselo») tiraba el producto para abajo. El copy habla de lo que la
 > experiencia da, nunca de una carencia de quien participa.*
 >
-> Para tu empresa:
-> 1. **Un encuentro que se recuerda.** De una cata no queda nada. De acá,
->    un sombrero propio y una foto que se comparte.
-> 2. **Un grupo que se conecta.** Diseñar en la misma mesa abre
->    conversaciones que un evento formal no abre.
-> 3. **Respaldo profesional.** Coordina Mariana, psicóloga: sabe qué pasa en
->    un grupo cuando alguien se anima a mostrarse.
+> Para tu empresa *(cambio 2026-09-25: cada bloque dice algo distinto; acá va
+> lo que gana quien firma, no lo que vive la participante)*:
+> 1. **Tu marca, en un buen recuerdo.** La experiencia sucede en tu espacio:
+>    cada participante se va con un sombrero propio y fotos que comparte.
+> 2. **Llave en mano.** Llegamos con sombreros, avíos y herramientas para
+>    todos, y coordinamos de principio a fin. Vos ponés el espacio.
+> 3. **Respaldo profesional.** Coordina Marian, psicóloga, con más de 7 años
+>    al frente de MÁS HATS: sabe cómo hacer que un grupo se sienta cómodo y
+>    disfrute.
 
-**Mariana · tres frases** *(de su texto de presentación, 2026-09-25)*
+**Marian · tres frases** *(de su texto de presentación, 2026-09-25)*
 > 1. MÁS HATS nace de la pasión y de un proceso de búsqueda, como el de muchas
 >    mujeres, y del empuje que tenemos para crear.
 > 2. Cuando renombré la marca, la pensé como un plus: un accesorio positivo que
@@ -279,7 +282,7 @@ sobre una vertical, no estirando una chica.
 - No emojis en la interfaz.
 - No hablar desde la carencia de las participantes («les cuesta», «no se
   animan»): el copy dice lo que la experiencia da.
-- No prometer resultados terapéuticos ni usar lenguaje clínico. Que Mariana
+- No prometer resultados terapéuticos ni usar lenguaje clínico. Que Marian
   sea psicóloga es respaldo, no la promesa: la experiencia no es una terapia.
 - No dark mode.
 - No lorem ipsum: si falta contenido, dejar el texto de la sección 5 o marcarlo

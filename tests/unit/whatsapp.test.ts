@@ -7,7 +7,7 @@ import {
 } from "../../src/lib/whatsapp";
 
 const MENSAJE =
-  "Hola Mariana, quiero una propuesta de MÁS HATS para ____. " +
+  "Hola Marian, quiero una propuesta de MÁS HATS para ____. " +
   "Seríamos ____ personas, la fecha tentativa es ____ y sería en ____.";
 
 const config = { numero: "5491112345678", mensaje: MENSAJE, incluirRef: false };

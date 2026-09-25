@@ -1,7 +1,7 @@
 /**
  * ÚNICA fuente de copy y datos del sitio.
  *
- * Todo lo que se lee en la página sale de acá. Si Mariana quiere cambiar una
+ * Todo lo que se lee en la página sale de acá. Si Marian quiere cambiar una
  * frase o un dato, se cambia en este archivo y en ningún otro.
  *
  * Regla: los datos del negocio salen de docs/brief.md. Si no están en el brief,
@@ -83,7 +83,7 @@ export interface Experiencia {
     readonly titulo: string;
     readonly profesion: string;
     readonly trayectoria: string;
-    /** Tres frases en primera persona, con palabras de Mariana. */
+    /** Tres frases en primera persona, con palabras de Marian. */
     readonly frases: readonly string[];
     readonly foto: Foto;
   };
@@ -108,13 +108,13 @@ export const experiencia: Experiencia = deepFreeze({
     // WhatsApp Business de MÁS HATS: 11 6575-5523 en formato wa.me.
     numero: "5491165755523",
     mensaje:
-      "Hola Mariana, quiero una propuesta de MÁS HATS para ____. " +
+      "Hola Marian, quiero una propuesta de MÁS HATS para ____. " +
       "Seríamos ____ personas, la fecha tentativa es ____ y sería en ____.",
-    // TODO: lo decide Mariana — agrega « · ref: hero» etc. al mensaje (spec §5).
+    // TODO: lo decide Marian — agrega « · ref: hero» etc. al mensaje (spec §5).
     incluirRef: false,
   },
 
-  // Es el de la marca; Mariana no tiene uno aparte (2026-09-25).
+  // Es el de la marca; Marian no tiene uno aparte (2026-09-25).
   instagram: "https://www.instagram.com/mas.hats",
 
   email: "info@mashats.com",
@@ -122,7 +122,7 @@ export const experiencia: Experiencia = deepFreeze({
   nav: [
     { texto: "Cómo funciona", ancla: "#como" },
     { texto: "Casos", ancla: "#casos" },
-    { texto: "Mariana", ancla: "#mariana" },
+    { texto: "Marian", ancla: "#mariana" },
   ],
 
   ui: { menu: "Menú", cerrar: "Cerrar" },
@@ -170,16 +170,16 @@ export const experiencia: Experiencia = deepFreeze({
     beneficiosTitulo: "Para tu empresa",
     beneficios: [
       {
-        titulo: "Un encuentro que se recuerda.",
-        texto: "De una cata no queda nada. De acá, un sombrero propio y una foto que se comparte.",
+        titulo: "Tu marca, en un buen recuerdo.",
+        texto: "La experiencia sucede en tu espacio: cada participante se va con un sombrero propio y fotos que comparte.",
       },
       {
-        titulo: "Un grupo que se conecta.",
-        texto: "Diseñar en la misma mesa abre conversaciones que un evento formal no abre.",
+        titulo: "Llave en mano.",
+        texto: "Llegamos con sombreros, avíos y herramientas para todos, y coordinamos de principio a fin. Vos ponés el espacio.",
       },
       {
         titulo: "Respaldo profesional.",
-        texto: "Coordina Mariana, psicóloga: sabe qué pasa en un grupo cuando alguien se anima a mostrarse.",
+        texto: "Coordina Marian, psicóloga, con más de 7 años al frente de MÁS HATS: sabe cómo hacer que un grupo se sienta cómodo y disfrute.",
       },
     ],
     foto: {
@@ -230,7 +230,7 @@ export const experiencia: Experiencia = deepFreeze({
   },
 
   mariana: {
-    titulo: "Mariana",
+    titulo: "Marian",
     profesion: "Psicóloga",
     trayectoria: "Más de 7 años al frente de MÁS HATS, como emprendedora y empresaria.",
     // De su texto de presentación, en primera persona (2026-09-25).
@@ -242,7 +242,7 @@ export const experiencia: Experiencia = deepFreeze({
         "crecer y en no dejar de hacer nada que nos guste.",
       "Tu actitud en la vida es todo. MÁS HATS suma.",
     ],
-    foto: { id: "mariana", alt: "Mariana, con camisa blanca y sombrero marrón, junto a la mesa de trabajo." },
+    foto: { id: "mariana", alt: "Marian, con camisa blanca y sombrero marrón, junto a la mesa de trabajo." },
   },
 
   cierre: {

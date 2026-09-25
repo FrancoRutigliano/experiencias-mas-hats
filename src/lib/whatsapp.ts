@@ -3,7 +3,7 @@ export type Origen = "hero" | "nav" | "casos" | "cierre" | "flotante";
 export interface WhatsAppConfig {
   readonly numero: string;
   readonly mensaje: string;
-  /** Agrega « · ref: <origen>» al mensaje. Lo decide Mariana (spec §5). */
+  /** Agrega « · ref: <origen>» al mensaje. Lo decide Marian (spec §5). */
   readonly incluirRef: boolean;
 }
 
