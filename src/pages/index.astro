@@ -3,8 +3,10 @@ import Base from "../layouts/Base.astro";
 import Nav from "../components/Nav.astro";
 import Hero from "../components/Hero.astro";
 import FichaTecnica from "../components/FichaTecnica.astro";
+import LaIdea from "../components/LaIdea.astro";
+import Mariana from "../components/Mariana.astro";
 // Los bloques se suman en las fases 1 y 2 del plan, en el orden del brief:
-// Nav → Hero → FichaTecnica → Como → Casos → Mariana → Cierre → WhatsAppFab
+// Nav → Hero → FichaTecnica → LaIdea → Como → Casos → Mariana → Cierre → WhatsAppFab
 ---
 
 <Base>
@@ -12,5 +14,8 @@ import FichaTecnica from "../components/FichaTecnica.astro";
   <main>
     <Hero />
     <FichaTecnica />
+    <LaIdea />
+    {/* Como y Casos van acá cuando existan. */}
+    <Mariana />
   </main>
 </Base>
