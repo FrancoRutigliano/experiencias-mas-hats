@@ -12,7 +12,7 @@ const { fichaTitulo, ficha, incluye } = experiencia;
   <div class="contenedor">
     <h2 id="ficha-titulo" class="label etiqueta">{fichaTitulo}</h2>
 
-    <dl class="ficha__grilla">
+    <dl class="ficha__grilla" style={`--ficha-n: ${ficha.length}`}>
       {
         ficha.map(({ label, valor }) => (
           <div class="ficha__celda">
@@ -34,7 +34,8 @@ const { fichaTitulo, ficha, incluye } = experiencia;
   .ficha__grilla {
     /* Las líneas son el fondo de la grilla asomando por un gap de 1px:
        sólo aparecen entre celdas, nunca dobles ni colgando al final de fila.
-       Las seis celdas llenan siempre la grilla (6×1, 3×2, 2×3). */
+       Mobile y tablet: 2 columnas (si la cantidad es impar, la última celda
+       ocupa la fila entera). Desktop: una fila con todas (--ficha-n). */
     --ficha-cols: 2;
     display: grid;
     grid-template-columns: repeat(var(--ficha-cols), minmax(0, 1fr));
@@ -54,6 +55,8 @@ const { fichaTitulo, ficha, incluye } = experiencia;
 
   /* La primera columna arranca alineada con el borde del contenedor. */
   .ficha__celda:nth-child(odd) { padding-inline-start: 0; }
+
+  .ficha__celda:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
   .ficha__valor {
     margin: 0;
@@ -76,16 +79,14 @@ const { fichaTitulo, ficha, incluye } = experiencia;
   }
 
   @media (min-width: 720px) {
-    .ficha__grilla { --ficha-cols: 3; }
     .ficha__celda { --ficha-pad: 24px; padding-block: 28px; }
-    .ficha__celda:nth-child(odd) { padding-inline-start: var(--ficha-pad); }
-    .ficha__celda:nth-child(3n + 1) { padding-inline-start: 0; }
   }
 
   @media (min-width: 1080px) {
-    .ficha__grilla { --ficha-cols: 6; }
+    .ficha__grilla { --ficha-cols: var(--ficha-n, 5); }
     .ficha__celda { padding-block: 32px; }
-    .ficha__celda:nth-child(3n + 1) { padding-inline-start: var(--ficha-pad); }
+    .ficha__celda:nth-child(odd) { padding-inline-start: var(--ficha-pad); }
+    .ficha__celda:last-child:nth-child(odd) { grid-column: auto; }
     .ficha__celda:first-child { padding-inline-start: 0; }
   }
 </style>

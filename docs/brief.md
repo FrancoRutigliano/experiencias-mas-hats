@@ -73,13 +73,13 @@ sostiene.
 
 | Dato | Valor |
 |---|---|
-| Grupo mínimo | 8 personas |
+| Grupo | sin mínimo publicado (decisión 2026-09-25: no se comunica) |
 | Grupo máximo | sin tope fijado |
 | Duración | 2 a 2:30 horas |
 | Tandas | hasta dos por día |
 | Cobertura | todo el país |
 | Anticipación | 15 a 30 días para reservar fecha |
-| Seña | 30% (para comprar sombreros y herramientas) |
+| Seña | 50% (para comprar sombreros y herramientas; subió del 30% el 2026-09-25) |
 | Coordina | Marian, sola; con asistente si el grupo es grande |
 | Trayectoria | Marian lleva más de 7 años al frente de MÁS HATS, como emprendedora y empresaria |
 
@@ -193,8 +193,10 @@ general; decisión tomada sabiendo el riesgo.
 que ya usa quien compra.*
 
 **Ficha técnica · etiquetas**
-> Grupo · Duración · Dónde · Anticipación · Reserva · Material
-> Desde 8 · 2 a 2:30 h · Todo el país · 15 a 30 días · Seña 30% · Todo incluido
+> Duración · Dónde · Anticipación · Reserva · Material
+> 2 a 2:30 h · Todo el país · 15 a 30 días · Seña 50% · Todo incluido
+
+*Cambio 2026-09-25: sale «Grupo: Desde 8» y la seña pasa a 50%.*
 
 **Cómo funciona · los cuatro pasos**
 > 1. Elegimos la fecha y la cantidad de personas.

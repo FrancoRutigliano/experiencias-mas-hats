@@ -5,15 +5,19 @@ import { experiencia } from "../../src/data/experiencia";
 // tiene que cambiar primero: es la garantía de que no se inventan datos.
 
 describe("experiencia · datos del brief", () => {
-  test("la ficha técnica tiene exactamente los seis datos del brief, en orden", () => {
+  test("la ficha técnica tiene los cinco datos del brief, en orden (2026-09-25)", () => {
     expect(experiencia.ficha.map((d) => [d.label, d.valor])).toEqual([
-      ["Grupo", "Desde 8"],
       ["Duración", "2 a 2:30 h"],
       ["Dónde", "Todo el país"],
       ["Anticipación", "15 a 30 días"],
-      ["Reserva", "Seña 30%"],
+      ["Reserva", "Seña 50%"],
       ["Material", "Todo incluido"],
     ]);
+  });
+
+  test("no se menciona un mínimo de personas en ningún texto (2026-09-25)", () => {
+    const texto = JSON.stringify(experiencia);
+    expect(texto).not.toMatch(/Desde 8|mínimo de 8|8 personas/);
   });
 
   test("el copy del hero es el del brief", () => {

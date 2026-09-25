@@ -57,8 +57,8 @@ horizontal en ningún ancho intermedio.
 - Cada celda tiene el label arriba (`--mh-label`, `--mh-trigo-ink`) y el valor
   abajo en `--mh-h3` con `tabular-nums`.
 - Contenido exacto del brief §5:
-  Grupo **Desde 8** · Duración **2 a 2:30 h** · Dónde **Todo el país** ·
-  Anticipación **15 a 30 días** · Reserva **Seña 30%** · Material **Todo incluido**
+  Duración **2 a 2:30 h** · Dónde **Todo el país** · Anticipación **15 a 30 días** ·
+  Reserva **Seña 50%** · Material **Todo incluido** (sin mínimo de grupo desde 2026-09-25)
   *(ver pregunta abierta 5 del intent)*.
 - Debajo, a `--mh-medida`, un párrafo con «Incluye / No incluye» tal cual el brief.
 - Sin CTA.
