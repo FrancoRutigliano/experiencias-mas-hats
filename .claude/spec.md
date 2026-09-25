@@ -71,7 +71,7 @@ horizontal en ningún ancho intermedio.
   1. «Elegimos la fecha y la cantidad de personas.» → **DSC04057** (grupo en la mesa, arranque)
   2. «Llegamos con sombreros, avíos y herramientas…» → **DSC03992** (mesa armada con sombreros base)
   3. «Cada participante diseña e interviene el suyo…» → **DSC04102** (manos, plumas, avíos)
-  4. «Se lo lleva puesto.» → **DSC04239** (sombrero terminado, puesto)
+  4. «Cada participante se va con su sombrero.» → **DSC04239** (sombrero terminado, puesto)
 - Sin CTA.
 
 ### 04 · Quiénes ya lo hicieron
@@ -143,7 +143,7 @@ horizontal en ningún ancho intermedio.
 
 ## 6. Metadatos y previsualización
 
-- `<title>`: «MÁS HATS — Experiencias a medida para hoteles, retiros y marcas».
+- `<title>`: «MÁS HATS — Experiencias a medida para empresas».
 - `description`: la bajada del hero.
 - OG completo y `twitter:card = summary_large_image`. `og:image` de 1200×630,
   generada en el build a partir del recorte de la foto del hero, con el titular

@@ -75,7 +75,7 @@ export interface Experiencia {
 
 export const experiencia: Experiencia = deepFreeze({
   meta: {
-    titulo: "MÁS HATS — Experiencias a medida para hoteles, retiros y marcas",
+    titulo: "MÁS HATS — Experiencias a medida para empresas",
     descripcion:
       "Dos horas, un sombrero diseñado y armado por cada participante, y todo el " +
       "material puesto por nosotras. Llevamos la experiencia completa a tu espacio, " +
@@ -109,7 +109,8 @@ export const experiencia: Experiencia = deepFreeze({
   ui: { menu: "Menú", cerrar: "Cerrar" },
 
   hero: {
-    eyebrow: "Experiencias a medida para hoteles, retiros y marcas",
+    eyebrow: "Experiencias a medida para empresas",
+    // TODO: titular nuevo pendiente de elegir (brief §5, decisión 2026-09-25).
     titular: "Una actividad que se llevan puesta.",
     bajada:
       "Dos horas, un sombrero diseñado y armado por cada participante, y todo el " +
@@ -156,7 +157,7 @@ export const experiencia: Experiencia = deepFreeze({
         foto: { id: "paso3", alt: "Manos colocando plumas sobre un sombrero de paja." },
       },
       {
-        texto: "Se lo lleva puesto.",
+        texto: "Cada participante se va con su sombrero.",
         foto: { id: "paso4", alt: "Una participante sonríe mientras se acomoda el sombrero terminado." },
       },
     ],

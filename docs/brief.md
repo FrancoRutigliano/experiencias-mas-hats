@@ -132,10 +132,15 @@ retrasan el envío.
 ## 5. Copy v1 (usar tal cual)
 
 **Hero · eyebrow**
-> Experiencias a medida para hoteles, retiros y marcas
+> Experiencias a medida para empresas
+
+*Cambio 2026-09-25 (Franco y Mariana): hotel, retiro y marca terminan siendo
+empresas; una sola palabra es más clara.*
 
 **Hero · titular**
-> Una actividad que se llevan puesta.
+> TODO — se reemplaza. «Una actividad que se llevan puesta.» se puede leer
+> con doble sentido (decisión 2026-09-25). Tiene que tener fuerza y poner el
+> foco en la experiencia: un sombrero que te identifica.
 
 *Por qué: de una cata de vinos o una clase de cocina no queda nada. De acá cada
 persona se va con un sombrero que va a usar todo el verano, y con una foto que
@@ -160,7 +165,7 @@ que ya usa quien compra.*
 > 1. Elegimos la fecha y la cantidad de personas.
 > 2. Llegamos con sombreros, avíos y herramientas para todos.
 > 3. Cada participante diseña e interviene el suyo, con guía.
-> 4. Se lo lleva puesto.
+> 4. Cada participante se va con su sombrero.
 
 **Qué incluye / qué no**
 > Incluye: sombrero base por persona, todos los avíos, herramientas y la

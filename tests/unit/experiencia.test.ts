@@ -17,7 +17,7 @@ describe("experiencia · datos del brief", () => {
   });
 
   test("el copy del hero es el del brief", () => {
-    expect(experiencia.hero.eyebrow).toBe("Experiencias a medida para hoteles, retiros y marcas");
+    expect(experiencia.hero.eyebrow).toBe("Experiencias a medida para empresas");
     expect(experiencia.hero.titular).toBe("Una actividad que se llevan puesta.");
     expect(experiencia.hero.bajada).toBe(
       "Dos horas, un sombrero diseñado y armado por cada participante, y todo el " +
@@ -35,7 +35,7 @@ describe("experiencia · datos del brief", () => {
       "Elegimos la fecha y la cantidad de personas.",
       "Llegamos con sombreros, avíos y herramientas para todos.",
       "Cada participante diseña e interviene el suyo, con guía.",
-      "Se lo lleva puesto.",
+      "Cada participante se va con su sombrero.",
     ]);
   });
 
