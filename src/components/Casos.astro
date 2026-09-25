@@ -1,0 +1,105 @@
+---
+/**
+ * 05 · Quiénes ya lo hicieron (brief §4). Dos casos, uno al lado del otro en
+ * desktop y apilados en mobile. Con dos alcanza: no se infla.
+ *
+ * Se muestra sólo si `casos.publicar` es true (el menú usa el mismo interruptor).
+ * Va sobre --mh-cal, igual que Marian: la regla inferior separa los dos bloques.
+ */
+import { Picture } from "astro:assets";
+import { experiencia } from "../data/experiencia";
+import { fotos, type FotoId } from "../data/fotos";
+
+const { titulo, publicar, items } = experiencia.casos;
+
+// Encuadre de cada foto en 4:5 (presentación, no contenido).
+const ENCUADRE: Partial<Record<FotoId, string>> = {
+  casoChateau: "50% 50%",
+  casoConexion: "50% 75%",
+};
+
+const ANCHOS = [480, 800, 1200];
+const SIZES = "(min-width: 720px) 45vw, 100vw";
+---
+
+{
+  publicar && (
+    <section id="casos" class="casos seccion" aria-labelledby="casos-titulo">
+      <div class="contenedor">
+        <h2 id="casos-titulo" class="casos__titulo">{titulo}</h2>
+
+        <ul class="casos__lista" role="list">
+          {items.map((caso) => (
+            <li class="casos__item">
+              {caso.foto && (
+                <Picture
+                  src={fotos[caso.foto.id]}
+                  alt={caso.foto.alt}
+                  formats={["avif", "webp"]}
+                  widths={ANCHOS}
+                  sizes={SIZES}
+                  loading="lazy"
+                  decoding="async"
+                  class="casos__foto"
+                  style={`object-position: ${ENCUADRE[caso.foto.id] ?? "50% 50%"}`}
+                />
+              )}
+              <p class="label casos__tipo">{caso.tipo}</p>
+              <h3 class="casos__nombre">{caso.nombre}</h3>
+              <p class="casos__porque">{caso.porQue}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .casos .contenedor {
+    padding-bottom: var(--mh-seccion);
+    border-bottom: var(--mh-borde);
+  }
+
+  .casos {
+    padding-bottom: 0;
+  }
+
+  .casos__titulo {
+    margin-bottom: clamp(32px, 5vw, 56px);
+  }
+
+  .casos__lista {
+    display: grid;
+    gap: var(--mh-seccion) var(--mh-gutter);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .casos__foto {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    margin-bottom: 24px;
+  }
+
+  .casos__nombre {
+    margin-top: 10px;
+    font: var(--mh-h2);
+    color: var(--mh-tinta);
+  }
+
+  .casos__porque {
+    margin-top: 12px;
+    font: var(--mh-lead);
+    color: var(--mh-tinta-2);
+  }
+
+  @media (min-width: 720px) {
+    .casos__lista {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

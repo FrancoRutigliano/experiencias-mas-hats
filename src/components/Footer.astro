@@ -4,9 +4,10 @@
  * Va fuera de <main>, como hermano, para que sea el landmark contentinfo.
  * Mismo fondo que el cierre, separado por una regla de 1px.
  */
+import Logo from "./Logo.astro";
 import { experiencia } from "../data/experiencia";
 
-const { marca, instagram, email } = experiencia;
+const { instagram, email } = experiencia;
 
 // El handle sale de la URL, así el footer no suma copy propio.
 const instagramHandle = instagram ? `@${new URL(instagram).pathname.replaceAll("/", "")}` : null;
@@ -15,7 +16,7 @@ const anio = new Date().getFullYear();
 
 <footer class="pie">
   <div class="contenedor pie__fila">
-    <p class="pie__marca">{marca}</p>
+    <p class="pie__marca"><Logo alto={26} /></p>
     {
       instagram && instagramHandle && (
         <a class="pie__link" href={instagram} target="_blank" rel="noopener">

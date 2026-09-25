@@ -5,6 +5,7 @@
  *   hero    ← IMG_2501   paso1 ← DSC03995   paso2 ← DSC03992
  *   paso3   ← DSC04102   paso4 ← DSC04140   mariana ← DSC04001
  *   cierre  ← DSC04459   idea  ← DSC04110
+ *   casoChateau ← DSC04451   casoConexion ← IMG_2501 (la misma del hero)
  *
  * Regla (2026-09-25): nada de caras en primer plano, para cuidar a las
  * participantes. La excepción es el hero (foto grupal elegida por Franco) y Marian.
@@ -18,8 +19,21 @@ import paso4 from "../assets/fotos/paso4.jpg";
 import mariana from "../assets/fotos/mariana.jpg";
 import cierre from "../assets/fotos/cierre.jpg";
 import idea from "../assets/fotos/idea.jpg";
+import casoChateau from "../assets/fotos/caso-chateau.jpg";
 
-export const fotos = { hero, idea, paso1, paso2, paso3, paso4, mariana, cierre } as const satisfies Record<
+export const fotos = {
+  hero,
+  idea,
+  paso1,
+  paso2,
+  paso3,
+  paso4,
+  mariana,
+  cierre,
+  casoChateau,
+  // Conexión 2: por ahora la única foto es la del hero (IMG_2501); llegan más.
+  casoConexion: hero,
+} as const satisfies Record<
   string,
   ImageMetadata
 >;

@@ -72,9 +72,10 @@ describe("experiencia · datos del brief", () => {
     );
   });
 
-  test("los casos son sólo los dos del brief y salen apagados hasta tener permiso", () => {
+  test("los casos son sólo los dos del brief, publicados y con foto (2026-09-25)", () => {
     expect(experiencia.casos.items.map((c) => c.nombre)).toEqual(["Chateau Nordelta", "Conexión 2"]);
-    expect(experiencia.casos.publicar).toBe(false);
+    expect(experiencia.casos.publicar).toBe(true);
+    expect(experiencia.casos.items.map((c) => c.foto?.id)).toEqual(["casoChateau", "casoConexion"]);
   });
 
   test("La idea es la del brief §5 (propuesta 2026-09-25)", () => {

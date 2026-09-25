@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 
-// TODO: dominio definitivo (intent, pregunta 6). Se usa para og:url y canonical.
+// Dominio definitivo (2026-09-25). Se usa para og:url, og:image y canonical.
 export default defineConfig({
-  site: "https://mashats.example",
+  site: "https://experiencias.mashats.com",
 });

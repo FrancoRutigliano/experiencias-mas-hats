@@ -35,7 +35,6 @@ export interface Caso {
   readonly nombre: string;
   readonly tipo: string;
   readonly porQue: string;
-  /** TODO: falta confirmar de qué evento son las fotos (intent, preguntas 1 y 2). */
   readonly foto: Foto | null;
 }
 
@@ -75,7 +74,7 @@ export interface Experiencia {
   readonly como: { readonly titulo: string; readonly pasos: readonly Paso[] };
   readonly casos: {
     readonly titulo: string;
-    /** Apagado hasta tener permiso de los dos clientes (brief §8). */
+    /** Interruptor del bloque: si se apaga, también sale del menú. */
     readonly publicar: boolean;
     readonly items: readonly Caso[];
   };
@@ -212,19 +211,25 @@ export const experiencia: Experiencia = deepFreeze({
 
   casos: {
     titulo: "Quiénes ya lo hicieron",
-    publicar: false,
+    publicar: true,
     items: [
       {
         nombre: "Chateau Nordelta",
         tipo: "Hotel",
         porQue: "La experiencia como propuesta propia para su público.",
-        foto: null,
+        foto: {
+          id: "casoChateau",
+          alt: "Sombrero de paja terminado sobre una mesa, junto a una copa de vino y una botella.",
+        },
       },
       {
         nombre: "Conexión 2",
         tipo: "Retiro de mujeres · Mendoza",
         porQue: "Fuera de Buenos Aires y dentro de una agenda ajena.",
-        foto: null,
+        foto: {
+          id: "casoConexion",
+          alt: "Grupo del retiro Conexión 2, en Mendoza, cada una con su sombrero.",
+        },
       },
     ],
   },

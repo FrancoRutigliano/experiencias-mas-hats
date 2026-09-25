@@ -138,7 +138,8 @@ la mesa, el detalle de los avíos).
 → *sin CTA*
 
 **05 · Quiénes ya lo hicieron** — Chateau Nordelta y Conexión 2, con foto de
-cada uno. Es el bloque que convierte: para un comprador B2B, que alguien
+cada uno (publicado 2026-09-25: las fotos de /images DSC* son de Chateau
+Nordelta; IMG_2501 es de Conexión 2). Es el bloque que convierte: para un comprador B2B, que alguien
 parecido a él ya lo haya contratado pesa más que cualquier argumento. Con dos
 casos alcanza — no inflarlo.
 → *sin CTA*
@@ -260,6 +261,12 @@ se cae.
 
 ### Fotos
 
+**Sin caras en primer plano** (2026-09-25), para cuidar a las participantes.
+Se prefieren manos, mesas y sombreros. Excepciones elegidas por Franco: la foto
+grupal del hero y la de Marian.
+
+**Dominio:** experiencias.mashats.com.
+
 Las fotos son el activo más fuerte de la marca y el sitio se apoya en ellas:
 a sangre completa, sin marco, sin sombra, sin bordes redondeados.
 
@@ -292,9 +299,9 @@ sobre una vertical, no estirando una chica.
 
 ## 8. Lo que todavía falta (no bloquea la v1)
 
-- Permiso de Chateau Nordelta y Conexión 2 para usar nombre y foto.
-- Logo en vectorial (hoy sólo existe como imagen en un cartel).
-- Dominio.
+- Favicon.
+- Logo en vectorial: hoy hay un PNG (images/logo.png), que alcanza para la web.
+- Más fotos de Conexión 2: por ahora el caso usa la misma foto del hero.
 
 Y lo que se aprende después de publicar, leyendo los WhatsApp que entren: cuál
 es la objeción más repetida, con qué comparan la experiencia, y quién firma
