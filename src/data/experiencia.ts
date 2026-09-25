@@ -54,6 +54,8 @@ export interface Experiencia {
     readonly bajada: string;
     readonly foto: Foto;
   };
+  /** Palabras de la franja en movimiento (decorativa, entre ficha e idea). */
+  readonly franja: readonly string[];
   readonly fichaTitulo: string;
   readonly ficha: readonly DatoFicha[];
   readonly incluye: {
@@ -140,6 +142,8 @@ export const experiencia: Experiencia = deepFreeze({
       alt: "Grupo de mujeres al aire libre, entre palmeras, cada una con el sombrero que diseñó.",
     },
   },
+
+  franja: ["Encuentro", "Diseño", "Actitud", "Más"],
 
   fichaTitulo: "Ficha técnica",
 

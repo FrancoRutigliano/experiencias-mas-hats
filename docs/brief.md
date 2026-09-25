@@ -289,6 +289,10 @@ sobre una vertical, no estirando una chica.
 - No animaciones de scroll-reveal que dejen contenido en `opacity: 0`
   esperando un observer: el sitio se manda por link y tiene que verse completo
   apenas carga, incluso en la previsualización.
+  *Excepción aprobada 2026-09-25:* la entrada del hero al cargar (titular por
+  palabras, bajada y botón), que termina sola en ~1,3 s. El resto del
+  movimiento (parallax de fotos, franja, reglas que se dibujan, scroll suave)
+  nunca esconde contenido y se apaga con «reducir movimiento».
 - No emojis en la interfaz.
 - No hablar desde la carencia de las participantes («les cuesta», «no se
   animan»): el copy dice lo que la experiencia da.

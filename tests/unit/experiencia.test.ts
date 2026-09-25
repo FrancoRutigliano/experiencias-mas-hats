@@ -26,6 +26,10 @@ describe("experiencia · datos del brief", () => {
     );
   });
 
+  test("la franja en movimiento tiene cuatro palabras de marca (2026-09-25)", () => {
+    expect(experiencia.franja).toEqual(["Encuentro", "Diseño", "Actitud", "Más"]);
+  });
+
   test("el botón principal dice lo mismo en todos lados", () => {
     expect(experiencia.cta).toBe("Pedir propuesta");
   });

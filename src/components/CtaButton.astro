@@ -34,7 +34,8 @@ const href = buildWhatsAppUrl(origen, experiencia.whatsapp);
     min-height: 48px; /* área táctil mínima */
     padding-inline: 1.75em;
     border-radius: var(--mh-radius);
-    background: var(--mh-trigo);
+    /* Hover: el tono oscuro se llena de izquierda a derecha. */
+    background: linear-gradient(90deg, var(--mh-trigo-dark) 50%, var(--mh-trigo) 50%) 100% 0 / 201% 100%;
     color: var(--mh-tinta);
     font: var(--mh-p);
     font-weight: 600;
@@ -42,12 +43,12 @@ const href = buildWhatsAppUrl(origen, experiencia.whatsapp);
     text-decoration: none;
     white-space: nowrap;
     transition:
-      background-color 150ms ease,
-      color 150ms ease;
+      background-position 0.55s var(--mh-ease-suave, ease),
+      color 0.3s ease 0.12s;
   }
 
   .cta:hover {
-    background: var(--mh-trigo-dark);
+    background-position: 0 0;
     color: var(--mh-cal);
   }
 

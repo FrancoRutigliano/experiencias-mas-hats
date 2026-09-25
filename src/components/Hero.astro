@@ -18,6 +18,8 @@ import { experiencia } from "../data/experiencia";
 import { fotos } from "../data/fotos";
 
 const { eyebrow, titular, bajada, foto } = experiencia.hero;
+// El titular entra palabra por palabra desde una máscara (movimiento.css).
+const palabras = titular.split(" ");
 
 // Anchos generados. En desktop la foto ocupa el ancho del viewport; en mobile
 // también (la foto va a sangre arriba del texto).
@@ -42,10 +44,20 @@ const SIZES = "100vw";
 
   <div class="contenedor grilla hero__contenido">
     <div class="hero__texto">
-      <p class="label hero__eyebrow">{eyebrow}</p>
-      <h1 id="hero-titulo" class="hero__titular">{titular}</h1>
-      <p class="hero__bajada">{bajada}</p>
-      <div class="hero__accion">
+      <p class="label hero__eyebrow entra" style="--demora: 0.1s">{eyebrow}</p>
+      <h1 id="hero-titulo" class="hero__titular">
+        {
+          palabras.map((palabra, i) => (
+            <>
+              <span class="palabra">
+                <span style={`--i: ${i}`}>{palabra}</span>
+              </span>{i < palabras.length - 1 ? " " : ""}
+            </>
+          ))
+        }
+      </h1>
+      <p class="hero__bajada entra" style="--demora: 0.75s">{bajada}</p>
+      <div class="hero__accion entra" style="--demora: 0.95s">
         <CtaButton origen="hero" />
       </div>
     </div>
@@ -64,6 +76,7 @@ const SIZES = "100vw";
     display: grid;
     grid-template-rows: minmax(50svh, 1fr) auto;
     min-height: 88svh;
+    overflow: clip;
     background: var(--mh-tinta);
   }
 
@@ -71,6 +84,27 @@ const SIZES = "100vw";
   .hero__velo {
     grid-area: 1 / 1;
     min-height: 0;
+  }
+
+  .hero__picture {
+    overflow: hidden;
+  }
+
+  /* Parallax (sólo desktop, donde el texto va sobre la foto): la foto baja
+     más lento que el texto mientras el hero sale. */
+  @media (prefers-reduced-motion: no-preference) and (min-width: 900px) {
+    @supports (animation-timeline: scroll()) {
+      .hero__picture {
+        --linea-hero: scroll(root);
+        --rango-hero: 0 100svh;
+        animation-name: mh-hero-parallax;
+        animation-duration: 1ms;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: var(--linea-hero);
+        animation-range: var(--rango-hero);
+      }
+    }
   }
 
   /* La foto no aporta alto: lo fijan la grilla y min-height. Velo y texto

@@ -41,6 +41,7 @@ const SIZES = "(min-width: 720px) 45vw, 100vw";
                   loading="lazy"
                   decoding="async"
                   class="casos__foto"
+                  pictureAttributes={{ class: "marco casos__marco" }}
                   style={`object-position: ${ENCUADRE[caso.foto.id] ?? "50% 50%"}`}
                 />
               )}
@@ -82,6 +83,9 @@ const SIZES = "(min-width: 720px) 45vw, 100vw";
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
+  }
+
+  .casos__marco {
     margin-bottom: 24px;
   }
 

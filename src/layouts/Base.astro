@@ -2,6 +2,7 @@
 import { Font } from "astro:assets";
 import "../styles/tokens.css";
 import "../styles/global.css";
+import "../styles/movimiento.css";
 import { experiencia } from "../data/experiencia";
 import { validarNumero } from "../lib/whatsapp";
 
@@ -40,5 +41,20 @@ const ogImage = new URL("/og.png", Astro.site);
   </head>
   <body>
     <slot />
+    <script>
+      // Scroll suave (Lenis). No corre con «reducir movimiento»: ahí el scroll
+      // es el nativo. La galería scrollea de costado y queda afuera.
+      import Lenis from "lenis";
+      import "lenis/dist/lenis.css";
+
+      const NAV_OFFSET = -80;
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        new Lenis({
+          autoRaf: true,
+          anchors: { offset: NAV_OFFSET },
+          prevent: (nodo) => nodo.closest(".galeria__fila") !== null,
+        });
+      }
+    </script>
   </body>
 </html>

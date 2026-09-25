@@ -49,7 +49,7 @@ const numero = (indice: number) => String(indice + 1).padStart(2, "0");
               loading="lazy"
               decoding="async"
               class="paso__foto"
-              pictureAttributes={{ class: "paso__picture" }}
+              pictureAttributes={{ class: "paso__picture marco" }}
               style={`object-position: ${ENCUADRE[paso.foto.id] ?? "50% 50%"}`}
             />
             <p class="paso__numero label tabular" aria-hidden="true">
@@ -112,6 +112,24 @@ const numero = (indice: number) => String(indice + 1).padStart(2, "0");
     flex: 1;
     height: 1px;
     background: var(--mh-arena);
+    transform-origin: left center;
+  }
+
+  /* La regla se dibuja al entrar en pantalla (decorativa: el número y el
+     texto están siempre visibles). */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .paso__numero::after {
+        --linea-regla: view();
+        --rango-regla: entry 40% cover 45%;
+        animation-name: mh-dibujar;
+        animation-duration: 1ms;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: var(--linea-regla);
+        animation-range: var(--rango-regla);
+      }
+    }
   }
 
   .paso__texto {
