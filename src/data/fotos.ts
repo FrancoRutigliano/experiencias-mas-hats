@@ -11,7 +11,7 @@
  * participantes. La excepción es el hero (foto grupal elegida por Franco) y Marian.
  */
 import type { ImageMetadata } from "astro";
-import hero from "../assets/fotos/hero.jpg";
+import hero from "../assets/fotos/hero-arcada.jpg";
 import paso1 from "../assets/fotos/paso1.jpg";
 import paso2 from "../assets/fotos/paso2.jpg";
 import paso3 from "../assets/fotos/paso3.jpg";
@@ -51,3 +51,10 @@ export const fotos = {
 >;
 
 export type FotoId = keyof typeof fotos;
+
+/**
+ * Archivo de la foto del hero, para la imagen OG (que lee el JPG en Node).
+ * Si se cambia la foto del hero, conviene cambiar también el nombre del
+ * archivo: el navegador y el dev server cachean la imagen por nombre.
+ */
+export const ARCHIVO_HERO = "hero-arcada.jpg";

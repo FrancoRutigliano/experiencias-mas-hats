@@ -18,6 +18,7 @@ import path from "node:path";
 import opentype from "opentype.js";
 import sharp from "sharp";
 import { experiencia } from "../data/experiencia";
+import { ARCHIVO_HERO } from "../data/fotos";
 
 const ANCHO = 1200;
 const ALTO = 630;
@@ -29,12 +30,11 @@ const POSICION_Y = 0.52;
 const TITULAR = { tamano: 84, interlineado: 1.1, anchoMax: 700 } as const;
 const MARCA = { tamano: 30, espaciado: 0.08 } as const;
 
-// Rutas desde la raíz del proyecto: Astro corre el build desde ahí. Las fotos
-// de src/assets/fotos se llaman como su id en fotos.ts (hero → hero.jpg).
+// Rutas desde la raíz del proyecto: Astro corre el build desde ahí.
 const RAIZ = process.cwd();
 const RUTA_TOKENS = path.join(RAIZ, "src/styles/tokens.css");
 const RUTA_FUENTE = path.join(RAIZ, "src/assets/fonts/Marcellus-Regular.ttf");
-const rutaFoto = (id: string) => path.join(RAIZ, "src/assets/fotos", `${id}.jpg`);
+const RUTA_HERO = path.join(RAIZ, "src/assets/fotos", ARCHIVO_HERO);
 
 interface Colores {
   readonly tinta: string;
@@ -138,7 +138,7 @@ export const GET: APIRoute = async () => {
   const [colores, fuente, fondo] = await Promise.all([
     leerColores(),
     cargarFuente(),
-    recorteFoto(rutaFoto(experiencia.hero.foto.id)),
+    recorteFoto(RUTA_HERO),
   ]);
   const png = await sharp(fondo)
     .composite([{ input: Buffer.from(superposicion(fuente, colores)) }])
