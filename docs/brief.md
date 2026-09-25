@@ -183,10 +183,11 @@ algo propio, no como souvenir.*
 **Botón principal** (en todos lados, mismo texto)
 > Pedir propuesta
 
-*Latido (2026-09-25):* el botón siempre visible (la nav en desktop, el
-flotante en mobile) late tres veces al cargar (≈4,5 s, dentro de WCAG 2.2.2)
-y queda quieto; el del cierre late cuando entra en pantalla; todos laten al
-pasar el mouse. Nunca en loop infinito.
+*Latido (2026-09-25, pedido de Franco):* «Pedir propuesta» late todo el
+tiempo, un doble pulso cada 3 s, en el botón visible (nav en desktop; hero y
+flotante en mobile; cierre). Se detiene al pasar el mouse o enfocarlo y con
+«reducir movimiento». Ojo WCAG 2.2.2: animación continua sin control de pausa
+general; decisión tomada sabiendo el riesgo.
 
 *Mejor que «Contactanos»: nombra lo que pasa al tocarlo, y es el vocabulario
 que ya usa quien compra.*

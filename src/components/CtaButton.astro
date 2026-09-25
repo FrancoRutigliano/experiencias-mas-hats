@@ -19,20 +19,18 @@ import { buildWhatsAppUrl, type Origen } from "../lib/whatsapp";
 interface Props {
   origen: Origen;
   /**
-   * Latido para llamar la atención (2026-09-25):
-   * - "carga": tres latidos al cargar la página (≈4,5 s, menos de los 5 s
-   *   que permite WCAG 2.2.2 sin control de pausa) y después quieto.
-   * - "entrada": un latido ligado al scroll, cuando el botón entra en pantalla.
-   * Además, todos laten una vez al pasar el mouse.
+   * Latido continuo para llamar la atención (pedido de Franco, 2026-09-25):
+   * un doble pulso cada 3 s mientras el botón está en pantalla. Se detiene
+   * al pasar el mouse o enfocarlo, y con «reducir movimiento».
    */
-  latido?: "carga" | "entrada";
+  latido?: boolean;
 }
 
 const { origen, latido } = Astro.props;
 const href = buildWhatsAppUrl(origen, experiencia.whatsapp);
 ---
 
-<a class:list={["cta", latido && `cta--latido-${latido}`]} href={href} target="_blank" rel="noopener" data-origen={origen}>{experiencia.cta}</a>
+<a class:list={["cta", { "cta--latido": latido }]} href={href} target="_blank" rel="noopener" data-origen={origen}>{experiencia.cta}</a>
 
 <style>
   .cta {
