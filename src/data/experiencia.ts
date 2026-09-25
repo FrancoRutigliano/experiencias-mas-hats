@@ -236,6 +236,6 @@ export const experiencia: Experiencia = deepFreeze({
   cierre: {
     titulo: "Desde 8 personas, en todo el país, con 15 días de anticipación.",
     bajada: "Contanos cuántos son y cuándo, y te mandamos la propuesta.",
-    foto: { id: "cierre", alt: "Sombrero de paja terminado junto a una caja de regalo." },
+    foto: { id: "cierre", alt: "Sombrero de paja terminado junto a un estuche de anteojos de sol." },
   },
 });

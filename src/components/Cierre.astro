@@ -1,0 +1,125 @@
+---
+/**
+ * 07 · Cierre (brief §4, spec §2). El footer vive aparte, en Footer.astro.
+ *
+ * - Desktop (≥ 900px): texto en 6 columnas, centrado en alto; la foto de
+ *   detalle en las 5 últimas, a sangre contra el borde derecho y contra el
+ *   borde superior e inferior del bloque. Sin marco: la foto es parte de la
+ *   página, no una tarjeta.
+ * - Mobile: texto y CTA primero (es lo que se viene a buscar al final), la
+ *   foto después, a sangre de lado a lado.
+ *
+ * El bloque expone la línea de tiempo `--cierre` (view-timeline): la usa
+ * WhatsAppFab para retirarse cuando aparece este CTA.
+ *
+ * Contraste sobre --mh-cal-2 (WCAG 2.x): --mh-tinta 12.54:1 · --mh-tinta-2
+ * 6.71:1 · --mh-tinta-3 5.06:1 · --mh-trigo-ink 5.56:1 · hover
+ * --mh-trigo-dark 8.35:1.
+ */
+import { Picture } from "astro:assets";
+import CtaButton from "./CtaButton.astro";
+import { experiencia } from "../data/experiencia";
+import { fotos } from "../data/fotos";
+
+const { titulo, bajada, foto } = experiencia.cierre;
+
+const ANCHOS = [480, 800, 1200, 1600];
+const SIZES = "(min-width: 900px) 42vw, 100vw";
+---
+
+<section id="cierre" class="cierre" aria-labelledby="cierre-titulo">
+  <div class="contenedor grilla cierre__cuerpo">
+    <div class="cierre__texto">
+      <h2 id="cierre-titulo" class="cierre__titulo">{titulo}</h2>
+      <p class="cierre__bajada">{bajada}</p>
+      <div class="cierre__accion">
+        <CtaButton origen="cierre" />
+      </div>
+    </div>
+
+    <Picture
+      src={fotos[foto.id]}
+      alt={foto.alt}
+      formats={["avif", "webp"]}
+      widths={ANCHOS}
+      sizes={SIZES}
+      loading="lazy"
+      decoding="async"
+      class="cierre__foto"
+      pictureAttributes={{ class: "cierre__picture" }}
+    />
+  </div>
+
+</section>
+
+<style>
+  .cierre {
+    view-timeline-name: --cierre;
+    background: var(--mh-cal-2);
+  }
+
+  .cierre__cuerpo {
+    row-gap: var(--mh-seccion);
+    padding-top: var(--mh-seccion);
+  }
+
+  .cierre__texto {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cierre__titulo {
+    color: var(--mh-tinta);
+  }
+
+  .cierre__bajada {
+    margin-top: 1em;
+    font: var(--mh-lead);
+    color: var(--mh-tinta-2);
+  }
+
+  .cierre__accion {
+    margin-top: 2rem;
+  }
+
+  /* Mobile: a sangre de lado a lado, recorte cuadrado sobre el sombrero. */
+  .cierre__picture {
+    grid-column: 1 / -1;
+    max-width: none; /* global.css limita picture a 100%: acá sangra */
+    margin-inline: calc(var(--mh-gutter) * -1);
+  }
+
+  .cierre__foto {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: 50% 60%;
+  }
+
+  @media (min-width: 900px) {
+    .cierre__cuerpo {
+      align-items: center;
+      padding-top: 0;
+    }
+
+    .cierre__texto {
+      grid-column: 1 / span 6;
+      padding-block: var(--mh-seccion);
+    }
+
+    /* A sangre contra el borde derecho del viewport (también por encima de
+       los 1440px del contenedor) y contra arriba y abajo del bloque. */
+    .cierre__picture {
+      --sangre: calc(var(--mh-gutter) + max(0px, (100vw - 1440px) / 2));
+      grid-column: 8 / -1;
+      margin-inline: 0 calc(var(--sangre) * -1);
+    }
+
+    .cierre__foto {
+      aspect-ratio: 4 / 5;
+      object-position: 50% 50%;
+    }
+  }
+</style>

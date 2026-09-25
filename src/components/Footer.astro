@@ -1,0 +1,62 @@
+---
+/**
+ * Footer mínimo: wordmark, Instagram (sólo si existe) y año del build.
+ * Va fuera de <main>, como hermano, para que sea el landmark contentinfo.
+ * Mismo fondo que el cierre, separado por una regla de 1px.
+ */
+import { experiencia } from "../data/experiencia";
+
+const { marca, instagram } = experiencia;
+
+// El handle sale de la URL, así el footer no suma copy propio.
+const instagramHandle = instagram ? `@${new URL(instagram).pathname.replaceAll("/", "")}` : null;
+const anio = new Date().getFullYear();
+---
+
+<footer class="pie">
+  <div class="contenedor pie__fila">
+    <p class="pie__marca">{marca}</p>
+    {
+      instagram && instagramHandle && (
+        <a class="pie__link" href={instagram} target="_blank" rel="noopener">
+          {instagramHandle}
+        </a>
+      )
+    }
+    <p class="pie__anio tabular">© {anio}</p>
+  </div>
+</footer>
+
+<style>
+  .pie {
+    background: var(--mh-cal-2);
+  }
+
+  .pie__fila {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px var(--mh-gutter);
+    padding-block: 28px;
+    border-top: var(--mh-borde);
+  }
+
+  .pie__marca {
+    font-family: var(--mh-display);
+    font-size: 22px; /* Marcellus nunca por debajo de 20px (tokens.css) */
+    line-height: 1;
+    letter-spacing: 0.08em;
+    color: var(--mh-tinta);
+  }
+
+  .pie__link {
+    font: var(--mh-small);
+  }
+
+  .pie__anio {
+    margin-inline-start: auto;
+    font: var(--mh-small);
+    color: var(--mh-tinta-3);
+  }
+</style>
