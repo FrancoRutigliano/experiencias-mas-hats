@@ -4,8 +4,9 @@ import Nav from "../components/Nav.astro";
 import Hero from "../components/Hero.astro";
 import FichaTecnica from "../components/FichaTecnica.astro";
 import LaIdea from "../components/LaIdea.astro";
+import Como from "../components/Como.astro";
 import Mariana from "../components/Mariana.astro";
-// Los bloques se suman en las fases 1 y 2 del plan, en el orden del brief:
+// Orden del brief §4:
 // Nav → Hero → FichaTecnica → LaIdea → Como → Casos → Mariana → Cierre → WhatsAppFab
 ---
 
@@ -15,7 +16,8 @@ import Mariana from "../components/Mariana.astro";
     <Hero />
     <FichaTecnica />
     <LaIdea />
-    {/* Como y Casos van acá cuando existan. */}
+    <Como />
+    {/* Casos va acá cuando exista (bloqueado por permisos, brief §8). */}
     <Mariana />
   </main>
 </Base>
