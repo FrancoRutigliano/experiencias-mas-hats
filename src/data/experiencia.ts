@@ -176,7 +176,7 @@ export const experiencia: Experiencia = deepFreeze({
   fichaTitulo: "Ficha técnica",
 
   ficha: [
-    { label: "Duración", valor: "2 a 2:30 h" },
+    { label: "Duración", valor: "1:30 a 2 hs" },
     { label: "Dónde", valor: "Todo el país" },
     { label: "Anticipación", valor: "15 a 30 días" },
     { label: "Reserva", valor: "Seña 50%" },
