@@ -160,7 +160,7 @@ export const experiencia: Experiencia = deepFreeze({
 
   hero: {
     eyebrow: "Experiencias a medida para empresas",
-    titular: "Un sombrero que dice quién sos.",
+    titular: "Un sombrero que Conecta.",
     bajada:
       "Dos horas, un sombrero diseñado y armado por cada participante, y todo el " +
       "material puesto por nosotras. Llevamos la experiencia completa a tu espacio, " +
