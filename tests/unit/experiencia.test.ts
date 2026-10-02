@@ -7,7 +7,7 @@ import { experiencia } from "../../src/data/experiencia";
 describe("experiencia · datos del brief", () => {
   test("la ficha técnica tiene los cinco datos del brief, en orden (2026-09-25)", () => {
     expect(experiencia.ficha.map((d) => [d.label, d.valor])).toEqual([
-      ["Duración", "2 a 2:30 h"],
+      ["Duración", "1:30 a 2 h"],
       ["Dónde", "Todo el país"],
       ["Anticipación", "15 a 30 días"],
       ["Reserva", "Seña 50%"],
