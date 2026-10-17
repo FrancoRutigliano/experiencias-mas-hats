@@ -142,6 +142,10 @@ cada uno (publicado 2026-09-25: las fotos de /images DSC* son de Chateau
 Nordelta; IMG_2501 es de Conexión 2). Es el bloque que convierte: para un comprador B2B, que alguien
 parecido a él ya lo haya contratado pesa más que cualquier argumento. Con dos
 casos alcanza — no inflarlo.
+*Cambio 2026-10-17:* se suma **Nordelta Centro Comercial** (taller dentro de su
+agenda #MAMÁCC por el Día de la Madre, en La Sala) como caso destacado arriba,
+con cuatro fotos sin caras; los dos casos anteriores quedan como fichas debajo.
+La frase de «por qué» del caso nuevo está pendiente de confirmar con Marian.
 → *sin CTA*
 
 **06 · Marian** — Foto, «Psicóloga» (sin matrícula), su trayectoria con la

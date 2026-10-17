@@ -9,6 +9,7 @@ describe("fotos", () => {
       ...experiencia.como.pasos.map((p) => p.foto.id),
       experiencia.mariana.foto.id,
       experiencia.cierre.foto.id,
+      ...experiencia.casos.destacado.fotos.map((f) => f.id),
     ];
 
     expect(ids.filter((id) => !(id in fotos))).toEqual([]);

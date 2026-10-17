@@ -7,6 +7,10 @@
  *   cierre  ← DSC04459   idea  ← DSC04110 (recorte inferior en 4:5, sin caras)
  *   casoChateau ← DSC04451   casoConexion ← IMG_2501
  *
+ * Nordelta Centro Comercial (#MAMÁCC, octubre 2026), otra sesión de fotos:
+ *   casoCcSombrero ← DSC04767   casoCcCuentas ← DSC04689
+ *   casoCcPlumas   ← DSC04709   casoCcStand   ← DSC04637
+ *
  * Regla (2026-09-25): nada de caras en primer plano, para cuidar a las
  * participantes. La excepción es el hero (foto grupal elegida por Franco) y Marian.
  */
@@ -21,6 +25,10 @@ import cierre from "../assets/fotos/cierre.jpg";
 import idea from "../assets/fotos/idea.jpg";
 import casoChateau from "../assets/fotos/caso-chateau.jpg";
 import casoConexion from "../assets/fotos/caso-conexion.jpg";
+import casoCcSombrero from "../assets/fotos/caso-cc-sombrero.jpg";
+import casoCcCuentas from "../assets/fotos/caso-cc-cuentas.jpg";
+import casoCcPlumas from "../assets/fotos/caso-cc-plumas.jpg";
+import casoCcStand from "../assets/fotos/caso-cc-stand.jpg";
 // Galería: recortes 4:5 ya hechos sobre el original para que no haya caras.
 import galeria1 from "../assets/galeria/galeria-1.jpg";
 import galeria2 from "../assets/galeria/galeria-2.jpg";
@@ -40,6 +48,10 @@ export const fotos = {
   casoChateau,
   // Conexión 2: por ahora la única foto es IMG_2501; llegan más.
   casoConexion,
+  casoCcSombrero,
+  casoCcCuentas,
+  casoCcPlumas,
+  casoCcStand,
   galeria1, // DSC04106
   galeria2, // DSC04134
   galeria3, // DSC04141
