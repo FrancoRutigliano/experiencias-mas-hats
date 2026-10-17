@@ -1,7 +1,8 @@
 ---
 /**
- * 05 · Quiénes ya lo hicieron (brief §4). Dos casos, uno al lado del otro en
- * desktop y apilados en mobile. Con dos alcanza: no se infla.
+ * 05 · Quiénes ya lo hicieron (brief §4). Arriba, el evento más reciente con
+ * una tira de cuatro fotos (2026-10-17); abajo, los dos casos en fichas, uno
+ * al lado del otro en desktop y apilados en mobile.
  *
  * Se muestra sólo si `casos.publicar` es true (el menú usa el mismo interruptor).
  * Va sobre --mh-cal, igual que Marian: la regla inferior separa los dos bloques.
@@ -10,7 +11,7 @@ import { Picture } from "astro:assets";
 import { experiencia } from "../data/experiencia";
 import { fotos, type FotoId } from "../data/fotos";
 
-const { titulo, publicar, items } = experiencia.casos;
+const { titulo, publicar, destacado, items } = experiencia.casos;
 
 // Encuadre de cada foto chica en 4:5 (presentación, no contenido). Cada caso
 // es una ficha horizontal: foto chica al costado del texto (2026-09-25).
@@ -21,6 +22,8 @@ const ENCUADRE: Partial<Record<FotoId, string>> = {
 
 const ANCHOS = [300, 500, 700];
 const SIZES = "(min-width: 720px) 18vw, 38vw";
+// Tira del destacado: cuatro columnas en desktop, dos en mobile.
+const SIZES_TIRA = "(min-width: 720px) 22vw, 44vw";
 ---
 
 {
@@ -28,6 +31,31 @@ const SIZES = "(min-width: 720px) 18vw, 38vw";
     <section id="casos" class="casos seccion" aria-labelledby="casos-titulo">
       <div class="contenedor">
         <h2 id="casos-titulo" class="casos__titulo">{titulo}</h2>
+
+        <article class="casos__destacado" aria-labelledby="casos-destacado">
+          <div class="casos__destacado-texto">
+            <p class="label casos__tipo">{destacado.tipo}</p>
+            <h3 id="casos-destacado" class="casos__nombre casos__nombre--grande">{destacado.nombre}</h3>
+            <p class="casos__porque">{destacado.porQue}</p>
+          </div>
+          <ul class="casos__tira" role="list">
+            {destacado.fotos.map((foto) => (
+              <li>
+                <Picture
+                  src={fotos[foto.id]}
+                  alt={foto.alt}
+                  formats={["avif", "webp"]}
+                  widths={ANCHOS}
+                  sizes={SIZES_TIRA}
+                  loading="lazy"
+                  decoding="async"
+                  class="casos__foto"
+                  pictureAttributes={{ class: "marco casos__marco" }}
+                />
+              </li>
+            ))}
+          </ul>
+        </article>
 
         <ul class="casos__lista" role="list">
           {items.map((caso) => (
@@ -73,6 +101,36 @@ const SIZES = "(min-width: 720px) 18vw, 38vw";
     margin-bottom: clamp(32px, 5vw, 56px);
   }
 
+  /* Destacado: texto arriba, tira de fotos debajo con un escalón. */
+  .casos__destacado {
+    display: grid;
+    gap: clamp(24px, 3vw, 40px);
+    padding-block: clamp(24px, 3vw, 40px) clamp(40px, 6vw, 72px);
+    border-top: var(--mh-borde);
+  }
+
+  .casos__destacado-texto {
+    max-width: var(--mh-medida);
+  }
+
+  .casos__nombre.casos__nombre--grande {
+    font: var(--mh-h2);
+  }
+
+  .casos__tira {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(12px, 1.6vw, 24px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* El escalón: las fotos pares bajan un poco, para que la tira respire. */
+  .casos__tira > li:nth-child(even) {
+    margin-top: clamp(24px, 4vw, 56px);
+  }
+
   .casos__lista {
     display: grid;
     gap: 0 var(--mh-gutter);
@@ -116,6 +174,10 @@ const SIZES = "(min-width: 720px) 18vw, 38vw";
   @media (min-width: 720px) {
     .casos__lista {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .casos__tira {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
 </style>

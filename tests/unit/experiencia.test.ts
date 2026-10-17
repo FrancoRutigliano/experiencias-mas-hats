@@ -100,6 +100,19 @@ describe("experiencia · datos del brief", () => {
     expect(experiencia.casos.items.map((c) => c.foto?.id)).toEqual(["casoChateau", "casoConexion"]);
   });
 
+  test("el caso destacado es Nordelta Centro Comercial, con cuatro fotos (2026-10-17)", () => {
+    const { destacado } = experiencia.casos;
+
+    expect(destacado.nombre).toBe("Nordelta Centro Comercial");
+    expect(destacado.fotos.map((f) => f.id)).toEqual([
+      "casoCcSombrero",
+      "casoCcCuentas",
+      "casoCcPlumas",
+      "casoCcStand",
+    ]);
+    expect(destacado.fotos.every((f) => f.alt.length > 20)).toBe(true);
+  });
+
   test("La idea es la del brief §5 (propuesta 2026-09-25)", () => {
     expect(experiencia.idea.label).toBe("La idea");
     expect(experiencia.idea.titulo).toBe("Un sombrero no cambia quién sos. Lo muestra.");

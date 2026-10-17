@@ -43,6 +43,14 @@ export interface Caso {
   readonly foto: Foto | null;
 }
 
+/** El evento más reciente, con varias fotos en vez de una (2026-10-17). */
+export interface CasoDestacado {
+  readonly nombre: string;
+  readonly tipo: string;
+  readonly porQue: string;
+  readonly fotos: readonly Foto[];
+}
+
 export interface Experiencia {
   readonly meta: { readonly titulo: string; readonly descripcion: string };
   readonly marca: string;
@@ -89,6 +97,7 @@ export interface Experiencia {
     readonly titulo: string;
     /** Interruptor del bloque: si se apaga, también sale del menú. */
     readonly publicar: boolean;
+    readonly destacado: CasoDestacado;
     readonly items: readonly Caso[];
   };
   readonly mariana: {
@@ -258,6 +267,19 @@ export const experiencia: Experiencia = deepFreeze({
   casos: {
     titulo: "Quiénes ya lo hicieron",
     publicar: true,
+    destacado: {
+      nombre: "Nordelta Centro Comercial",
+      tipo: "Centro comercial · #MAMÁCC",
+      // TODO: confirmar con Marian. Sale del cartel del evento (agenda #MAMÁCC
+      // por el Día de la Madre, en La Sala); no está en el brief.
+      porQue: "Un taller abierto al público, dentro de su agenda del Día de la Madre.",
+      fotos: [
+        { id: "casoCcSombrero", alt: "Sombrero de paja terminado, con estrellas, medallas y una vuelta de cuentas." },
+        { id: "casoCcCuentas", alt: "Manos que ajustan una cinta de cuentas de colores sobre un sombrero de paja." },
+        { id: "casoCcPlumas", alt: "Manos que colocan plumas y una cinta ocre en un sombrero de paja." },
+        { id: "casoCcStand", alt: "Cartel de MÁS HATS y un florero sobre el mostrador de La Sala, en Nordelta Centro Comercial." },
+      ],
+    },
     items: [
       {
         nombre: "Chateau Nordelta",
